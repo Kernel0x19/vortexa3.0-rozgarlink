@@ -21,13 +21,13 @@ function EmptyState({
         size={22}
         className="text-gray-300 dark:text-white/20 transition-all duration-500"
       />
-      <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] text-center transition-all duration-500">
+      <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] text-center transition-all duration-500">
         {message}
       </p>
       {action && (
         <Link
           href={action.href}
-          className="font-mono text-[12px] text-[#F97316] hover:underline"
+          className="font-mono text-[14px] text-[#F97316] hover:underline"
         >
           {action.label} →
         </Link>
@@ -89,7 +89,7 @@ export default async function ApplicationsAndSaved({
           <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm transition-all duration-500">
             Application Progress
           </p>
-          <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+          <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
             Track your active applications
           </p>
         </div>
@@ -107,17 +107,17 @@ export default async function ApplicationsAndSaved({
               <div key={app.id}>
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="min-w-0">
-                    <p className="font-mono text-[12px] text-gray-900 dark:text-[#F0F4FF] truncate transition-all duration-500">
+                    <p className="font-mono text-[14px] text-gray-900 dark:text-[#F0F4FF] truncate transition-all duration-500">
                       {app.title}
                     </p>
                     {app.employer && (
-                      <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280]">
+                      <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
                         {app.employer}
                       </p>
                     )}
                   </div>
                   <span
-                    className={`font-mono text-[10px] shrink-0 ml-2 ${
+                    className={`font-mono text-[12px] shrink-0 ml-2 ${
                       app.pct === 100
                         ? "text-green-500"
                         : app.pct < 50
@@ -147,13 +147,13 @@ export default async function ApplicationsAndSaved({
             <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm transition-all duration-500">
               Skill Gaps
             </p>
-            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+            <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
               From opportunities you&apos;re interested in
             </p>
           </div>
           <Link
             href="/dashboard/skill-gaps"
-            className="font-mono text-[11px] text-[#F97316] hover:underline flex items-center gap-1 transition-all duration-500"
+            className="font-mono text-[13px] text-[#F97316] hover:underline flex items-center gap-1 transition-all duration-500"
           >
             View all <ChevronRight size={12} />
           </Link>
@@ -177,11 +177,11 @@ export default async function ApplicationsAndSaved({
                   <BookOpen size={12} />
                 </div>
                 <div className="min-w-0">
-                  <p className="font-mono text-[12px] text-gray-900 dark:text-[#F0F4FF]">
+                  <p className="font-mono text-[14px] text-gray-900 dark:text-[#F0F4FF]">
                     {gap.skill}
                   </p>
                   {gap.pathway && (
-                    <p className="font-mono text-[10px] text-[#fdba74] mt-0.5 truncate">
+                    <p className="font-mono text-[12px] text-[#fdba74] mt-0.5 truncate">
                       → {gap.pathway}
                     </p>
                   )}
@@ -199,7 +199,7 @@ export default async function ApplicationsAndSaved({
             <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm transition-all duration-500">
               Saved Opportunities
             </p>
-            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+            <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
               Your bookmarked items
             </p>
           </div>
@@ -227,10 +227,10 @@ export default async function ApplicationsAndSaved({
                   <Briefcase size={13} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="font-mono text-[12px] text-gray-900 dark:text-[#F0F4FF] truncate">
+                  <p className="font-mono text-[14px] text-gray-900 dark:text-[#F0F4FF] truncate">
                     {s.title}
                   </p>
-                  <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280]">
+                  <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
                     Saved {s.saved}
                   </p>
                 </div>

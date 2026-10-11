@@ -448,7 +448,7 @@ export default function ChatPage() {
             <h1 className="font-syne text-sm font-extrabold tracking-tight text-gray-900 dark:text-[#F0F4FF] transition-colors duration-500">
               AI Chat Assistant
             </h1>
-            <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280] tracking-wide transition-colors duration-500">
+            <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] tracking-wide transition-colors duration-500">
               GPT-OSS 120B Cloud • student copilot
             </p>
           </div>
@@ -459,7 +459,7 @@ export default function ChatPage() {
             <select
               value={threadId}
               onChange={(event) => loadThread(event.target.value)}
-              className="appearance-none max-w-44 border border-black/10 dark:border-white/8 bg-white dark:bg-[#0D0E16] font-mono text-[11px] text-gray-500 dark:text-[#6B7280] px-3 py-1.5 pr-7 focus:outline-none focus:border-[#F97316]/50 transition-colors duration-500"
+              className="appearance-none max-w-44 border border-black/10 dark:border-white/8 bg-white dark:bg-[#0D0E16] font-mono text-[13px] text-gray-500 dark:text-[#6B7280] px-3 py-1.5 pr-7 focus:outline-none focus:border-[#F97316]/50 transition-colors duration-500"
               aria-label="Saved conversations"
             >
               <option value="">Conversations</option>
@@ -473,7 +473,7 @@ export default function ChatPage() {
           </div>
 
           {threadId && (
-            <span className="font-mono text-[10px] text-[#F97316] border border-[#F97316]/30 bg-[#F97316]/5 px-2 py-1 tracking-widest hidden sm:inline transition-colors duration-500">
+            <span className="font-mono text-[12px] text-[#F97316] border border-[#F97316]/30 bg-[#F97316]/5 px-2 py-1 tracking-widest hidden sm:inline transition-colors duration-500">
               {threadId.slice(0, 8)}…
             </span>
           )}
@@ -481,7 +481,7 @@ export default function ChatPage() {
           <button
             onClick={clearChat}
             disabled={messages.length === 0}
-            className="flex items-center gap-1.5 font-mono text-[11px] text-gray-400 dark:text-[#6B7280] hover:text-gray-900 dark:hover:text-[#F0F4FF] border border-black/10 dark:border-white/8 hover:border-black/30 dark:hover:border-white/20 px-3 py-1.5 disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-500"
+            className="flex items-center gap-1.5 font-mono text-[13px] text-gray-400 dark:text-[#6B7280] hover:text-gray-900 dark:hover:text-[#F0F4FF] border border-black/10 dark:border-white/8 hover:border-black/30 dark:hover:border-white/20 px-3 py-1.5 disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-500"
           >
             <Trash2 className="h-3.5 w-3.5" />
             New Chat
@@ -492,7 +492,7 @@ export default function ChatPage() {
       {/* ── Error banner ── */}
       {error && (
         <div className="border-b border-red-500/20 bg-red-500/5 px-4 py-2 flex items-center justify-between shrink-0">
-          <span className="font-mono text-[11px] text-red-500 flex items-center gap-2">
+          <span className="font-mono text-[13px] text-red-500 flex items-center gap-2">
             <MessageSquare className="h-3.5 w-3.5 shrink-0" />
             {error}
           </span>
@@ -516,7 +516,7 @@ export default function ChatPage() {
             <h3 className="font-syne text-lg font-extrabold text-gray-900 dark:text-[#F0F4FF] mb-2">
               Start a conversation
             </h3>
-            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] max-w-sm leading-relaxed mb-6">
+            <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] max-w-sm leading-relaxed mb-6">
               Ask about scholarships, internships, eligibility, applications, or
               anything on your student journey.
             </p>
@@ -543,7 +543,7 @@ export default function ChatPage() {
                   key={label}
                   type="button"
                   onClick={() => setInput(q)}
-                  className="flex items-center gap-1.5 font-mono text-[10px] text-gray-400 dark:text-[#6B7280] border border-black/10 dark:border-white/8 px-3 py-1.5 hover:border-[#F97316]/40 hover:text-[#F97316] transition-all duration-500"
+                  className="flex items-center gap-1.5 font-mono text-[12px] text-gray-400 dark:text-[#6B7280] border border-black/10 dark:border-white/8 px-3 py-1.5 hover:border-[#F97316]/40 hover:text-[#F97316] transition-all duration-500"
                 >
                   <Sparkles className="h-3 w-3" />
                   {label}
@@ -571,7 +571,7 @@ export default function ChatPage() {
             </div>
             <div className="flex items-center gap-2 px-4 py-3 border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0D0E16]">
               <Loader2 className="h-3.5 w-3.5 animate-spin text-[#F97316]" />
-              <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+              <span className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
                 thinking…
               </span>
             </div>
@@ -585,7 +585,7 @@ export default function ChatPage() {
           {selectedFile && (
             <div className="mb-2 flex w-fit items-center gap-2 border border-[#F97316]/30 bg-[#F97316]/5 px-3 py-1.5">
               <Paperclip className="h-3 w-3 text-[#F97316]" />
-              <span className="font-mono text-[10px] text-[#F97316]">
+              <span className="font-mono text-[12px] text-[#F97316]">
                 {selectedFile.name}
               </span>
               <button
@@ -633,7 +633,7 @@ export default function ChatPage() {
                 value={voiceLanguage}
                 onChange={(event) => setVoiceLanguage(event.target.value)}
                 disabled={isLoading || isListening}
-                className="appearance-none h-9 border border-black/10 dark:border-white/8 bg-white dark:bg-[#0D0E16] font-mono text-[10px] text-gray-400 dark:text-[#6B7280] px-2 pr-5 focus:outline-none focus:border-[#F97316]/50 transition-colors duration-500"
+                className="appearance-none h-9 border border-black/10 dark:border-white/8 bg-white dark:bg-[#0D0E16] font-mono text-[12px] text-gray-400 dark:text-[#6B7280] px-2 pr-5 focus:outline-none focus:border-[#F97316]/50 transition-colors duration-500"
                 aria-label="Voice input language"
               >
                 <option value="en-IN">EN</option>
@@ -678,12 +678,12 @@ export default function ChatPage() {
             </button>
           </div>
 
-          <p className="mt-2 font-mono text-[10px] text-center text-gray-400 dark:text-[#6B7280] transition-colors duration-500">
-            <kbd className="px-1 py-0.5 border border-black/10 dark:border-white/8 text-[9px]">
+          <p className="mt-2 font-mono text-[12px] text-center text-gray-400 dark:text-[#6B7280] transition-colors duration-500">
+            <kbd className="px-1 py-0.5 border border-black/10 dark:border-white/8 text-[11px]">
               Enter
             </kbd>{" "}
             send ·{" "}
-            <kbd className="px-1 py-0.5 border border-black/10 dark:border-white/8 text-[9px]">
+            <kbd className="px-1 py-0.5 border border-black/10 dark:border-white/8 text-[11px]">
               Shift+Enter
             </kbd>{" "}
             new line
@@ -732,7 +732,7 @@ function MessageBubble({ message, onCopy }: MessageBubbleProps) {
       >
         {!isUser && message.sources && message.sources.length > 0 && (
           <div className="w-full border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0D0E16] px-3 py-2.5">
-            <div className="flex items-center gap-1.5 font-mono text-[10px] text-gray-400 dark:text-[#6B7280] mb-2 tracking-widest uppercase">
+            <div className="flex items-center gap-1.5 font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mb-2 tracking-widest uppercase">
               <Sparkles className="h-3 w-3 text-[#F97316]" />
               Sources ({message.sources.length})
             </div>
@@ -742,7 +742,7 @@ function MessageBubble({ message, onCopy }: MessageBubbleProps) {
                   key={index}
                   className="border border-black/10 dark:border-white/8 px-2.5 py-2 bg-white dark:bg-[#08090E]"
                 >
-                  <p className="font-mono text-[11px] text-gray-900 dark:text-[#F0F4FF] mb-1">
+                  <p className="font-mono text-[13px] text-gray-900 dark:text-[#F0F4FF] mb-1">
                     {source.title}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
@@ -780,12 +780,12 @@ function MessageBubble({ message, onCopy }: MessageBubbleProps) {
         </div>
 
         <div className="flex items-center gap-2 px-1">
-          <span className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280]">
+          <span className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
             {formatTime(message.timestamp)}
           </span>
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1 font-mono text-[10px] text-gray-400 hover:text-gray-700 dark:hover:text-[#F0F4FF] transition-colors"
+            className="flex items-center gap-1 font-mono text-[12px] text-gray-400 hover:text-gray-700 dark:hover:text-[#F0F4FF] transition-colors"
             aria-label={copied ? "Copied!" : "Copy message"}
           >
             {copied ? (
@@ -817,7 +817,7 @@ function Tag({
   };
   return (
     <span
-      className={`font-mono text-[9px] border px-1.5 py-0.5 tracking-wide ${styles[color]}`}
+      className={`font-mono text-[11px] border px-1.5 py-0.5 tracking-wide ${styles[color]}`}
     >
       {children}
     </span>

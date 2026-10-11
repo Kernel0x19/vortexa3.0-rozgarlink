@@ -96,11 +96,11 @@ export default function TerminalCard() {
         <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57] shrink-0" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e] shrink-0" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#28c840] shrink-0" />
-        <span className="font-mono text-[10px] sm:text-[11px] text-gray-400 dark:text-[#6B7280] ml-auto truncate">
+        <span className="font-mono text-[12px] sm:text-[13px] text-gray-400 dark:text-[#6B7280] ml-auto truncate">
           rozgarlink — matching engine
         </span>
       </div>
-      <div className="p-3 sm:p-5 font-mono text-[11px] sm:text-[13px] leading-loose min-h-48 sm:min-h-55 overflow-x-auto">
+      <div className="p-3 sm:p-5 font-mono text-[13px] sm:text-[15px] leading-loose min-h-48 sm:min-h-55 overflow-x-auto">
         {visibleLines.map((line: VisibleLine, i: number) => (
           <div key={i} className="flex items-baseline gap-1.5 sm:gap-2 min-w-0">
             <span className="text-[#F97316] select-none shrink-0">›</span>

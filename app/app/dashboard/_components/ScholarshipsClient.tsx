@@ -91,7 +91,7 @@ export default function ScholarshipsClient({
     <div className="flex flex-col gap-6 transition-all duration-500">
       <div>
         <h1 className="font-syne text-xl font-bold">Scholarship Agent</h1>
-        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1 transition-all duration-500">
+        <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] mt-1 transition-all duration-500">
           Matched from NSP, MahaDBT & myScheme — ranked by eligibility fit
         </p>
       </div>
@@ -104,12 +104,12 @@ export default function ScholarshipsClient({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Semantic search e.g. engineering girls scholarship Maharashtra"
-          className="flex-1 px-4 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] transition-all duration-500"
+          className="flex-1 px-4 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[15px] transition-all duration-500"
         />
         <button
           type="submit"
           disabled={loading || initialLoading}
-          className="px-4 py-2 bg-[#F97316] text-white font-mono text-[12px] flex items-center gap-2 transition-all duration-500 disabled:opacity-60"
+          className="px-4 py-2 bg-[#F97316] text-white font-mono text-[14px] flex items-center gap-2 transition-all duration-500 disabled:opacity-60"
         >
           <Search size={14} /> {loading ? "…" : "Search"}
         </button>
@@ -122,7 +122,7 @@ export default function ScholarshipsClient({
         ) : matches.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 gap-3">
             <Inbox size={22} className="text-gray-300 dark:text-white/20" />
-            <p className="font-mono text-[12px] text-gray-400 text-center">
+            <p className="font-mono text-[14px] text-gray-400 text-center">
               No matches. Complete your profile for personalized
               recommendations.
             </p>
@@ -170,10 +170,10 @@ function ScholarshipCard({
             <GraduationCap size={16} />
           </div>
           <div className="min-w-0">
-            <p className="font-mono text-[14px] font-bold text-gray-900 dark:text-[#F0F4FF]">
+            <p className="font-mono text-[16px] font-bold text-gray-900 dark:text-[#F0F4FF]">
               {o.title}
             </p>
-            <p className="font-mono text-[11px] text-gray-400 mt-0.5">
+            <p className="font-mono text-[13px] text-gray-400 mt-0.5">
               {o.source.toUpperCase()} · {amount}
               {o.deadline && ` · Deadline ${o.deadline}`}
             </p>
@@ -183,23 +183,23 @@ function ScholarshipCard({
           <p className="font-mono text-lg font-bold text-[#F97316]">
             {match_score}%
           </p>
-          <p className="font-mono text-[10px] text-gray-400">match</p>
+          <p className="font-mono text-[12px] text-gray-400">match</p>
         </div>
       </div>
 
       {o.description && (
-        <p className="font-mono text-[12px] text-gray-600 dark:text-[#a8c7fa] leading-relaxed">
+        <p className="font-mono text-[14px] text-gray-600 dark:text-[#a8c7fa] leading-relaxed">
           {o.description}
         </p>
       )}
 
       <div className="flex items-center gap-2">
         {eligibility.eligible ? (
-          <span className="flex items-center gap-1 font-mono text-[11px] text-green-600">
+          <span className="flex items-center gap-1 font-mono text-[13px] text-green-600">
             <CheckCircle size={12} /> Likely eligible
           </span>
         ) : (
-          <span className="flex items-center gap-1 font-mono text-[11px] text-red-500">
+          <span className="flex items-center gap-1 font-mono text-[13px] text-red-500">
             <XCircle size={12} /> May not qualify
           </span>
         )}
@@ -209,7 +209,7 @@ function ScholarshipCard({
         {reasons.slice(0, 4).map((r, i) => (
           <li
             key={i}
-            className="font-mono text-[11px] text-gray-500 dark:text-[#6B7280]"
+            className="font-mono text-[13px] text-gray-500 dark:text-[#6B7280]"
           >
             {r}
           </li>
@@ -219,7 +219,7 @@ function ScholarshipCard({
       <div className="flex gap-2 pt-1">
         <button
           onClick={onSave}
-          className="flex items-center gap-1.5 px-3 py-1.5 border border-[#F97316]/30 text-[#F97316] font-mono text-[11px] hover:bg-[#F97316]/5"
+          className="flex items-center gap-1.5 px-3 py-1.5 border border-[#F97316]/30 text-[#F97316] font-mono text-[13px] hover:bg-[#F97316]/5"
         >
           <BookmarkPlus size={12} /> Save & track
         </button>
@@ -228,7 +228,7 @@ function ScholarshipCard({
             href={o.application_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[11px] text-gray-500 hover:text-[#F97316]"
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[13px] text-gray-500 hover:text-[#F97316]"
           >
             <ExternalLink size={12} /> Official portal
           </a>

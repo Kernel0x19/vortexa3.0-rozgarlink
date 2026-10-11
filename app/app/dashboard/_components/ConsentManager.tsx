@@ -34,13 +34,13 @@ export default function ConsentManager({ userId, userEmail }: Props) {
     setConsents((c) => ({ ...c, [purpose]: granted }));
   }
 
-  if (loading) return <p className="font-mono text-[12px] text-gray-400">Loading consents…</p>;
+  if (loading) return <p className="font-mono text-[14px] text-gray-400">Loading consents…</p>;
 
   return (
     <div className="flex flex-col gap-4 max-w-xl transition-all duration-500">
       <div>
         <h1 className="font-syne text-xl font-bold transition-all duration-500">Consent Management</h1>
-        <p className="font-mono text-[12px] text-gray-400 mt-1 transition-all duration-500">
+        <p className="font-mono text-[14px] text-gray-400 mt-1 transition-all duration-500">
           DPDP Act compliant opt-in per data use case. All access is audit-logged.
         </p>
       </div>
@@ -56,8 +56,8 @@ export default function ConsentManager({ userId, userEmail }: Props) {
             className="mt-0.5 transition-all duration-500"
           />
           <div>
-            <p className="font-mono text-[13px] text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">{label}</p>
-            <p className="font-mono text-[10px] text-gray-400 mt-0.5">{purpose}</p>
+            <p className="font-mono text-[15px] text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">{label}</p>
+            <p className="font-mono text-[12px] text-gray-400 mt-0.5">{purpose}</p>
           </div>
         </label>
       ))}

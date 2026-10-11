@@ -86,7 +86,7 @@ function ConsentManager({ consents, onToggle }: ConsentManagerProps) {
           <BookOpen size={18} className="text-[#F97316]" />
           Consent Management
         </h2>
-        <p className="font-mono text-[12px] text-gray-400 mt-1 transition-all duration-500">
+        <p className="font-mono text-[14px] text-gray-400 mt-1 transition-all duration-500">
           DPDP Act compliant opt-in per data use case. All access is
           audit-logged.
         </p>
@@ -103,10 +103,10 @@ function ConsentManager({ consents, onToggle }: ConsentManagerProps) {
             className="mt-0.5 transition-all duration-500"
           />
           <div>
-            <p className="font-mono text-[13px] text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
+            <p className="font-mono text-[15px] text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
               {label}
             </p>
-            <p className="font-mono text-[10px] text-gray-400 mt-0.5">
+            <p className="font-mono text-[12px] text-gray-400 mt-0.5">
               {purpose}
             </p>
           </div>
@@ -189,25 +189,25 @@ export default function DocumentUpload({ userId, userEmail, token }: Props) {
           <Shield size={20} className="text-[#F97316]" />
           Document Vault
         </h1>
-        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
+        <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] mt-1">
           Upload and verify documents — AES-256 encrypted, TEE-secured
           processing
         </p>
       </div>
 
       {consentsLoading ? (
-        <p className="font-mono text-[12px] text-gray-400">Loading consents…</p>
+        <p className="font-mono text-[14px] text-gray-400">Loading consents…</p>
       ) : (
         <ConsentManager consents={consents} onToggle={handleToggle} />
       )}
 
       <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-6 flex flex-col gap-4 transition-all duration-500">
-        <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
+        <p className="font-mono text-[15px] font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
           Upload Document
         </p>
 
         {allowedDocs.length === 0 ? (
-          <p className="font-mono text-[12px] text-amber-500">
+          <p className="font-mono text-[14px] text-amber-500">
             Enable at least one consent above to unlock document upload.
           </p>
         ) : (
@@ -216,7 +216,7 @@ export default function DocumentUpload({ userId, userEmail, token }: Props) {
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="doc-type-select"
-                className="font-mono text-[11px] text-gray-500"
+                className="font-mono text-[13px] text-gray-500"
               >
                 Document Type
               </label>
@@ -224,7 +224,7 @@ export default function DocumentUpload({ userId, userEmail, token }: Props) {
                 id="doc-type-select"
                 value={docType}
                 onChange={(e) => setDocType(e.target.value)}
-                className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] outline-none focus:border-[#F97316]/40 transition-all duration-500"
+                className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[15px] outline-none focus:border-[#F97316]/40 transition-all duration-500"
               >
                 {allowedDocs.map((dt) => (
                   <option key={dt.value} value={dt.value}>
@@ -238,7 +238,7 @@ export default function DocumentUpload({ userId, userEmail, token }: Props) {
             <div className="flex flex-col gap-1.5 transition-all duration-500">
               <label
                 htmlFor="doc-file-input"
-                className="font-mono text-[11px] text-gray-500"
+                className="font-mono text-[13px] text-gray-500"
               >
                 File (PDF, PNG, JPG)
               </label>
@@ -250,11 +250,11 @@ export default function DocumentUpload({ userId, userEmail, token }: Props) {
                   size={24}
                   className="text-gray-300 dark:text-[#3B3F51]"
                 />
-                <p className="font-mono text-[12px] text-gray-400">
+                <p className="font-mono text-[14px] text-gray-400">
                   {file ? file.name : "Click to select file"}
                 </p>
                 {file && (
-                  <p className="font-mono text-[10px] text-gray-400">
+                  <p className="font-mono text-[12px] text-gray-400">
                     {(file.size / 1024).toFixed(1)} KB
                   </p>
                 )}
@@ -270,7 +270,7 @@ export default function DocumentUpload({ userId, userEmail, token }: Props) {
             </div>
 
             {error && (
-              <div className="flex items-center gap-2 text-red-500 font-mono text-[12px]">
+              <div className="flex items-center gap-2 text-red-500 font-mono text-[14px]">
                 <XCircle size={14} /> {error}
               </div>
             )}
@@ -278,7 +278,7 @@ export default function DocumentUpload({ userId, userEmail, token }: Props) {
             <button
               onClick={handleUpload}
               disabled={!file || uploading}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#F97316] hover:bg-[#0B5ABD] disabled:opacity-50 text-white font-mono text-[12px] transition-all duration-500"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#F97316] hover:bg-[#0B5ABD] disabled:opacity-50 text-white font-mono text-[14px] transition-all duration-500"
             >
               {uploading ? (
                 <Loader2 size={14} className="animate-spin" />
@@ -293,7 +293,7 @@ export default function DocumentUpload({ userId, userEmail, token }: Props) {
 
       {uploaded.length > 0 && (
         <div className="flex flex-col gap-3">
-          <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF]">
+          <p className="font-mono text-[15px] font-bold text-gray-900 dark:text-[#F0F4FF]">
             Verification Results
           </p>
           {uploaded.map((doc) => (
@@ -318,24 +318,24 @@ function DocumentCard({ doc }: { doc: DocumentStatus }) {
         <div className="flex items-center gap-3">
           <FileText size={16} className="text-[#F97316]" />
           <div>
-            <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF] uppercase transition-all duration-500">
+            <p className="font-mono text-[15px] font-bold text-gray-900 dark:text-[#F0F4FF] uppercase transition-all duration-500">
               {doc.document_type.replace("_", " ")}
             </p>
-            <p className="font-mono text-[10px] text-gray-400">
+            <p className="font-mono text-[12px] text-gray-400">
               {doc.document_id}
             </p>
           </div>
         </div>
         <div className={`flex items-center gap-1.5 ${status.color}`}>
           {status.icon}
-          <span className="font-mono text-[11px] font-bold">
+          <span className="font-mono text-[13px] font-bold">
             {status.label}
           </span>
         </div>
       </div>
 
       <div className="flex items-center gap-3">
-        <span className="font-mono text-[11px] text-gray-500 shrink-0">
+        <span className="font-mono text-[13px] text-gray-500 shrink-0">
           Confidence
         </span>
         <div className="flex-1 h-2 bg-gray-200 dark:bg-[#1C1F2E] rounded-full overflow-hidden transition-all duration-500">
@@ -344,7 +344,7 @@ function DocumentCard({ doc }: { doc: DocumentStatus }) {
             style={{ width: `${Math.round(doc.confidence_score * 100)}%` }}
           />
         </div>
-        <span className="font-mono text-[12px] font-bold text-[#F97316] shrink-0">
+        <span className="font-mono text-[14px] font-bold text-[#F97316] shrink-0">
           {Math.round(doc.confidence_score * 100)}%
         </span>
       </div>
@@ -356,10 +356,10 @@ function DocumentCard({ doc }: { doc: DocumentStatus }) {
               key={key}
               className="border border-black/5 dark:border-white/5 p-2 transition-all duration-500"
             >
-              <p className="font-mono text-[10px] text-gray-400 uppercase">
+              <p className="font-mono text-[12px] text-gray-400 uppercase">
                 {key.replace(/_/g, " ")}
               </p>
-              <p className="font-mono text-[12px] text-gray-800 dark:text-[#F0F4FF] truncate transition-all duration-500">
+              <p className="font-mono text-[14px] text-gray-800 dark:text-[#F0F4FF] truncate transition-all duration-500">
                 {String(value)}
               </p>
             </div>
@@ -368,7 +368,7 @@ function DocumentCard({ doc }: { doc: DocumentStatus }) {
       )}
 
       {doc.verification_status === "rejected" && (
-        <button className="flex items-center gap-1.5 px-3 py-1.5 border border-red-500/30 text-red-500 font-mono text-[11px] hover:bg-red-500/5 w-fit transition-all">
+        <button className="flex items-center gap-1.5 px-3 py-1.5 border border-red-500/30 text-red-500 font-mono text-[13px] hover:bg-red-500/5 w-fit transition-all">
           <RefreshCw size={12} /> Re-upload Document
         </button>
       )}

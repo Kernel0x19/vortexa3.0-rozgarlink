@@ -28,7 +28,7 @@ export default async function NotificationsPage() {
       <div className="flex flex-col gap-6">
         <div>
           <h1 className="font-syne text-xl font-bold">Notifications</h1>
-          <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
+          <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] mt-1">
             Deadline reminders and application updates
           </p>
         </div>
@@ -36,7 +36,7 @@ export default async function NotificationsPage() {
         {notifications.length === 0 ? (
           <div className="flex flex-col items-center py-16 gap-3 border border-black/10 dark:border-white/8">
             <Bell size={24} className="text-gray-300" />
-            <p className="font-mono text-[12px] text-gray-400">
+            <p className="font-mono text-[14px] text-gray-400">
               No notifications yet
             </p>
           </div>
@@ -47,13 +47,13 @@ export default async function NotificationsPage() {
                 key={n.id}
                 className={`border border-black/10 dark:border-white/8 p-4 ${!n.read ? "bg-[#F97316]/5 border-[#F97316]/20" : "bg-gray-50 dark:bg-[#0F1117]"}`}
               >
-                <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF]">
+                <p className="font-mono text-[15px] font-bold text-gray-900 dark:text-[#F0F4FF]">
                   {n.title}
                 </p>
-                <p className="font-mono text-[12px] text-gray-500 mt-1">
+                <p className="font-mono text-[14px] text-gray-500 mt-1">
                   {n.body}
                 </p>
-                <p className="font-mono text-[10px] text-gray-400 mt-2">
+                <p className="font-mono text-[12px] text-gray-400 mt-2">
                   {new Date(n.created_at).toLocaleString()} · {n.channel}
                 </p>
               </div>

@@ -28,7 +28,7 @@ export default function DashboardHeader({ userName }: Props) {
         </p>
       </div>
       <div className="flex items-center gap-2">
-        <button className="flex items-center gap-2 px-3 py-2 border border-black/10 dark:border-white/8 font-mono text-[12px] text-gray-400 dark:text-[#6B7280] hover:border-black/20 dark:hover:border-white/20 hover:text-gray-700 dark:hover:text-[#F0F4FF] cursor-pointer transition-all duration-500">
+        <button className="flex items-center gap-2 px-3 py-2 border border-black/10 dark:border-white/8 font-mono text-[14px] text-gray-400 dark:text-[#6B7280] hover:border-black/20 dark:hover:border-white/20 hover:text-gray-700 dark:hover:text-[#F0F4FF] cursor-pointer transition-all duration-500">
           <Search size={14} />
           <span className="hidden sm:inline">Search...</span>
         </button>

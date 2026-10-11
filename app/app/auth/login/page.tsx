@@ -93,7 +93,7 @@ const Page = () => {
             </h1>
           </div>
           {(error || oauthError) && (
-            <div className="px-4 py-3 border border-red-500/30 bg-red-500/10 font-mono text-[12px] text-red-500 rounded-lg">
+            <div className="px-4 py-3 border border-red-500/30 bg-red-500/10 font-mono text-[14px] text-red-500 rounded-lg">
               {error || "OAuth sign in failed. Please try again."}
             </div>
           )}
@@ -172,7 +172,7 @@ const Page = () => {
 
           <div className="flex items-center gap-2.5">
             <div className="flex-1 h-px bg-black/8 dark:bg-white/7" />
-            <span className="text-[11px] uppercase tracking-wider text-black/30 dark:text-white/25">
+            <span className="text-[13px] uppercase tracking-wider text-black/30 dark:text-white/25">
               or
             </span>
             <div className="flex-1 h-px bg-black/8 dark:bg-white/7" />

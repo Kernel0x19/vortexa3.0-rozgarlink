@@ -156,7 +156,7 @@ function MetricCard({
                 style={{ width: `${Math.round(value * 100)}%` }}
               />
             </div>
-            <div className="flex justify-between text-[10px] text-gray-400 mt-1">
+            <div className="flex justify-between text-[12px] text-gray-400 mt-1">
               <span>0%</span>
               <span className="text-gray-500">threshold 70%</span>
               <span>100%</span>

@@ -51,7 +51,7 @@ export default function HowItWorksSection() {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-14 sm:py-20 lg:py-24 border-t border-black/10 dark:border-white/8"
     >
       <div className="mb-10 sm:mb-14 lg:mb-16">
-        <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
+        <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[13px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
           <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
           HOW IT WORKS
         </div>
@@ -75,7 +75,7 @@ export default function HowItWorksSection() {
             >
               <div className="flex flex-col items-center gap-2 z-10">
                 <div className="w-16 h-16 lg:w-20 lg:h-20 border border-black/10 dark:border-white/8 bg-white dark:bg-[#0F1117] group-hover:border-[#F97316]/40 group-hover:bg-[#F97316]/5 dark:group-hover:bg-[#F97316]/10 flex flex-col items-center justify-center gap-1 shrink-0 transition-all duration-500">
-                  <span className="font-mono text-[10px] text-[#F97316] tracking-widest">
+                  <span className="font-mono text-[12px] text-[#F97316] tracking-widest">
                     {step.number}
                   </span>
                   <span className="text-gray-400 dark:text-[#6B7280] group-hover:text-[#F97316] transition-colors duration-500">
@@ -91,7 +91,7 @@ export default function HowItWorksSection() {
                   <h3 className="font-syne text-base sm:text-lg lg:text-xl font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
                     {step.title}
                   </h3>
-                  <span className="font-mono text-[10px] sm:text-[11px] text-gray-400 dark:text-[#6B7280] border border-black/10 dark:border-white/8 px-2 py-0.5 transition-all duration-500">
+                  <span className="font-mono text-[12px] sm:text-[13px] text-gray-400 dark:text-[#6B7280] border border-black/10 dark:border-white/8 px-2 py-0.5 transition-all duration-500">
                     {step.detail}
                   </span>
                 </div>

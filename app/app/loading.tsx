@@ -20,11 +20,11 @@ export default function Loading() {
           <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-          <span className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280] ml-auto">
+          <span className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] ml-auto">
             edupilot — loading
           </span>
         </div>
-        <div className="p-4 font-mono text-[12px] flex flex-col gap-2">
+        <div className="p-4 font-mono text-[14px] flex flex-col gap-2">
           <div className="flex items-center gap-2">
             <span className="text-[#F97316]">›</span>
             <span className="text-orange-600 dark:text-[#a8c7fa]">

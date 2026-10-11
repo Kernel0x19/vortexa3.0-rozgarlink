@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    app_name: str = "EduPilot API"
+    app_name: str = "RozgarLink API"
     dev_mode: bool = True
 
     # Database

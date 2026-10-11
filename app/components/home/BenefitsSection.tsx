@@ -18,7 +18,7 @@ export default function BenefitsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#F97316] dark:text-[#fdba74] mb-5 sm:mb-6 tracking-widest transition-all duration-500">
+            <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[13px] text-[#F97316] dark:text-[#fdba74] mb-5 sm:mb-6 tracking-widest transition-all duration-500">
               <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
               SOUND FAMILIAR?
             </div>
@@ -64,7 +64,7 @@ export default function BenefitsSection() {
                   <p className="font-syne text-xl sm:text-2xl font-extrabold text-[#F97316]">
                     {stat.value}
                   </p>
-                  <p className="font-mono text-[10px] sm:text-[11px] text-gray-400 dark:text-[#6B7280] mt-1">
+                  <p className="font-mono text-[12px] sm:text-[13px] text-gray-400 dark:text-[#6B7280] mt-1">
                     {stat.label}
                   </p>
                 </div>
@@ -96,7 +96,7 @@ export default function BenefitsSection() {
               </div>
             </div>
 
-            <p className="font-mono text-[10px] sm:text-[11px] text-gray-400 dark:text-[#6B7280] border-t border-black/10 dark:border-white/8 pt-4 transition-all duration-500">
+            <p className="font-mono text-[12px] sm:text-[13px] text-gray-400 dark:text-[#6B7280] border-t border-black/10 dark:border-white/8 pt-4 transition-all duration-500">
               Eligibility follows each opportunity's stated criteria · Decision
               support only
             </p>

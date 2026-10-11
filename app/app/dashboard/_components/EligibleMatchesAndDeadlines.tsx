@@ -12,13 +12,13 @@ function EmptyState({
   return (
     <div className="flex flex-col items-center justify-center py-10 px-5 gap-3">
       <Inbox size={22} className="text-gray-300 dark:text-white/20" />
-      <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] text-center">
+      <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] text-center">
         {message}
       </p>
       {action && (
         <Link
           href={action.href}
-          className="font-mono text-[12px] text-[#F97316] hover:underline"
+          className="font-mono text-[14px] text-[#F97316] hover:underline"
         >
           {action.label} →
         </Link>
@@ -102,13 +102,13 @@ export default async function EligibleMatchesAndDeadlines({
             <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm transition-all duration-500">
               Eligible Matches
             </p>
-            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+            <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
               Eligibility-cleared · Ranked by preference fit · Readiness {stats.readiness_score}%
             </p>
           </div>
           <Link
             href="/dashboard/search"
-            className="font-mono text-[11px] text-[#F97316] hover:underline flex items-center gap-1"
+            className="font-mono text-[13px] text-[#F97316] hover:underline flex items-center gap-1"
           >
             View all <ChevronRight size={12} />
           </Link>
@@ -131,14 +131,14 @@ export default async function EligibleMatchesAndDeadlines({
                     <Briefcase size={14} />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-mono text-[13px] text-gray-900 dark:text-[#F0F4FF] truncate">
+                    <p className="font-mono text-[15px] text-gray-900 dark:text-[#F0F4FF] truncate">
                       {m.title}
                     </p>
-                    <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+                    <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
                       {m.employer} · {m.location}
                     </p>
                     {m.reason && (
-                      <p className="font-mono text-[10px] text-[#fdba74] mt-0.5 truncate">
+                      <p className="font-mono text-[12px] text-[#fdba74] mt-0.5 truncate">
                         {m.reason}
                       </p>
                     )}
@@ -148,13 +148,13 @@ export default async function EligibleMatchesAndDeadlines({
                   {/* Eligibility badge — hard filter passed */}
                   <div className="flex items-center gap-1 px-1.5 py-0.5 border border-green-500/30 bg-green-500/8 text-green-500">
                     <ShieldCheck size={10} />
-                    <span className="font-mono text-[9px]">Eligible</span>
+                    <span className="font-mono text-[11px]">Eligible</span>
                   </div>
                   <div className="text-right">
-                    <p className="font-mono text-[12px] text-[#F97316] font-bold">
+                    <p className="font-mono text-[14px] text-[#F97316] font-bold">
                       {m.match}%
                     </p>
-                    <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280]">
+                    <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
                       fit
                     </p>
                   </div>
@@ -176,7 +176,7 @@ export default async function EligibleMatchesAndDeadlines({
             <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm transition-all duration-500">
               Upcoming Deadlines
             </p>
-            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+            <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
               Eligible opportunities only
             </p>
           </div>
@@ -192,15 +192,15 @@ export default async function EligibleMatchesAndDeadlines({
                 className={`flex items-center justify-between gap-3 px-5 py-3.5 transition-all duration-500 ${i !== deadlines.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""}`}
               >
                 <div className="min-w-0">
-                  <p className="font-mono text-[12px] text-gray-900 dark:text-[#F0F4FF] truncate">
+                  <p className="font-mono text-[14px] text-gray-900 dark:text-[#F0F4FF] truncate">
                     {d.title}
                   </p>
-                  <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280]">
+                  <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
                     {d.date}
                   </p>
                 </div>
                 <span
-                  className={`font-mono text-[10px] px-2 py-0.5 border shrink-0 ${
+                  className={`font-mono text-[12px] px-2 py-0.5 border shrink-0 ${
                     d.daysLeft <= 14
                       ? "border-red-500/30 bg-red-500/10 text-red-500"
                       : d.daysLeft <= 30

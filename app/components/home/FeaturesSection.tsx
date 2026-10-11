@@ -197,7 +197,7 @@ export default function FeaturesSection() {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-20 lg:py-24 transition-all duration-500"
     >
       <div className="mb-8 sm:mb-12">
-        <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
+        <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[13px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
           <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
           WHAT ROZGARLINK DOES
         </div>
@@ -246,7 +246,7 @@ export default function FeaturesSection() {
                 </p>
               </div>
             </div>
-            <span className="font-mono text-[10px] bg-[#F97316]/10 text-[#F97316] dark:text-[#fdba74] border border-[#F97316]/20 px-2 sm:px-2.5 py-1 tracking-widest shrink-0 transition-all duration-500">
+            <span className="font-mono text-[12px] bg-[#F97316]/10 text-[#F97316] dark:text-[#fdba74] border border-[#F97316]/20 px-2 sm:px-2.5 py-1 tracking-widest shrink-0 transition-all duration-500">
               {feature.tag}
             </span>
           </div>
@@ -262,7 +262,7 @@ export default function FeaturesSection() {
                     <span className="text-[#F97316] mt-0.5 shrink-0">
                       <CheckCircle size={14} />
                     </span>
-                    <span className="font-mono text-[11px] sm:text-[12px] text-gray-700 dark:text-[#a8c7fa] transition-all duration-500">
+                    <span className="font-mono text-[13px] sm:text-[14px] text-gray-700 dark:text-[#a8c7fa] transition-all duration-500">
                       {pt}
                     </span>
                   </li>
@@ -276,11 +276,11 @@ export default function FeaturesSection() {
                   <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
                   <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
                   <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-                  <span className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280] ml-auto transition-all duration-500">
+                  <span className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] ml-auto transition-all duration-500">
                     engine output
                   </span>
                 </div>
-                <div className="p-3 sm:p-4 font-mono text-[11px] sm:text-[12px] leading-loose overflow-x-auto">
+                <div className="p-3 sm:p-4 font-mono text-[13px] sm:text-[14px] leading-loose overflow-x-auto">
                   {feature.terminal.map((line, i) => (
                     <div key={i} className="flex items-baseline gap-2">
                       <span className="text-[#F97316] select-none shrink-0">

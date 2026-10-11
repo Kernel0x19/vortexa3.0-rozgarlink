@@ -34,7 +34,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title=settings.app_name,
     version="1.0.0",
-    description="EduPilot / RozgarLink Backend Microservice API",
+    description="RozgarLink Backend Microservice API",
 )
 
 # CORS Middleware config

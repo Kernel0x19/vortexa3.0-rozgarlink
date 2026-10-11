@@ -64,7 +64,7 @@ export default function SemanticSearch() {
           <Sparkles size={20} className="text-[#F97316]" />
           Semantic Search
         </h1>
-        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
+        <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] mt-1">
           Search opportunities using natural language — powered by vector
           similarity
         </p>
@@ -86,13 +86,13 @@ export default function SemanticSearch() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="e.g. 'engineering scholarship for girls in Maharashtra'"
-              className="w-full pl-9 pr-4 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] placeholder:text-gray-300 dark:placeholder:text-[#3B3F51] focus:border-[#F97316]/40 focus:ring-1 focus:ring-[#F97316]/20 outline-none transition-all duration-500"
+              className="w-full pl-9 pr-4 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[15px] placeholder:text-gray-300 dark:placeholder:text-[#3B3F51] focus:border-[#F97316]/40 focus:ring-1 focus:ring-[#F97316]/20 outline-none transition-all duration-500"
             />
           </div>
           <button
             type="submit"
             disabled={loading || !query.trim()}
-            className="px-5 py-2.5 bg-[#F97316] hover:bg-[#0B5ABD] disabled:opacity-50 text-white font-mono text-[12px] flex items-center gap-2 transition-all"
+            className="px-5 py-2.5 bg-[#F97316] hover:bg-[#0B5ABD] disabled:opacity-50 text-white font-mono text-[14px] flex items-center gap-2 transition-all"
           >
             {loading ? (
               <Loader2 size={14} className="animate-spin" />
@@ -111,7 +111,7 @@ export default function SemanticSearch() {
               key={cat}
               type="button"
               onClick={() => setCategory(cat)}
-              className={`px-3 py-1 font-mono text-[11px] border transition-all ${
+              className={`px-3 py-1 font-mono text-[13px] border transition-all ${
                 category === cat
                   ? "border-[#F97316]/40 bg-[#F97316]/8 text-[#F97316]"
                   : "border-black/10 dark:border-white/8 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
@@ -129,7 +129,7 @@ export default function SemanticSearch() {
       {loading && (
         <div className="flex items-center justify-center py-16 gap-3">
           <Loader2 size={20} className="animate-spin text-[#F97316]" />
-          <span className="font-mono text-[12px] text-gray-400">
+          <span className="font-mono text-[14px] text-gray-400">
             Searching vector space…
           </span>
         </div>
@@ -138,7 +138,7 @@ export default function SemanticSearch() {
       {!loading && searched && results.length === 0 && (
         <div className="flex flex-col items-center py-16 gap-3 border border-black/10 dark:border-white/8">
           <Search size={24} className="text-gray-300" />
-          <p className="font-mono text-[12px] text-gray-400">
+          <p className="font-mono text-[14px] text-gray-400">
             {error || "No matching opportunities found. Try a different query."}
           </p>
         </div>
@@ -146,7 +146,7 @@ export default function SemanticSearch() {
 
       {!loading && results.length > 0 && (
         <div className="flex flex-col gap-3">
-          <p className="font-mono text-[11px] text-gray-400">
+          <p className="font-mono text-[13px] text-gray-400">
             {results.length} result{results.length !== 1 ? "s" : ""} found
           </p>
           {results.map((r, i) => (
@@ -174,15 +174,15 @@ function SearchResultCard({
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-start gap-3 min-w-0">
-          <div className="w-8 h-8 bg-[#F97316]/10 border border-[#F97316]/20 flex items-center justify-center text-[#F97316] shrink-0 font-mono text-[12px] font-bold">
+          <div className="w-8 h-8 bg-[#F97316]/10 border border-[#F97316]/20 flex items-center justify-center text-[#F97316] shrink-0 font-mono text-[14px] font-bold">
             {rank}
           </div>
           <div className="min-w-0">
-            <p className="font-mono text-[14px] font-bold text-gray-900 dark:text-[#F0F4FF]">
+            <p className="font-mono text-[16px] font-bold text-gray-900 dark:text-[#F0F4FF]">
               {result.title}
             </p>
-            <p className="font-mono text-[11px] text-gray-400 mt-0.5 flex items-center gap-2">
-              <span className="px-1.5 py-0.5 border border-black/8 dark:border-white/8 text-[10px] uppercase">
+            <p className="font-mono text-[13px] text-gray-400 mt-0.5 flex items-center gap-2">
+              <span className="px-1.5 py-0.5 border border-black/8 dark:border-white/8 text-[12px] uppercase">
                 {result.category}
               </span>
               {result.deadline && (
@@ -205,12 +205,12 @@ function SearchResultCard({
           <p className="font-mono text-lg font-bold text-[#F97316]">
             {relevance}%
           </p>
-          <p className="font-mono text-[10px] text-gray-400">relevance</p>
+          <p className="font-mono text-[12px] text-gray-400">relevance</p>
         </div>
       </div>
 
       {result.description && (
-        <p className="font-mono text-[12px] text-gray-600 dark:text-[#a8c7fa] leading-relaxed line-clamp-2">
+        <p className="font-mono text-[14px] text-gray-600 dark:text-[#a8c7fa] leading-relaxed line-clamp-2">
           {result.description}
         </p>
       )}
@@ -220,7 +220,7 @@ function SearchResultCard({
           href={result.source_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 px-3 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[11px] text-gray-500 hover:text-[#F97316] w-fit transition-all"
+          className="flex items-center gap-1.5 px-3 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[13px] text-gray-500 hover:text-[#F97316] w-fit transition-all"
         >
           <ExternalLink size={12} /> View Details
         </a>
