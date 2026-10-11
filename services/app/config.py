@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     dev_mode: bool = True
 
     # Database
-    database_url: str = "sqlite:///./edupilot.db"
+    database_url: str = "sqlite:///./rozgarlink.db"
 
     # Supabase / Auth
     supabase_url: Optional[str] = None
@@ -26,9 +26,9 @@ class Settings(BaseSettings):
 
     # Notifications
     sendgrid_api_key: Optional[str] = None
-    sendgrid_from_email: str = "noreply@edupilot.org"
-    sender_email: str = "noreply@edupilot.org"
-    notification_from_email: str = "noreply@edupilot.org"
+    sendgrid_from_email: str = "noreply@rozgarlink.org"
+    sender_email: str = "noreply@rozgarlink.org"
+    notification_from_email: str = "noreply@rozgarlink.org"
     twilio_account_sid: Optional[str] = None
     twilio_auth_token: Optional[str] = None
     twilio_from_phone: str = "+15005550006"
@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     enabled_connectors_list: List[str] = ["hackathons", "internships", "scholarships"]
 
     # Security
-    kms_master_key: str = "edupilot-default-development-key-32b"
+    kms_master_key: str = "rozgarlink-default-development-key-32b"
 
     class Config:
         env_file = ".env"

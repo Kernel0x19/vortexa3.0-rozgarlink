@@ -9,10 +9,10 @@ export default function Loading() {
           width={40}
           height={40}
           loading="eager"
-          alt="EduPilot Logo"
+          alt="RozgarLink Logo"
         />
         <span className="font-syne text-2xl font-bold text-gray-900 dark:text-[#F0F4FF]">
-          Edu<span className="text-[#F97316]">Pilot</span>
+          Rozgar<span className="text-[#F97316]">Link</span>
         </span>
       </div>
       <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] w-72">
@@ -21,7 +21,7 @@ export default function Loading() {
           <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
           <span className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] ml-auto">
-            edupilot — loading
+            rozgarlink — loading
           </span>
         </div>
         <div className="p-4 font-mono text-[14px] flex flex-col gap-2">

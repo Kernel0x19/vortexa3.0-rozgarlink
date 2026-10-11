@@ -1,6 +1,6 @@
 # RozgarLink 3.0 — Quick Start Guide
 
-Welcome to **RozgarLink (EduPilot)**. This guide explains how to install dependencies, configure environment variables, run the backend and frontend services, and verify that all agents and connectors are active.
+Welcome to **RozgarLink**. This guide explains how to install dependencies, configure environment variables, run the backend and frontend services, and verify that all agents and connectors are active.
 
 ---
 
@@ -27,7 +27,7 @@ votexa3.0-rozgarlink/
 │   │   ├── api/routes/     # REST Endpoints
 │   │   ├── ingestion/      # Live Connectors (Unstop, Devfolio, MLH, etc.)
 │   │   └── main.py         # FastAPI application entrypoint
-│   └── edupilot.db         # SQLite database
+│   └── rozgarlink.db       # SQLite database
 ├── app/                    # Next.js 15 Frontend
 │   └── app/dashboard/      # Student Dashboard, Hackathons, Internships, Chat
 └── STARTUP.md              # This setup guide
@@ -76,7 +76,7 @@ Create or verify `services/.env`:
 ```env
 # Application Settings
 DEBUG=true
-DATABASE_URL=sqlite:///./edupilot.db
+DATABASE_URL=sqlite:///./rozgarlink.db
 CORS_ORIGINS=http://localhost:3000,http://localhost:3001
 DEV_MODE=true
 

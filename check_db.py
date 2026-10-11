@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('services/edupilot.db')
+conn = sqlite3.connect('services/rozgarlink.db')
 cur = conn.cursor()
 
 tables = [r[0] for r in cur.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()]

@@ -34,7 +34,7 @@ class EmailNotificationService(NotificationService):
             sender_email or 
             getattr(settings, 'sendgrid_from_email', None) or
             getattr(settings, 'sender_email', None) or
-            getattr(settings, 'notification_from_email', 'noreply@edupilot.org')
+            getattr(settings, 'notification_from_email', 'noreply@rozgarlink.org')
         )
         self.max_retries = 3
         

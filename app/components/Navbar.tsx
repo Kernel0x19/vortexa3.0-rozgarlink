@@ -103,7 +103,7 @@ const Navbar = ({ isAuth }: Auth) => {
             width={50}
             height={50}
             loading="eager"
-            alt="EduPilot Logo"
+            alt="RozgarLink Logo"
           />
           <span className="font-syne text-2xl sm:text-3xl font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
             Rozgar<span className="text-[#F97316]">Link</span>

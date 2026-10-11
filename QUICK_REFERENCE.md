@@ -168,7 +168,7 @@ OLLAMA_BASE_URL=http://localhost:11434
 
 ```bash
 # Required
-DATABASE_URL=postgresql://user:pass@localhost/edupilot
+DATABASE_URL=postgresql://user:pass@localhost/rozgarlink
 REDIS_URL=redis://localhost:6379
 SUPABASE_URL=https://xxx.supabase.co
 SUPABASE_SERVICE_KEY=xxx

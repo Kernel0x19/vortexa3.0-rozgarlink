@@ -1,4 +1,4 @@
-"""Normalizer and deduplication utility for EduPilot data ingestion pipeline."""
+"""Normalizer and deduplication utility for RozgarLink data ingestion pipeline."""
 
 from datetime import date, datetime
 import logging
