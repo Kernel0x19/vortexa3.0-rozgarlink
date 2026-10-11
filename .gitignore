@@ -1,0 +1,68 @@
+*.code-workspace
+venv/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+*.pyc
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+*credentials*.json
+firebase-adminsdk*.json
+
+# Local application data
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+chroma_data/
+secure_documents/
+.deepeval/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Test outputs
+.coverage
+htmlcov/
+*.cover
+.pytest_cache/
+
+# Tooling/editor data
+.kiro/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Build outputs
+*.tsbuildinfo
