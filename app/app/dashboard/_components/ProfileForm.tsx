@@ -247,14 +247,14 @@ export default function ProfileForm({
         <h1 className="font-syne text-xl font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
           Student Profile
         </h1>
-        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1 transition-all duration-500">
+        <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] mt-1 transition-all duration-500">
           Complete your profile for accurate scholarship & internship matching.
         </p>
       </div>
 
       {message && (
         <p
-          className={`font-mono text-[12px] transition-all duration-500 px-4 py-2 border flex items-center gap-2 ${
+          className={`font-mono text-[14px] transition-all duration-500 px-4 py-2 border flex items-center gap-2 ${
             message.ok
               ? "border-green-500/30 bg-green-500/5 text-green-600"
               : "border-red-400/30 bg-red-400/5 text-red-500"
@@ -423,7 +423,7 @@ export default function ProfileForm({
             docType="resume"
           />
           <label className="flex flex-col gap-1">
-            <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+            <span className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
               Portfolio / LinkedIn / GitHub URL
               <span className="ml-1 text-gray-300 dark:text-gray-600">
                 (optional)
@@ -439,7 +439,7 @@ export default function ProfileForm({
                 value={(pref("portfolio_url") as string) ?? ""}
                 onChange={(e) => setPref("portfolio_url", e.target.value)}
                 placeholder="https://github.com/yourname"
-                className="w-full pl-8 pr-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#F97316]/50"
+                className="w-full pl-8 pr-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[15px] focus:outline-none focus:border-[#F97316]/50"
               />
             </div>
           </label>
@@ -458,7 +458,7 @@ export default function ProfileForm({
       </Section>
       {initial?.readiness_score !== undefined && (
         <div className="border border-black/10 dark:border-white/8 p-4 flex items-center justify-between">
-          <span className="font-mono text-[12px] text-gray-500">
+          <span className="font-mono text-[14px] text-gray-500">
             Profile readiness score
           </span>
           <span className="font-syne text-2xl font-bold text-[#F97316]">
@@ -511,17 +511,17 @@ function Field({
 }) {
   return (
     <label className="flex flex-col gap-1 transition-all duration-500">
-      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+      <span className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
         {label}
       </span>
       <input
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#F97316]/50 transition-all duration-500"
+        className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[15px] focus:outline-none focus:border-[#F97316]/50 transition-all duration-500"
       />
       {hint && (
-        <span className="font-mono text-[10px] text-gray-300 dark:text-gray-600 transition-all duration-500">
+        <span className="font-mono text-[12px] text-gray-300 dark:text-gray-600 transition-all duration-500">
           {hint}
         </span>
       )}
@@ -542,13 +542,13 @@ function Select({
 }) {
   return (
     <label className="flex flex-col gap-1">
-      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+      <span className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
         {label}
       </span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#F97316]/50 transition-all duration-500"
+        className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[15px] focus:outline-none focus:border-[#F97316]/50 transition-all duration-500"
       >
         <option value="">Select…</option>
         {options.map((o) => (
@@ -598,7 +598,7 @@ function TagInput({
 
   return (
     <div className="flex flex-col gap-1.5 transition-all duration-500">
-      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+      <span className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
         {label}
       </span>
 
@@ -606,7 +606,7 @@ function TagInput({
         {tags.map((tag) => (
           <span
             key={tag}
-            className="flex items-center gap-1 px-2 py-0.5 bg-[#F97316]/10 border border-[#F97316]/20 font-mono text-[11px] text-[#F97316] transition-all duration-500"
+            className="flex items-center gap-1 px-2 py-0.5 bg-[#F97316]/10 border border-[#F97316]/20 font-mono text-[13px] text-[#F97316] transition-all duration-500"
           >
             {tag}
             <button
@@ -625,7 +625,7 @@ function TagInput({
           onKeyDown={handleKey}
           onBlur={() => commit(input)}
           placeholder={tags.length === 0 ? hint : ""}
-          className="flex-1 min-w-30 bg-transparent font-mono text-[12px] focus:outline-none placeholder:text-gray-300 dark:placeholder:text-gray-600 transition-all duration-500"
+          className="flex-1 min-w-30 bg-transparent font-mono text-[14px] focus:outline-none placeholder:text-gray-300 dark:placeholder:text-gray-600 transition-all duration-500"
         />
       </div>
       {unused.length > 0 && (
@@ -635,7 +635,7 @@ function TagInput({
               key={s}
               type="button"
               onClick={() => onAdd(s)}
-              className="flex items-center gap-1 px-2 py-0.5 border border-black/10 dark:border-white/8 font-mono text-[10px] text-gray-400 hover:border-[#F97316]/40 hover:text-[#F97316] transition-all duration-500"
+              className="flex items-center gap-1 px-2 py-0.5 border border-black/10 dark:border-white/8 font-mono text-[12px] text-gray-400 hover:border-[#F97316]/40 hover:text-[#F97316] transition-all duration-500"
             >
               <Plus size={9} /> {s}
             </button>
@@ -706,7 +706,7 @@ function FileOrLink({
 
   return (
     <div className="flex flex-col gap-1 transition-all duration-500">
-      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+      <span className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
         {label}
         {optional && (
           <span className="ml-1 text-gray-300 dark:text-gray-600 transition-all duration-500">
@@ -717,7 +717,7 @@ function FileOrLink({
 
       <div className="flex items-center gap-3 px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] transition-all duration-500">
         <FileText size={14} className="text-gray-400 shrink-0" />
-        <span className="flex-1 font-mono text-[12px] text-gray-500 truncate">
+        <span className="flex-1 font-mono text-[14px] text-gray-500 truncate">
           {fileName || (
             <span className="text-gray-300 dark:text-gray-600">{hint}</span>
           )}
@@ -726,7 +726,7 @@ function FileOrLink({
           type="button"
           onClick={() => inputRef.current?.click()}
           disabled={uploading}
-          className="flex items-center gap-1.5 px-3 py-1 border border-[#F97316]/30 text-[#F97316] font-mono text-[11px] hover:bg-[#F97316]/5 disabled:opacity-50 transition-colors shrink-0"
+          className="flex items-center gap-1.5 px-3 py-1 border border-[#F97316]/30 text-[#F97316] font-mono text-[13px] hover:bg-[#F97316]/5 disabled:opacity-50 transition-colors shrink-0"
         >
           {uploading ? (
             <Loader2 size={11} className="animate-spin" />

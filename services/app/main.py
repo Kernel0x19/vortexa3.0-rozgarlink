@@ -26,6 +26,7 @@ from app.api.routes.eval import router as eval_router
 from app.api.routes.consent import router as consent_router
 from app.api.routes.placements import router as placements_router
 from app.api.routes.simulation import router as simulation_router
+import os
 
 settings = get_settings()
 
@@ -36,13 +37,16 @@ ensure_notification_schema()
 app = FastAPI(
     title=settings.app_name,
     version="1.0.0",
-    description="EduPilot / RozgarLink Backend Microservice API",
+    description="RozgarLink Backend Microservice API",
 )
 
 # CORS Middleware config
+
+ALLOWED_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

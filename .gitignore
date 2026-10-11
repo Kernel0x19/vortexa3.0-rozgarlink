@@ -66,3 +66,15 @@ ehthumbs.db
 
 # Build outputs
 *.tsbuildinfo
+
+
+services/.venv/
+services/__pycache__/
+services/*.pyc
+services/edupilot.db
+services/data/
+services/chroma_data/
+services/.env
+app/.env
+app/node_modules/
+app/.next/

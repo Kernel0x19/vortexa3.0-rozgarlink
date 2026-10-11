@@ -95,7 +95,7 @@ function SourceBadge({ source }: { source: string }) {
   const { label, color, bg } = platformMeta(source);
   return (
     <span
-      className={`inline-flex items-center px-1.5 py-0.5 border font-mono text-[9px] font-bold tracking-wide ${color} ${bg}`}
+      className={`inline-flex items-center px-1.5 py-0.5 border font-mono text-[11px] font-bold tracking-wide ${color} ${bg}`}
     >
       {label}
     </span>
@@ -110,7 +110,7 @@ function FilterPill({
   onRemove: () => void;
 }) {
   return (
-    <span className="flex items-center gap-1 px-2 py-0.5 bg-[#F97316]/10 border border-[#F97316]/20 font-mono text-[11px] text-[#F97316]">
+    <span className="flex items-center gap-1 px-2 py-0.5 bg-[#F97316]/10 border border-[#F97316]/20 font-mono text-[13px] text-[#F97316]">
       {label}
       <button type="button" onClick={onRemove} className="hover:text-red-500">
         <X size={10} />
@@ -131,7 +131,7 @@ function ScoreRing({ score }: { score: number }) {
       <p className={`font-mono text-lg font-bold ${color}`}>
         {Math.round(score)}%
       </p>
-      <p className="font-mono text-[10px] text-gray-400">match</p>
+      <p className="font-mono text-[12px] text-gray-400">match</p>
     </div>
   );
 }
@@ -272,7 +272,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
     <div className="flex flex-col gap-5 transition-all duration-500">
       <div className="transition-all duration-500">
         <h1 className="font-syne text-xl font-bold">Internship Finder</h1>
-        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
+        <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] mt-1">
           Matched from Internshala, Indeed, Naukri, Wellfound &amp; Unstop
           &middot; ranked by your profile fit
         </p>
@@ -290,17 +290,17 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search role, skill, company or location&hellip;"
-            className="w-full pl-9 pr-4 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#F97316]/50 transition-all duration-500"
+            className="w-full pl-9 pr-4 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[15px] focus:outline-none focus:border-[#F97316]/50 transition-all duration-500"
           />
         </div>
         <button
           type="button"
           onClick={() => setShowFilters((v) => !v)}
-          className={`px-3 py-2.5 border font-mono text-[12px] flex items-center gap-1.5 transition-colors ${showFilters || activePills.length > 0 ? "border-[#F97316] text-[#F97316] bg-[#F97316]/5" : "border-black/10 dark:border-white/8 text-gray-500"}`}
+          className={`px-3 py-2.5 border font-mono text-[14px] flex items-center gap-1.5 transition-colors ${showFilters || activePills.length > 0 ? "border-[#F97316] text-[#F97316] bg-[#F97316]/5" : "border-black/10 dark:border-white/8 text-gray-500"}`}
         >
           <SlidersHorizontal size={13} /> Filters
           {activePills.length > 0 && (
-            <span className="w-4 h-4 rounded-full bg-[#F97316] text-white text-[9px] flex items-center justify-center">
+            <span className="w-4 h-4 rounded-full bg-[#F97316] text-white text-[11px] flex items-center justify-center">
               {activePills.length}
             </span>
           )}
@@ -309,7 +309,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
         <button
           type="submit"
           disabled={isBusy}
-          className="px-5 py-2.5 bg-[#F97316] text-white font-mono text-[12px] flex items-center gap-2 disabled:opacity-60"
+          className="px-5 py-2.5 bg-[#F97316] text-white font-mono text-[14px] flex items-center gap-2 disabled:opacity-60"
         >
           {isBusy ? (
             <Loader2 size={13} className="animate-spin" />
@@ -322,7 +322,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
       {showFilters && (
         <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-4 grid grid-cols-2 md:grid-cols-5 gap-4 transition-all duration-500">
           <div className="flex flex-col gap-1.5">
-            <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide">
+            <p className="font-mono text-[12px] text-gray-400 uppercase tracking-wide">
               Work type
             </p>
             <div className="flex flex-col gap-1">
@@ -342,7 +342,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
                       filters.work_type === v ? "" : v,
                     )
                   }
-                  className={`flex items-center gap-2 px-2.5 py-1.5 border font-mono text-[11px] transition-colors ${filters.work_type === v ? "border-[#F97316] bg-[#F97316]/8 text-[#F97316]" : "border-black/10 dark:border-white/8 text-gray-500 hover:border-[#F97316]/40"}`}
+                  className={`flex items-center gap-2 px-2.5 py-1.5 border font-mono text-[13px] transition-colors ${filters.work_type === v ? "border-[#F97316] bg-[#F97316]/8 text-[#F97316]" : "border-black/10 dark:border-white/8 text-gray-500 hover:border-[#F97316]/40"}`}
                 >
                   <I size={11} /> {l}
                 </button>
@@ -351,7 +351,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
           </div>
 
           <div className="flex flex-col gap-1.5 transition-all duration-500">
-            <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide">
+            <p className="font-mono text-[12px] text-gray-400 uppercase tracking-wide">
               Max duration
             </p>
             <div className="flex flex-col gap-1">
@@ -370,7 +370,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
                       filters.duration_max === v ? "" : v,
                     )
                   }
-                  className={`flex items-center gap-2 px-2.5 py-1.5 border font-mono text-[11px] transition-colors ${filters.duration_max === v ? "border-[#F97316] bg-[#F97316]/8 text-[#F97316]" : "border-black/10 dark:border-white/8 text-gray-500 hover:border-[#F97316]/40"}`}
+                  className={`flex items-center gap-2 px-2.5 py-1.5 border font-mono text-[13px] transition-colors ${filters.duration_max === v ? "border-[#F97316] bg-[#F97316]/8 text-[#F97316]" : "border-black/10 dark:border-white/8 text-gray-500 hover:border-[#F97316]/40"}`}
                 >
                   <Clock size={11} /> {l}
                 </button>
@@ -379,7 +379,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
           </div>
 
           <div className="flex flex-col gap-1.5 transition-all duration-500">
-            <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide">
+            <p className="font-mono text-[12px] text-gray-400 uppercase tracking-wide">
               Min stipend /mo
             </p>
             <div className="flex flex-col gap-1">
@@ -398,7 +398,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
                       filters.stipend_min === v ? "" : v,
                     )
                   }
-                  className={`flex items-center gap-2 px-2.5 py-1.5 border font-mono text-[11px] transition-colors ${filters.stipend_min === v ? "border-[#F97316] bg-[#F97316]/8 text-[#F97316]" : "border-black/10 dark:border-white/8 text-gray-500 hover:border-[#F97316]/40"}`}
+                  className={`flex items-center gap-2 px-2.5 py-1.5 border font-mono text-[13px] transition-colors ${filters.stipend_min === v ? "border-[#F97316] bg-[#F97316]/8 text-[#F97316]" : "border-black/10 dark:border-white/8 text-gray-500 hover:border-[#F97316]/40"}`}
                 >
                   <Banknote size={11} /> {l}
                 </button>
@@ -407,7 +407,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
           </div>
 
           <div className="flex flex-col gap-1.5 transition-all duration-500">
-            <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide">
+            <p className="font-mono text-[12px] text-gray-400 uppercase tracking-wide">
               City
             </p>
             <div className="relative">
@@ -419,7 +419,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
                 value={filters.location}
                 onChange={(e) => handleFilterChange("location", e.target.value)}
                 placeholder="e.g. Mumbai"
-                className="w-full pl-8 pr-3 py-1.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[11px] focus:outline-none focus:border-[#F97316]/50"
+                className="w-full pl-8 pr-3 py-1.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#F97316]/50"
               />
             </div>
             <div className="flex flex-wrap gap-1 mt-1">
@@ -433,7 +433,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
                       filters.location === city ? "" : city,
                     )
                   }
-                  className={`px-2 py-0.5 border font-mono text-[10px] transition-colors ${filters.location === city ? "border-[#F97316] bg-[#F97316]/8 text-[#F97316]" : "border-black/10 dark:border-white/8 text-gray-400 hover:border-[#F97316]/40"}`}
+                  className={`px-2 py-0.5 border font-mono text-[12px] transition-colors ${filters.location === city ? "border-[#F97316] bg-[#F97316]/8 text-[#F97316]" : "border-black/10 dark:border-white/8 text-gray-400 hover:border-[#F97316]/40"}`}
                 >
                   {city}
                 </button>
@@ -442,7 +442,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
           </div>
 
           <div className="flex flex-col gap-1.5 transition-all duration-500">
-            <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide">
+            <p className="font-mono text-[12px] text-gray-400 uppercase tracking-wide">
               Platform
             </p>
             <div className="flex flex-col gap-1">
@@ -456,7 +456,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
                       filters.source === val ? "" : val,
                     )
                   }
-                  className={`flex items-center gap-2 px-2.5 py-1.5 border font-mono text-[11px] transition-colors ${filters.source === val ? `border-current bg-current/8 ${color}` : "border-black/10 dark:border-white/8 text-gray-500 hover:border-[#F97316]/40"}`}
+                  className={`flex items-center gap-2 px-2.5 py-1.5 border font-mono text-[13px] transition-colors ${filters.source === val ? `border-current bg-current/8 ${color}` : "border-black/10 dark:border-white/8 text-gray-500 hover:border-[#F97316]/40"}`}
                 >
                   <span
                     className={`w-1.5 h-1.5 rounded-full bg-current ${color}`}
@@ -471,7 +471,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
 
       {activePills.length > 0 && (
         <div className="flex flex-wrap items-center gap-2 transition-all duration-500">
-          <span className="font-mono text-[11px] text-gray-400">Active:</span>
+          <span className="font-mono text-[13px] text-gray-400">Active:</span>
           {activePills.map((p) => (
             <FilterPill
               key={p.key}
@@ -482,7 +482,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
           <button
             type="button"
             onClick={clearAll}
-            className="font-mono text-[11px] text-gray-400 hover:text-red-500 ml-1"
+            className="font-mono text-[13px] text-gray-400 hover:text-red-500 ml-1"
           >
             Clear all
           </button>
@@ -490,24 +490,24 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
       )}
 
       {!searched && matches.length > 0 && (
-        <div className="flex items-center gap-2 px-3 py-2 border border-[#F97316]/20 bg-[#F97316]/5 font-mono text-[11px] text-[#F97316] transition-all duration-500">
+        <div className="flex items-center gap-2 px-3 py-2 border border-[#F97316]/20 bg-[#F97316]/5 font-mono text-[13px] text-[#F97316] transition-all duration-500">
           <User size={12} /> Showing recommendations personalised to your
           profile. Use search or filters to refine.
         </div>
       )}
 
       {isBusy ? (
-        <div className="flex items-center justify-center py-16 gap-3 font-mono text-[12px] text-gray-400 transition-all duration-500">
+        <div className="flex items-center justify-center py-16 gap-3 font-mono text-[14px] text-gray-400 transition-all duration-500">
           <Loader2 size={16} className="animate-spin text-[#F97316]" /> Finding
           internships&hellip;
         </div>
       ) : matches.length === 0 ? (
         <div className="flex flex-col items-center py-16 gap-2 text-center transition-all duration-500">
           <Briefcase size={32} className="text-gray-300 dark:text-gray-600" />
-          <p className="font-mono text-[13px] text-gray-500">
+          <p className="font-mono text-[15px] text-gray-500">
             No internships found
           </p>
-          <p className="font-mono text-[11px] text-gray-400">
+          <p className="font-mono text-[13px] text-gray-400">
             {activePills.length > 0
               ? "Try removing some filters."
               : "Complete your profile for personalised matches."}
@@ -516,7 +516,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
             <button
               type="button"
               onClick={clearAll}
-              className="mt-2 px-4 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[11px] text-gray-500 hover:text-[#F97316]"
+              className="mt-2 px-4 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[13px] text-gray-500 hover:text-[#F97316]"
             >
               Clear filters
             </button>
@@ -524,7 +524,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
         </div>
       ) : (
         <div className="flex flex-col gap-3 transition-all duration-500">
-          <p className="font-mono text-[11px] text-gray-400">
+          <p className="font-mono text-[13px] text-gray-400">
             {matches.length} result{matches.length !== 1 ? "s" : ""}
             {searched && query ? ` for "${query}"` : ""}
           </p>
@@ -600,12 +600,12 @@ function InternshipCard({
             <Briefcase size={17} />
           </div>
           <div className="min-w-0 flex flex-col gap-0.5">
-            <p className="font-mono text-[14px] font-bold text-gray-900 dark:text-[#F0F4FF] leading-snug">
+            <p className="font-mono text-[16px] font-bold text-gray-900 dark:text-[#F0F4FF] leading-snug">
               {o.title}
             </p>
             <div className="flex items-center gap-2 flex-wrap mt-0.5">
               {company && (
-                <p className="font-mono text-[11px] text-gray-700 dark:text-gray-300">
+                <p className="font-mono text-[13px] text-gray-700 dark:text-gray-300">
                   {company}
                 </p>
               )}
@@ -613,7 +613,7 @@ function InternshipCard({
             </div>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1">
               {location && (
-                <span className="flex items-center gap-1 font-mono text-[11px] text-gray-400">
+                <span className="flex items-center gap-1 font-mono text-[13px] text-gray-400">
                   {isRemote ? (
                     <Wifi size={10} className="text-green-500" />
                   ) : (
@@ -629,17 +629,17 @@ function InternshipCard({
                 </span>
               )}
               {duration && (
-                <span className="flex items-center gap-1 font-mono text-[11px] text-gray-400">
+                <span className="flex items-center gap-1 font-mono text-[13px] text-gray-400">
                   <Clock size={10} /> {duration}
                 </span>
               )}
               {stipend && (
-                <span className="flex items-center gap-1 font-mono text-[11px] text-gray-400">
+                <span className="flex items-center gap-1 font-mono text-[13px] text-gray-400">
                   <Banknote size={10} /> {stipend}
                 </span>
               )}
               {o.deadline && (
-                <span className="font-mono text-[11px] text-amber-500">
+                <span className="font-mono text-[13px] text-amber-500">
                   Deadline {String(o.deadline)}
                 </span>
               )}
@@ -651,11 +651,11 @@ function InternshipCard({
 
       <div className="px-4 pb-2 flex items-center gap-2 border-t border-black/5 dark:border-white/5 pt-2 transition-all duration-500">
         {eligibility.eligible ? (
-          <span className="flex items-center gap-1 font-mono text-[11px] text-green-600">
+          <span className="flex items-center gap-1 font-mono text-[13px] text-green-600">
             <CheckCircle size={12} /> Eligible
           </span>
         ) : (
-          <span className="flex items-center gap-1 font-mono text-[11px] text-red-400">
+          <span className="flex items-center gap-1 font-mono text-[13px] text-red-400">
             <XCircle size={12} /> May not qualify
           </span>
         )}
@@ -668,7 +668,7 @@ function InternshipCard({
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="font-mono text-[10px] text-gray-400 hover:text-[#F97316] flex items-center gap-0.5"
+          className="font-mono text-[12px] text-gray-400 hover:text-[#F97316] flex items-center gap-0.5"
         >
           {expanded ? "Less" : "Why this match?"}
           {expanded ? <ChevronUp size={10} /> : <ChevronDown size={10} />}
@@ -679,14 +679,14 @@ function InternshipCard({
         <div className="px-4 pb-4 flex flex-col gap-3 border-t border-black/5 dark:border-white/5 pt-3 transition-all duration-500">
           {reasons.length > 0 && (
             <div>
-              <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide mb-1">
+              <p className="font-mono text-[12px] text-gray-400 uppercase tracking-wide mb-1">
                 Match breakdown
               </p>
               <ul className="flex flex-col gap-0.5">
                 {reasons.map((r, i) => (
                   <li
                     key={i}
-                    className="font-mono text-[11px] text-gray-500 dark:text-[#6B7280]"
+                    className="font-mono text-[13px] text-gray-500 dark:text-[#6B7280]"
                   >
                     {r}
                   </li>
@@ -695,20 +695,20 @@ function InternshipCard({
             </div>
           )}
           {o.description && (
-            <p className="font-mono text-[12px] text-gray-600 dark:text-[#a8c7fa] leading-relaxed">
+            <p className="font-mono text-[14px] text-gray-600 dark:text-[#a8c7fa] leading-relaxed">
               {o.description}
             </p>
           )}
           {skills.length > 0 && (
             <div>
-              <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide mb-1">
+              <p className="font-mono text-[12px] text-gray-400 uppercase tracking-wide mb-1">
                 Skills required
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {skills.map((s) => (
                   <span
                     key={s}
-                    className="px-2 py-0.5 border border-black/10 dark:border-white/8 font-mono text-[10px] text-gray-500 bg-gray-50 dark:bg-[#161822]"
+                    className="px-2 py-0.5 border border-black/10 dark:border-white/8 font-mono text-[12px] text-gray-500 bg-gray-50 dark:bg-[#161822]"
                   >
                     {s}
                   </span>
@@ -729,7 +729,7 @@ function InternshipCard({
             }
           }}
           disabled={saved}
-          className={`flex items-center gap-1.5 px-3 py-1.5 border font-mono text-[11px] transition-colors ${saved ? "border-green-500/30 text-green-600 bg-green-500/5 cursor-default" : "border-[#F97316]/30 text-[#F97316] hover:bg-[#F97316]/5"}`}
+          className={`flex items-center gap-1.5 px-3 py-1.5 border font-mono text-[13px] transition-colors ${saved ? "border-green-500/30 text-green-600 bg-green-500/5 cursor-default" : "border-[#F97316]/30 text-[#F97316] hover:bg-[#F97316]/5"}`}
         >
           <BookmarkPlus size={12} /> {saved ? "Saved" : "Save & track"}
         </button>
@@ -738,7 +738,7 @@ function InternshipCard({
             href={applicationUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[11px] text-gray-500 hover:text-[#F97316]"
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[13px] text-gray-500 hover:text-[#F97316]"
           >
             <ExternalLink size={12} /> Apply now
           </a>

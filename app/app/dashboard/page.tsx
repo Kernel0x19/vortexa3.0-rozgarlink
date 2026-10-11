@@ -39,22 +39,17 @@ function CardsSkeleton() {
 
 export default async function DashboardPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/auth/login");
 
-  let token = "";
-  try {
-    const originalWarn = console.warn;
-    console.warn = (...args: unknown[]) => {
-      if (typeof args[0] === "string" && args[0].includes("getSession()")) return;
-      originalWarn(...args);
-    };
-    const { data: { session } } = await supabase.auth.getSession();
-    console.warn = originalWarn;
-    token = session?.access_token ?? "";
-  } catch {
-    token = "";
-  }
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
+  if (!user || error) redirect("/auth/login");
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+  const token = session?.access_token ?? "";
 
   return (
     <div className="flex flex-col gap-6 max-w-300 transition-all duration-500">
@@ -64,14 +59,20 @@ export default async function DashboardPage() {
 
       <QuickActions />
 
-      {/* Eligible matches (hard-filtered) + upcoming deadlines */}
       <Suspense fallback={<CardsSkeleton />}>
-        <EligibleMatchesAndDeadlines userId={user.id} email={user.email ?? ""} token={token} />
+        <EligibleMatchesAndDeadlines
+          userId={user.id}
+          email={user.email ?? ""}
+          token={token}
+        />
       </Suspense>
 
-      {/* Application tracker + Skill gaps & pathways + Saved */}
       <Suspense fallback={<CardsSkeleton />}>
-        <ApplicationsAndSaved userId={user.id} email={user.email ?? ""} token={token} />
+        <ApplicationsAndSaved
+          userId={user.id}
+          email={user.email ?? ""}
+          token={token}
+        />
       </Suspense>
     </div>
   );

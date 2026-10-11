@@ -41,7 +41,7 @@ export default async function StatsSection({
           </div>
           <Link
             href="/dashboard/profile"
-            className="font-mono text-[12px] text-yellow-600 dark:text-yellow-400 border border-yellow-500/30 px-3 py-1.5 hover:bg-yellow-500/10 shrink-0 transition-all duration-500"
+            className="font-mono text-[14px] text-yellow-600 dark:text-yellow-400 border border-yellow-500/30 px-3 py-1.5 hover:bg-yellow-500/10 shrink-0 transition-all duration-500"
           >
             Complete profile →
           </Link>
@@ -82,7 +82,7 @@ export default async function StatsSection({
             <p className={`font-syne text-2xl font-extrabold ${stat.color}`}>
               {stat.value}
             </p>
-            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] mt-0.5">
+            <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] mt-0.5">
               {stat.label}
             </p>
           </div>

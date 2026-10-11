@@ -116,7 +116,7 @@ export default function NotificationPrefs({ userId, userEmail, token }: Props) {
     return (
       <div className="flex items-center justify-center py-16 gap-3">
         <Loader2 size={20} className="animate-spin text-[#F97316]" />
-        <span className="font-mono text-[12px] text-gray-400">
+        <span className="font-mono text-[14px] text-gray-400">
           Loading preferences…
         </span>
       </div>
@@ -130,14 +130,14 @@ export default function NotificationPrefs({ userId, userEmail, token }: Props) {
           <Bell size={18} className="text-[#F97316]" />
           Notification Settings
         </h2>
-        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
+        <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] mt-1">
           Control how and when you receive notifications
         </p>
       </div>
 
       {/* Channels */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-[12px] text-gray-500 uppercase tracking-wide">
+        <p className="font-mono text-[14px] text-gray-500 uppercase tracking-wide">
           Channels
         </p>
         {CHANNEL_TOGGLES.map((ch) => (
@@ -154,7 +154,7 @@ export default function NotificationPrefs({ userId, userEmail, token }: Props) {
 
       {/* Types */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-[12px] text-gray-500 uppercase tracking-wide">
+        <p className="font-mono text-[14px] text-gray-500 uppercase tracking-wide">
           Notification Types
         </p>
         {TYPE_TOGGLES.map((t) => (
@@ -172,7 +172,7 @@ export default function NotificationPrefs({ userId, userEmail, token }: Props) {
       <button
         onClick={handleSave}
         disabled={saving}
-        className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#F97316] hover:bg-[#0B5ABD] disabled:opacity-50 text-white font-mono text-[12px] transition-all w-full"
+        className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#F97316] hover:bg-[#0B5ABD] disabled:opacity-50 text-white font-mono text-[14px] transition-all w-full"
       >
         {saving ? (
           <Loader2 size={14} className="animate-spin" />
@@ -205,10 +205,10 @@ function ToggleRow({
       <div className="flex items-center gap-3">
         <span className="text-gray-500">{icon}</span>
         <div>
-          <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF]">
+          <p className="font-mono text-[15px] font-bold text-gray-900 dark:text-[#F0F4FF]">
             {label}
           </p>
-          <p className="font-mono text-[11px] text-gray-400">{desc}</p>
+          <p className="font-mono text-[13px] text-gray-400">{desc}</p>
         </div>
       </div>
       <button

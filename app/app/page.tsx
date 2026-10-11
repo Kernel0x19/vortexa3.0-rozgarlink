@@ -29,10 +29,10 @@ function AgentCard({ icon, label, sub }: AgentCardProps) {
         {icon}
       </div>
       <div>
-        <p className="font-mono text-[13px] text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
+        <p className="font-mono text-[15px] text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
           {label}
         </p>
-        <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+        <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
           {sub}
         </p>
       </div>
@@ -54,7 +54,7 @@ function Stat({ value, label, last }: StatProps) {
       <p className="font-syne text-xl sm:text-2xl lg:text-3xl font-extrabold">
         <span className="text-[#F97316]">{value}</span>
       </p>
-      <p className="font-mono text-[10px] sm:text-[11px] text-gray-400 dark:text-[#6B7280] mt-1 px-1">
+      <p className="font-mono text-[12px] sm:text-[13px] text-gray-400 dark:text-[#6B7280] mt-1 px-1">
         {label}
       </p>
     </div>
@@ -76,7 +76,7 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-14 sm:pt-18 lg:pt-20 pb-12 sm:pb-14 lg:pb-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div>
-          <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3 sm:px-3.5 py-1.5 font-mono text-[10px] sm:text-[11px] text-[#F97316] dark:text-[#fdba74] mb-5 sm:mb-6 tracking-widest">
+          <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3 sm:px-3.5 py-1.5 font-mono text-[12px] sm:text-[13px] text-[#F97316] dark:text-[#fdba74] mb-5 sm:mb-6 tracking-widest">
             <span className="w-1.5 h-1.5 rounded-full bg-[#F97316] animate-pulse" />
             Govt. Systems & Govt. Tech — Vortexa 3.0
           </div>
@@ -118,7 +118,7 @@ export default function Home() {
             ].map((f) => (
               <span
                 key={f}
-                className="font-mono text-[10px] sm:text-[11px] text-gray-400 dark:text-[#6B7280] border border-black/10 dark:border-white/8 px-2.5 sm:px-3 py-1"
+                className="font-mono text-[12px] sm:text-[13px] text-gray-400 dark:text-[#6B7280] border border-black/10 dark:border-white/8 px-2.5 sm:px-3 py-1"
               >
                 {f}
               </span>

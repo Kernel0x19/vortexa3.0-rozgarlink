@@ -139,7 +139,7 @@ export default function ProfileClient({
           <h1 className="font-syne text-2xl font-extrabold text-gray-900 dark:text-[#F0F4FF]">
             My Profile
           </h1>
-          <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
+          <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] mt-1">
             Manage your personal and academic information
           </p>
         </div>
@@ -218,11 +218,11 @@ export default function ProfileClient({
               <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-base">
                 {profile.full_name || "—"}
               </p>
-              <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] mt-0.5">
+              <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] mt-0.5">
                 {profile.email}
               </p>
               {profile.is_admin && (
-                <span className="inline-flex items-center gap-1 mt-2 font-mono text-[10px] text-[#F97316] border border-[#F97316]/30 bg-[#F97316]/8 px-2 py-0.5">
+                <span className="inline-flex items-center gap-1 mt-2 font-mono text-[12px] text-[#F97316] border border-[#F97316]/30 bg-[#F97316]/8 px-2 py-0.5">
                   <Shield size={10} /> Admin
                 </span>
               )}
@@ -233,7 +233,7 @@ export default function ProfileClient({
               <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm">
                 Profile Completion
               </p>
-              <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+              <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
                 {completionPct}% complete
               </p>
             </div>
@@ -247,19 +247,19 @@ export default function ProfileClient({
                 />
               </div>
               {incompleteFields.length === 0 ? (
-                <div className="flex items-center gap-2 font-mono text-[12px] text-green-500">
+                <div className="flex items-center gap-2 font-mono text-[14px] text-green-500">
                   <CheckCircle size={13} />
                   All fields complete
                 </div>
               ) : (
                 <div className="flex flex-col gap-1.5">
-                  <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280] tracking-widest">
+                  <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] tracking-widest">
                     MISSING
                   </p>
                   {incompleteFields.map((f) => (
                     <div
                       key={f.key}
-                      className="flex items-center gap-2 font-mono text-[11px] text-gray-500 dark:text-[#6B7280]"
+                      className="flex items-center gap-2 font-mono text-[13px] text-gray-500 dark:text-[#6B7280]"
                     >
                       <span className="w-1 h-1 rounded-full bg-yellow-500 shrink-0" />
                       {f.label}
@@ -301,12 +301,12 @@ export default function ProfileClient({
                   href={item.href}
                   className={`flex items-center justify-between px-5 py-3 hover:bg-white dark:hover:bg-[#161822] transition-colors duration-200 group ${i !== arr.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""}`}
                 >
-                  <div className="flex items-center gap-2 font-mono text-[12px] text-gray-500 dark:text-[#6B7280] group-hover:text-[#F97316] transition-colors duration-200">
+                  <div className="flex items-center gap-2 font-mono text-[14px] text-gray-500 dark:text-[#6B7280] group-hover:text-[#F97316] transition-colors duration-200">
                     <span className="text-[#F97316]">{item.icon}</span>
                     {item.label}
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <span className="font-mono text-[12px] font-bold text-gray-900 dark:text-[#F0F4FF]">
+                    <span className="font-mono text-[14px] font-bold text-gray-900 dark:text-[#F0F4FF]">
                       {item.value}
                     </span>
                     <ChevronRight
@@ -325,7 +325,7 @@ export default function ProfileClient({
               <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm">
                 Personal Information
               </p>
-              <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+              <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
                 Your basic contact details
               </p>
             </div>
@@ -366,7 +366,7 @@ export default function ProfileClient({
               <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm">
                 Academic Information
               </p>
-              <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+              <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
                 Used for scholarship matching
               </p>
             </div>
@@ -383,7 +383,7 @@ export default function ProfileClient({
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280] tracking-widest flex items-center gap-1.5">
+                <label className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] tracking-widest flex items-center gap-1.5">
                   <BookOpen size={13} className="text-[#F97316]" />
                   STREAM
                 </label>
@@ -403,7 +403,7 @@ export default function ProfileClient({
                 )}
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280] tracking-widest flex items-center gap-1.5">
+                <label className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] tracking-widest flex items-center gap-1.5">
                   <Calendar size={13} className="text-[#F97316]" />
                   YEAR OF STUDY
                 </label>
@@ -466,7 +466,7 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280] tracking-widest flex items-center gap-1.5">
+      <label className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] tracking-widest flex items-center gap-1.5">
         <span className="text-[#F97316]">{icon}</span>
         {label}
       </label>
@@ -483,7 +483,7 @@ function Field({
             className="px-3.5 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] text-gray-900 dark:text-[#F0F4FF] font-mono text-sm placeholder:text-gray-300 dark:placeholder:text-white/20 focus:outline-none focus:border-[#F97316] transition-colors duration-200"
           />
           {hint && (
-            <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280]">
+            <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
               {hint}
             </p>
           )}
@@ -492,7 +492,7 @@ function Field({
         <div className="flex flex-col gap-0.5">
           <DisplayValue value={display} disabled={disabled} />
           {hint && disabled && (
-            <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280]">
+            <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
               {hint}
             </p>
           )}

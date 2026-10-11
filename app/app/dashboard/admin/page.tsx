@@ -21,8 +21,8 @@ export default async function AdminPage() {
   if (!profile?.is_admin) {
     return (
       <div className="flex flex-col items-center py-20 gap-3">
-        <p className="font-mono text-[14px] text-red-500 font-bold">Access Denied</p>
-        <p className="font-mono text-[12px] text-gray-400">
+        <p className="font-mono text-[16px] text-red-500 font-bold">Access Denied</p>
+        <p className="font-mono text-[14px] text-gray-400">
           Admin privileges required to access this page.
         </p>
       </div>

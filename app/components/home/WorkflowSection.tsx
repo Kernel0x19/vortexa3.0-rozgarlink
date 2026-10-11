@@ -84,7 +84,7 @@ export default function WorkflowSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="mb-10 sm:mb-14 lg:mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
+          <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[13px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
             <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
             WORKFLOW
           </div>
@@ -195,12 +195,12 @@ export default function WorkflowSection() {
               }`}
             >
               <p
-                className={`font-mono text-[10px] tracking-widest mb-1 ${activeStep > i ? "text-[#F97316]" : "text-gray-400 dark:text-[#6B7280]"} transition-all duration-500`}
+                className={`font-mono text-[12px] tracking-widest mb-1 ${activeStep > i ? "text-[#F97316]" : "text-gray-400 dark:text-[#6B7280]"} transition-all duration-500`}
               >
                 STEP {String(i + 1).padStart(2, "0")}
               </p>
               <p
-                className={`font-mono text-[11px] ${activeStep > i ? "text-gray-900 dark:text-[#F0F4FF]" : "text-gray-400 dark:text-[#6B7280]"} transition-all duration-500`}
+                className={`font-mono text-[13px] ${activeStep > i ? "text-gray-900 dark:text-[#F0F4FF]" : "text-gray-400 dark:text-[#6B7280]"} transition-all duration-500`}
               >
                 {step}
               </p>
@@ -241,7 +241,7 @@ function PipelineNode({
     >
       <div className="flex items-center justify-between mb-2 transition-all duration-500">
         <span
-          className={`font-mono text-[10px] tracking-widest px-2 py-0.5 border ${
+          className={`font-mono text-[12px] tracking-widest px-2 py-0.5 border ${
             active
               ? "border-[#F97316]/30 bg-[#F97316]/10 text-[#F97316] dark:text-[#fdba74]"
               : "border-black/10 dark:border-white/8 text-gray-400 dark:text-[#6B7280]"
@@ -262,7 +262,7 @@ function PipelineNode({
       >
         {label}
       </p>
-      <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] mt-0.5">
+      <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] mt-0.5">
         {sub}
       </p>
     </div>
@@ -301,11 +301,11 @@ function AgentNode({
       />
       <div>
         <p
-          className={`font-mono text-[12px] transition-colors duration-300 ${active ? "text-gray-900 dark:text-[#F0F4FF]" : "text-gray-400 dark:text-[#6B7280]"}`}
+          className={`font-mono text-[14px] transition-colors duration-300 ${active ? "text-gray-900 dark:text-[#F0F4FF]" : "text-gray-400 dark:text-[#6B7280]"}`}
         >
           {label}
         </p>
-        <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280]">
+        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
           {sub}
         </p>
       </div>

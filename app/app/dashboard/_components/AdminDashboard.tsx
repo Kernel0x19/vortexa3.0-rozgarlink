@@ -107,7 +107,7 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
     return (
       <div className="flex items-center justify-center py-20 gap-3">
         <Loader2 size={24} className="animate-spin text-[#F97316]" />
-        <span className="font-mono text-[13px] text-gray-400">
+        <span className="font-mono text-[15px] text-gray-400">
           Loading admin dashboard…
         </span>
       </div>
@@ -125,13 +125,13 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
             <Zap size={20} className="text-[#F97316]" />
             Admin Dashboard
           </h1>
-          <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1 transition-all duration-500">
+          <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] mt-1 transition-all duration-500">
             Platform analytics, connector health, and accuracy metrics
           </p>
         </div>
         <button
           onClick={() => fetchAll()}
-          className="flex items-center gap-1.5 px-3 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[11px] text-gray-500 hover:text-[#F97316] transition-all duration-500"
+          className="flex items-center gap-1.5 px-3 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[13px] text-gray-500 hover:text-[#F97316] transition-all duration-500"
         >
           <RefreshCw size={12} /> Refresh
         </button>
@@ -175,7 +175,7 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
           <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] transition-all duration-500  p-5 flex flex-col gap-2">
             <div className="flex items-center gap-2 text-gray-500 transition-all duration-500">
               <TrendingUp size={14} />
-              <span className="font-mono text-[11px] uppercase tracking-wide">
+              <span className="font-mono text-[13px] uppercase tracking-wide">
                 Conversion Rate
               </span>
             </div>
@@ -190,7 +190,7 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
           <div className="border border-black/10 dark:border-white/8 transition-all duration-500 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-2">
             <div className="flex items-center gap-2 text-gray-500">
               <Database size={14} />
-              <span className="font-mono text-[11px] uppercase tracking-wide">
+              <span className="font-mono text-[13px] uppercase tracking-wide">
                 Data Freshness
               </span>
             </div>
@@ -205,7 +205,7 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
             >
               {freshness.aggregate_freshness_score}%
             </p>
-            <p className="font-mono text-[10px] text-gray-400">
+            <p className="font-mono text-[12px] text-gray-400">
               {freshness.stale_connectors} / {freshness.total_connectors} stale
             </p>
           </div>
@@ -216,14 +216,14 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
           <div className="border border-black/10 dark:border-white/8 transition-all duration-500 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-2">
             <div className="flex items-center gap-2 text-gray-500">
               <Target size={14} />
-              <span className="font-mono text-[11px] uppercase tracking-wide">
+              <span className="font-mono text-[13px] uppercase tracking-wide">
                 Recommendation Precision
               </span>
             </div>
             <p className="font-mono text-2xl font-bold text-[#F97316]">
               {Math.round(accuracy.precision * 100)}%
             </p>
-            <p className="font-mono text-[10px] text-gray-400">
+            <p className="font-mono text-[12px] text-gray-400">
               {accuracy.feedback_breakdown.relevant} relevant /{" "}
               {accuracy.feedback_breakdown.total_evaluated} evaluated
             </p>
@@ -234,13 +234,13 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
       {/* Connector Status Table */}
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
+          <p className="font-mono text-[15px] font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
             Data Connectors
           </p>
           <button
             onClick={() => handleTrigger()}
             disabled={triggering !== null}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-[#F97316] text-white font-mono text-[11px] disabled:opacity-50 transition-all"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-[#F97316] text-white font-mono text-[13px] disabled:opacity-50 transition-all"
           >
             {triggering === "all" ? (
               <Loader2 size={12} className="animate-spin" />
@@ -255,19 +255,19 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
           <table className="w-full">
             <thead>
               <tr className="bg-gray-50 dark:bg-[#0F1117] border-b border-black/10 dark:border-white/8 transition-all duration-500">
-                <th className="text-left px-4 py-2.5 font-mono text-[11px] text-gray-500 uppercase">
+                <th className="text-left px-4 py-2.5 font-mono text-[13px] text-gray-500 uppercase">
                   Connector
                 </th>
-                <th className="text-left px-4 py-2.5 font-mono text-[11px] text-gray-500 uppercase">
+                <th className="text-left px-4 py-2.5 font-mono text-[13px] text-gray-500 uppercase">
                   Status
                 </th>
-                <th className="text-left px-4 py-2.5 font-mono text-[11px] text-gray-500 uppercase">
+                <th className="text-left px-4 py-2.5 font-mono text-[13px] text-gray-500 uppercase">
                   Last Run
                 </th>
-                <th className="text-right px-4 py-2.5 font-mono text-[11px] text-gray-500 uppercase">
+                <th className="text-right px-4 py-2.5 font-mono text-[13px] text-gray-500 uppercase">
                   Records
                 </th>
-                <th className="text-right px-4 py-2.5 font-mono text-[11px] text-gray-500 uppercase">
+                <th className="text-right px-4 py-2.5 font-mono text-[13px] text-gray-500 uppercase">
                   Action
                 </th>
               </tr>
@@ -277,7 +277,7 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
                 <tr>
                   <td
                     colSpan={5}
-                    className="text-center py-8 font-mono text-[12px] text-gray-400"
+                    className="text-center py-8 font-mono text-[14px] text-gray-400"
                   >
                     No connectors registered
                   </td>
@@ -289,13 +289,13 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
                     className="border-b border-black/5 dark:border-white/5 last:border-0 transition-all duration-500"
                   >
                     <td className="px-4 py-3">
-                      <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
+                      <p className="font-mono text-[15px] font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
                         {c.name}
                       </p>
                     </td>
                     <td className="px-4 py-3">
                       <span
-                        className={`flex items-center gap-1.5 font-mono text-[11px] ${
+                        className={`flex items-center gap-1.5 font-mono text-[13px] ${
                           c.is_stale
                             ? "text-amber-500"
                             : c.last_error
@@ -317,19 +317,19 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
                             : "Healthy"}
                       </span>
                     </td>
-                    <td className="px-4 py-3 font-mono text-[11px] text-gray-500">
+                    <td className="px-4 py-3 font-mono text-[13px] text-gray-500">
                       {c.last_run
                         ? new Date(c.last_run).toLocaleString()
                         : "Never"}
                     </td>
-                    <td className="px-4 py-3 text-right font-mono text-[12px] text-gray-700 dark:text-gray-300transition-all duration-500">
+                    <td className="px-4 py-3 text-right font-mono text-[14px] text-gray-700 dark:text-gray-300transition-all duration-500">
                       {c.records_processed}
                     </td>
                     <td className="px-4 py-3 text-right">
                       <button
                         onClick={() => handleTrigger(c.name)}
                         disabled={triggering !== null}
-                        className="flex items-center gap-1 px-2 py-1 border border-black/10 dark:border-white/8 font-mono text-[10px] text-gray-500 hover:text-[#F97316] ml-auto transition-all duration-500"
+                        className="flex items-center gap-1 px-2 py-1 border border-black/10 dark:border-white/8 font-mono text-[12px] text-gray-500 hover:text-[#F97316] ml-auto transition-all duration-500"
                       >
                         {triggering === c.name ? (
                           <Loader2 size={10} className="animate-spin" />
@@ -349,7 +349,7 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
         {/* Error Details */}
         {connectors.some((c) => c.last_error) && (
           <div className="flex flex-col gap-2">
-            <p className="font-mono text-[11px] text-red-500 uppercase">
+            <p className="font-mono text-[13px] text-red-500 uppercase">
               Error Logs
             </p>
             {connectors
@@ -359,10 +359,10 @@ export default function AdminDashboard({ userId, userEmail, token }: Props) {
                   key={c.name}
                   className="border border-red-500/20 bg-red-500/5 p-3"
                 >
-                  <p className="font-mono text-[12px] font-bold text-red-500">
+                  <p className="font-mono text-[14px] font-bold text-red-500">
                     {c.name}
                   </p>
-                  <p className="font-mono text-[11px] text-red-400 mt-1 whitespace-pre-wrap">
+                  <p className="font-mono text-[13px] text-red-400 mt-1 whitespace-pre-wrap">
                     {c.last_error}
                   </p>
                 </div>
@@ -387,7 +387,7 @@ function KpiCard({
     <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-4 flex flex-col gap-1 transition-all duration-500">
       <div className="flex items-center gap-2 text-gray-400 transition-all duration-500">
         {icon}
-        <span className="font-mono text-[10px] uppercase tracking-wide">
+        <span className="font-mono text-[12px] uppercase tracking-wide">
           {label}
         </span>
       </div>

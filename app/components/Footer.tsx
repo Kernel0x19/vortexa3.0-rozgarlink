@@ -95,7 +95,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 items-start">
           <div className="max-w-sm">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 bg-[#F97316] flex items-center justify-center font-mono text-[13px] font-medium text-white transition-all duration-500">
+              <div className="w-7 h-7 bg-[#F97316] flex items-center justify-center font-mono text-[15px] font-medium text-white transition-all duration-500">
                 RL
               </div>
               <span className="font-syne text-xl font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
@@ -123,7 +123,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <p className="font-mono text-[10px] tracking-widest text-gray-400 dark:text-[#6B7280] mb-4 transition-all duration-500">
+            <p className="font-mono text-[12px] tracking-widest text-gray-400 dark:text-[#6B7280] mb-4 transition-all duration-500">
               NAVIGATE
             </p>
             <div className="flex flex-col gap-3">
@@ -140,12 +140,12 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-16 pt-6 border-t border-black/10 dark:border-white/8 flex flex-col sm:flex-row items-center justify-between gap-4 transition-all duration-500">
-          <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+          <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
             © 2026 RozgarLink · Built by Team Aletheia for Vortexa 3.0
           </p>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+            <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
               All systems operational
             </p>
           </div>

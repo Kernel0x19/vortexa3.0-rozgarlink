@@ -83,7 +83,7 @@ export default function FeedbackWidget({
 
   if (submitted) {
     return (
-      <span className="flex items-center gap-1.5 font-mono text-[11px] text-green-500">
+      <span className="flex items-center gap-1.5 font-mono text-[13px] text-green-500">
         <Check size={12} /> Feedback sent
       </span>
     );
@@ -93,7 +93,7 @@ export default function FeedbackWidget({
     return (
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-1.5 px-2 py-1 border border-black/10 dark:border-white/8 font-mono text-[11px] text-gray-400 hover:text-[#F97316] transition-all"
+        className="flex items-center gap-1.5 px-2 py-1 border border-black/10 dark:border-white/8 font-mono text-[13px] text-gray-400 hover:text-[#F97316] transition-all"
       >
         <MessageSquare size={12} /> Rate
       </button>
@@ -103,7 +103,7 @@ export default function FeedbackWidget({
   return (
     <div className="border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] p-3 flex flex-col gap-2 animate-in fade-in">
       <div className="flex items-center justify-between">
-        <p className="font-mono text-[11px] text-gray-500">Rate this match</p>
+        <p className="font-mono text-[13px] text-gray-500">Rate this match</p>
         <button
           onClick={() => setOpen(false)}
           className="text-gray-400 hover:text-gray-600"
@@ -117,7 +117,7 @@ export default function FeedbackWidget({
           <button
             key={opt.type}
             onClick={() => setSelected(opt.type)}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 border font-mono text-[11px] transition-all ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 border font-mono text-[13px] transition-all ${
               selected === opt.type
                 ? `${opt.color} bg-opacity-10`
                 : "border-black/10 dark:border-white/8 text-gray-400"
@@ -132,13 +132,13 @@ export default function FeedbackWidget({
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         placeholder="Optional comment…"
-        className="w-full px-3 py-1.5 border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] font-mono text-[11px] outline-none"
+        className="w-full px-3 py-1.5 border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] font-mono text-[13px] outline-none"
       />
 
       <button
         onClick={handleSubmit}
         disabled={!selected || submitting}
-        className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#F97316] text-white font-mono text-[11px] disabled:opacity-50 transition-all"
+        className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#F97316] text-white font-mono text-[13px] disabled:opacity-50 transition-all"
       >
         {submitting ? (
           <Loader2 size={12} className="animate-spin" />

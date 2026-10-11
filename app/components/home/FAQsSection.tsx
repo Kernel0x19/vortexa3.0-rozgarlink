@@ -44,7 +44,7 @@ export default function FAQSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr] gap-8 sm:gap-12 lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
+            <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[13px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
               <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
               FAQ
             </div>
