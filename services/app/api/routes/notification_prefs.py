@@ -15,6 +15,7 @@ class NotificationPreferencesSchema(BaseModel):
     email_enabled: bool = True
     sms_enabled: bool = False
     push_enabled: bool = True
+    voice_enabled: bool = False
     deadline_reminders: bool = True
     new_matches: bool = True
     status_updates: bool = True
@@ -32,6 +33,7 @@ def get_preferences(
         email_enabled=pref.email_enabled,
         sms_enabled=pref.sms_enabled,
         push_enabled=pref.push_enabled,
+        voice_enabled=pref.voice_enabled,
         deadline_reminders=pref.deadline_reminders,
         new_matches=pref.new_matches,
         status_updates=pref.status_updates,
@@ -52,6 +54,7 @@ def update_preferences(
     pref.email_enabled = body.email_enabled
     pref.sms_enabled = body.sms_enabled
     pref.push_enabled = body.push_enabled
+    pref.voice_enabled = body.voice_enabled
     pref.deadline_reminders = body.deadline_reminders
     pref.new_matches = body.new_matches
     pref.status_updates = body.status_updates
@@ -64,6 +67,7 @@ def update_preferences(
         email_enabled=pref.email_enabled,
         sms_enabled=pref.sms_enabled,
         push_enabled=pref.push_enabled,
+        voice_enabled=pref.voice_enabled,
         deadline_reminders=pref.deadline_reminders,
         new_matches=pref.new_matches,
         status_updates=pref.status_updates,

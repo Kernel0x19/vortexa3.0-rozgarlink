@@ -155,3 +155,80 @@ def upsert_internship(db: Session, data: Dict[str, Any]) -> Opportunity:
         logger.debug(f"Vector indexing skipped: {e}")
 
     return obj
+
+
+def upsert_placement(db: Session, data: Dict[str, Any]) -> Opportunity:
+    """Normalize, deduplicate, and upsert a full-time job (placement) opportunity."""
+    source = data.get("source", "naukri")
+    ext_id = str(data.get("external_id") or data.get("id") or "")
+    source_url = data.get("source_url") or data.get("application_url")
+
+    deadline = data.get("deadline")
+    if isinstance(deadline, str) and deadline:
+        try:
+            deadline = datetime.strptime(deadline[:10], "%Y-%m-%d").date()
+        except Exception:
+            deadline = None
+
+    q = db.query(Opportunity).filter_by(source=source, external_id=ext_id)
+    existing = q.first()
+    if not existing and source_url:
+        existing = db.query(Opportunity).filter_by(source_url=source_url).first()
+
+    raw_data = data.get("raw_data") or {
+        "company": data.get("company"),
+        "location": data.get("location"),
+        "work_type": data.get("work_type", "Onsite"),
+        "experience": data.get("experience", "Fresher"),
+        "organization": data.get("company"),
+    }
+
+    if existing:
+        existing.title = data.get("title", existing.title)
+        existing.description = data.get("description", existing.description)
+        existing.amount_min = float(data.get("amount_min", existing.amount_min or 0))
+        existing.amount_max = float(data.get("amount_max", existing.amount_max or 0))
+        if deadline:
+            existing.deadline = deadline
+        existing.eligibility_rules = data.get("eligibility_rules", existing.eligibility_rules or {})
+        existing.documents_required = data.get("documents_required", existing.documents_required or [])
+        if source_url and source_url != existing.source_url:
+            taken = db.query(Opportunity).filter_by(source_url=source_url).first()
+            if not taken or taken.id == existing.id:
+                existing.source_url = source_url
+        existing.application_url = source_url or existing.application_url
+        existing.tags = data.get("tags", existing.tags or [])
+        existing.raw_data = raw_data
+        existing.is_active = True
+        existing.last_synced_at = datetime.utcnow()
+        obj = existing
+    else:
+        obj = Opportunity(
+            external_id=ext_id,
+            source=source,
+            source_url=source_url,
+            category=OpportunityCategory.PLACEMENT,
+            title=data.get("title", "Untitled Job"),
+            description=data.get("description", ""),
+            amount_min=float(data.get("amount_min", 0)),
+            amount_max=float(data.get("amount_max", 0)),
+            deadline=deadline,
+            eligibility_rules=data.get("eligibility_rules", {}),
+            documents_required=data.get("documents_required", ["Resume"]),
+            application_url=source_url,
+            tags=data.get("tags", []),
+            raw_data=raw_data,
+            is_active=True,
+            last_synced_at=datetime.utcnow(),
+        )
+        db.add(obj)
+
+    # Index in Chroma vector store if possible
+    try:
+        from app.knowledge.hybrid_rag import HybridRAG
+        rag = HybridRAG()
+        rag.index_opportunity(obj)
+    except Exception as e:
+        logger.debug(f"Vector indexing (placement) skipped: {e}")
+
+    return obj

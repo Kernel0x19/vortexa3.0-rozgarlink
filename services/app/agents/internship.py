@@ -253,11 +253,13 @@ class InternshipAgent:
         return self.workflow.auto_advance_eligibility(db, app, eligibility)
 
     def scan_deadlines(self, db: Session) -> int:
-        """Create deadline reminder notifications for saved/active internship applications."""
+        """Dispatch 7-day and 2-day reminders for tracked internships."""
+        import asyncio
         from datetime import date, timedelta
         from app.db.models import Notification
+        from app.notifications.orchestrator import NotificationOrchestrator
+        from app.notifications.service import NotificationType
 
-        threshold = date.today() + timedelta(days=14)
         count = 0
         apps = (
             db.query(Application)
@@ -266,29 +268,29 @@ class InternshipAgent:
                 Opportunity.category == OpportunityCategory.INTERNSHIP,
                 Application.saved.is_(True) | Application.state.notin_([ApplicationState.COMPLETED, ApplicationState.REJECTED]),
                 Opportunity.deadline.isnot(None),
-                Opportunity.deadline <= threshold,
-                Opportunity.deadline >= date.today(),
+                Opportunity.deadline.in_([date.today() + timedelta(days=7), date.today() + timedelta(days=2)]),
             )
             .all()
         )
         for app in apps:
             opp = app.opportunity
             days = (opp.deadline - date.today()).days
+            title = f"Internship deadline in {days} days: {opp.title[:80]}"
             existing = (
                 db.query(Notification)
-                .filter_by(user_id=app.user_id, title=f"Internship Deadline: {opp.title[:80]}")
+                .filter_by(user_id=app.user_id, title=title)
                 .first()
             )
             if existing:
                 continue
-            notif = Notification(
+            asyncio.run(NotificationOrchestrator(db).send_notification(
                 user_id=app.user_id,
-                title=f"Internship Deadline: {opp.title[:80]}",
+                notification_type=NotificationType.DEADLINE_REMINDER,
+                title=title,
                 body=f"{opp.title} application closes in {days} days. Make sure your profile and documents are ready.",
-                channel="in_app",
-            )
-            db.add(notif)
+                metadata={"opportunity_id": opp.id, "deadline_days": days, "kind": "internship"},
+                include_voice=days == 2,
+            ))
             count += 1
-        db.commit()
         return count
 

@@ -39,3 +39,16 @@ async def get_student_profile(
     db: Session = Depends(get_db),
 ) -> StudentProfile | None:
     return db.query(StudentProfile).filter_by(user_id=user.id).first()
+
+
+async def get_current_user_optional(
+    db: Session = Depends(get_db),
+    authorization: str | None = Header(None),
+    x_user_id: str | None = Header(None, alias="X-User-Id"),
+    x_user_email: str | None = Header(None, alias="X-User-Email"),
+) -> User | None:
+    try:
+        return await get_current_user(db, authorization, x_user_id, x_user_email)
+    except HTTPException:
+        return None
+

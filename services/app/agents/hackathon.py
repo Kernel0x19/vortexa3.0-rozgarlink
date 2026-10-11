@@ -22,7 +22,9 @@ from typing import Optional
 
 from sqlalchemy.orm import Session
 
-from app.db.models import Hackathon
+from app.db.models import Hackathon, HackathonSubscription, Notification
+from app.notifications.orchestrator import NotificationOrchestrator
+from app.notifications.service import NotificationType
 
 logger = logging.getLogger(__name__)
 
@@ -115,3 +117,34 @@ class HackathonAgent:
         paginated = all_rows[offset : offset + limit]
 
         return {"items": paginated, "total": total}
+
+    def scan_deadlines(self, db: Session) -> int:
+        """Dispatch 7-day and 2-day alerts for followed hackathons."""
+        import asyncio
+
+        today = date.today()
+        subscriptions = (
+            db.query(HackathonSubscription, Hackathon)
+            .join(Hackathon, Hackathon.id == HackathonSubscription.hackathon_id)
+            .filter(
+                Hackathon.is_active.is_(True),
+                Hackathon.registration_deadline.in_([today + timedelta(days=7), today + timedelta(days=2)]),
+            )
+            .all()
+        )
+        count = 0
+        for subscription, hackathon in subscriptions:
+            days = (hackathon.registration_deadline - today).days
+            title = f"Hackathon deadline in {days} days: {hackathon.title[:80]}"
+            if db.query(Notification).filter_by(user_id=subscription.user_id, title=title).first():
+                continue
+            asyncio.run(NotificationOrchestrator(db).send_notification(
+                user_id=subscription.user_id,
+                notification_type=NotificationType.DEADLINE_REMINDER,
+                title=title,
+                body=f"Registration for {hackathon.title} closes in {days} days.",
+                metadata={"hackathon_id": hackathon.id, "deadline_days": days, "kind": "hackathon"},
+                include_voice=days == 2,
+            ))
+            count += 1
+        return count

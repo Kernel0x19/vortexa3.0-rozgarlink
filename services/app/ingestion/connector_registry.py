@@ -19,6 +19,11 @@ from app.ingestion.connectors import (
     InternshalaConnector,
     AICTEInternshipConnector,
 )
+from app.ingestion.placement_connectors import (
+    NaukriJobsConnector,
+    LinkedInJobsConnector,
+    WellfoundJobsConnector,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -31,6 +36,11 @@ CONNECTOR_MAP: Dict[str, Type[BaseConnector]] = {
     "internshala": InternshalaConnector,
     "aicte": AICTEInternshipConnector,
     "internships": InternshalaConnector,
+    # ── placement / jobs ──────────────────────────────────
+    "naukri": NaukriJobsConnector,
+    "linkedin": LinkedInJobsConnector,
+    "wellfound": WellfoundJobsConnector,
+    "placements": NaukriJobsConnector,  # default alias
 }
 
 
@@ -98,7 +108,7 @@ class ConnectorOrchestrator:
         """Run all configured connectors."""
         connectors = self.config.get(
             "enabled_connectors",
-            ["unstop", "devfolio", "mlh", "internshala", "aicte"],
+            ["unstop", "devfolio", "mlh", "internshala", "aicte", "naukri", "linkedin", "wellfound"],
         )
         results = []
         for name in connectors:

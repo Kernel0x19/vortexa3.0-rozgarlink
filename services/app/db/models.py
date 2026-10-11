@@ -244,6 +244,7 @@ class NotificationPreference(Base):
     email_enabled: Mapped[bool] = mapped_column(Boolean, default=True)
     sms_enabled: Mapped[bool] = mapped_column(Boolean, default=False)
     push_enabled: Mapped[bool] = mapped_column(Boolean, default=True)
+    voice_enabled: Mapped[bool] = mapped_column(Boolean, default=False)
     deadline_reminders: Mapped[bool] = mapped_column(Boolean, default=True)
     new_matches: Mapped[bool] = mapped_column(Boolean, default=True)
     status_updates: Mapped[bool] = mapped_column(Boolean, default=True)
@@ -281,6 +282,19 @@ class DeviceToken(Base):
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+class HackathonSubscription(Base):
+    """Hackathons a user explicitly chose to receive deadline reminders for."""
+
+    __tablename__ = "hackathon_subscriptions"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    user_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), index=True)
+    hackathon_id: Mapped[str] = mapped_column(String(36), ForeignKey("hackathons.id"), index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+    __table_args__ = (UniqueConstraint("user_id", "hackathon_id", name="uq_user_hackathon_subscription"),)
 
 
 class DeadlineReminder(Base):

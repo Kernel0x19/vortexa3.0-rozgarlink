@@ -37,10 +37,12 @@ def scan_deadlines(
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
+    from app.agents.hackathon import HackathonAgent
     from app.agents.internship import InternshipAgent
 
-    count = InternshipAgent().scan_deadlines(db)
-    return {"notifications_created": count}
+    internships = InternshipAgent().scan_deadlines(db)
+    hackathons = HackathonAgent().scan_deadlines(db)
+    return {"notifications_created": internships + hackathons, "internships": internships, "hackathons": hackathons}
 
 
 @router.get("/feedback-summary")

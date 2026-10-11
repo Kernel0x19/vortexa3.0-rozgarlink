@@ -58,7 +58,7 @@ class EmailNotificationService(NotificationService):
                 'status_code': 400
             }
             
-        subject = message.get('subject', 'EduPilot Notification')
+        subject = message.get('subject', 'RozgarLink Notification')
         body = message.get('body', '')
         html = message.get('html', f'<p>{body}</p>')
         

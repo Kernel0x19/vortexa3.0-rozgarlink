@@ -20,7 +20,7 @@ from sqlalchemy.orm import Session
 
 from app.agents.hackathon import HackathonAgent
 from app.api.deps import get_current_user
-from app.db.models import Hackathon, User
+from app.db.models import Hackathon, HackathonSubscription, User
 from app.db.session import get_db
 
 router = APIRouter(prefix="/hackathons", tags=["hackathons"])
@@ -139,3 +139,26 @@ def get_hackathon(
     if not h:
         raise HTTPException(status_code=404, detail="Hackathon not found")
     return HackathonResponse.from_orm_safe(h)
+
+
+@router.post("/{hackathon_id}/follow", status_code=204)
+def follow_hackathon(
+    hackathon_id: str,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    if not db.query(Hackathon).filter_by(id=hackathon_id, is_active=True).first():
+        raise HTTPException(status_code=404, detail="Hackathon not found")
+    if not db.query(HackathonSubscription).filter_by(user_id=user.id, hackathon_id=hackathon_id).first():
+        db.add(HackathonSubscription(user_id=user.id, hackathon_id=hackathon_id))
+        db.commit()
+
+
+@router.delete("/{hackathon_id}/follow", status_code=204)
+def unfollow_hackathon(
+    hackathon_id: str,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    db.query(HackathonSubscription).filter_by(user_id=user.id, hackathon_id=hackathon_id).delete()
+    db.commit()

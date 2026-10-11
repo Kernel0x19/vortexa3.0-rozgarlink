@@ -13,7 +13,7 @@ from datetime import datetime
 
 from sqlalchemy.orm import Session
 
-from app.db.models import NotificationPreference, NotificationHistory, User
+from app.db.models import Notification, NotificationPreference, NotificationHistory, User
 from app.notifications.service import NotificationChannel, NotificationType
 from app.notifications.email import EmailNotificationService
 from app.notifications.sms import SMSNotificationService
@@ -36,13 +36,20 @@ class NotificationOrchestrator:
         self.push_service = PushNotificationService()
         self.voice_service = VoiceNotificationService()
 
-    def get_user_channels(self, user_id: str, notification_type: NotificationType) -> List[NotificationChannel]:
+    def get_user_channels(self, user_id: str, notification_type: NotificationType, include_voice: bool = False) -> List[NotificationChannel]:
         """Determine enabled channels for user and notification type."""
         pref = self.db.query(NotificationPreference).filter_by(user_id=user_id).first()
         
         if not pref:
             # Default preferences: Email and In-App enabled
             return [NotificationChannel.EMAIL, NotificationChannel.IN_APP]
+
+        if notification_type == NotificationType.DEADLINE_REMINDER and not pref.deadline_reminders:
+            return []
+        if notification_type == NotificationType.NEW_MATCH and not pref.new_matches:
+            return []
+        if notification_type == NotificationType.STATUS_UPDATE and not pref.status_updates:
+            return []
             
         enabled = [NotificationChannel.IN_APP]
         
@@ -52,11 +59,7 @@ class NotificationOrchestrator:
             enabled.append(NotificationChannel.SMS)
         if pref.push_enabled:
             enabled.append(NotificationChannel.PUSH)
-        # Voice calls enabled for urgent deadline reminders (2-day)
-        if hasattr(pref, 'voice_enabled') and pref.voice_enabled:
-            enabled.append(NotificationChannel.VOICE)
-        elif notification_type == NotificationType.DEADLINE_REMINDER:
-            # Auto-enable voice for critical 2-day deadlines even if not explicitly set
+        if include_voice and pref.voice_enabled:
             enabled.append(NotificationChannel.VOICE)
             
         return enabled
@@ -67,7 +70,8 @@ class NotificationOrchestrator:
         notification_type: NotificationType,
         title: str,
         body: str,
-        metadata: Optional[Dict[str, Any]] = None
+        metadata: Optional[Dict[str, Any]] = None,
+        include_voice: bool = False,
     ) -> Dict[str, Any]:
         """Send multi-channel notification to a user based on preferences.
         
@@ -79,14 +83,20 @@ class NotificationOrchestrator:
             metadata: Optional additional data (e.g. opportunity_id)
         """
         user = self.db.query(User).filter_by(id=user_id).first()
-        channels = self.get_user_channels(user_id, notification_type)
+        channels = self.get_user_channels(user_id, notification_type, include_voice)
         results = {}
         
         for channel in channels:
             delivery_status = "sent"
             error_msg = None
             
-            if channel == NotificationChannel.EMAIL and user and user.email:
+            if channel == NotificationChannel.IN_APP:
+                self.db.add(Notification(
+                    user_id=user_id, title=title, body=body,
+                    channel=NotificationChannel.IN_APP.value, sent_at=datetime.utcnow(),
+                ))
+                results['in_app'] = {'success': True}
+            elif channel == NotificationChannel.EMAIL and user and user.email:
                 res = await self.email_service.send(
                     user.email,
                     {'subject': title, 'body': body}
@@ -119,7 +129,7 @@ class NotificationOrchestrator:
             elif channel == NotificationChannel.VOICE and user and user.phone_number:
                 # Voice calls for critical deadline reminders
                 # Use short, clear message for Text-to-Speech
-                voice_message = f"Hello! This is EduPilot calling to remind you about {title}. {body}"
+                voice_message = f"Hello! This is RozgarLink calling to remind you about {title}. {body}"
                 res = await self.voice_service.send(
                     user.phone_number,
                     {
@@ -133,6 +143,10 @@ class NotificationOrchestrator:
                 if not res.get('success'):
                     delivery_status = "failed"
                     error_msg = res.get('error')
+
+            elif channel != NotificationChannel.IN_APP:
+                delivery_status = "failed"
+                error_msg = "Recipient details are unavailable"
 
             # Log to notification history database table
             recipient_id = ""
