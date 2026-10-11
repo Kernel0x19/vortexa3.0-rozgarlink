@@ -52,7 +52,7 @@ const Page = () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+        redirectTo: `https://vortexa30-rozgarlink-seven.vercel.app/auth/callback`,
       },
     });
 
