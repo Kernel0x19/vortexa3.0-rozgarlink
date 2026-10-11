@@ -5,18 +5,19 @@ import {
   User,
   ClipboardList,
   ArrowRight,
+  Sparkles,
 } from "lucide-react";
 
 const actions = [
   {
-    href: "/dashboard/search",
-    label: "Find opportunities",
+    href: "/dashboard/placements",
+    label: "Explore placements",
     icon: <Search size={15} />,
   },
   {
-    href: "/dashboard/skill-gaps",
-    label: "View skill gaps",
-    icon: <BookOpen size={15} />,
+    href: "/dashboard/what-if",
+    label: "What-If Simulator",
+    icon: <Sparkles size={15} />,
   },
   {
     href: "/dashboard/profile",

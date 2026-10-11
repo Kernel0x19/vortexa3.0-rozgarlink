@@ -18,6 +18,7 @@ import {
   ChevronUp,
   Loader2,
   Tag,
+  Bell,
 } from "lucide-react";
 import type { HackathonItem } from "@/lib/api/api";
 
@@ -578,7 +579,14 @@ export default function HackathonsClient({ userId, userEmail, token }: Props) {
             {query ? ` for "${query}"` : ""}
           </p>
           {items.map((item) => (
-            <HackathonCard key={item.id} item={item} />
+            <HackathonCard
+              key={item.id}
+              item={item}
+              userId={userId}
+              userEmail={userEmail}
+              token={token}
+              apiBase={apiBase}
+            />
           ))}
         </div>
       )}
@@ -612,8 +620,22 @@ function getSafeHackathonLink(item: HackathonItem): string {
 
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
-function HackathonCard({ item }: { item: HackathonItem }) {
+function HackathonCard({
+  item,
+  userId,
+  userEmail,
+  token,
+  apiBase,
+}: {
+  item: HackathonItem;
+  userId: string;
+  userEmail: string;
+  token?: string;
+  apiBase: string;
+}) {
   const [expanded, setExpanded] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const [subscribing, setSubscribing] = useState(false);
   const safeLink = getSafeHackathonLink(item);
 
   const hasPrize = item.prize_pool > 0;
@@ -652,6 +674,23 @@ function HackathonCard({ item }: { item: HackathonItem }) {
         : daysLeft <= 21
           ? "text-amber-500"
           : "text-gray-500";
+
+  async function followForReminders() {
+    setSubscribing(true);
+    try {
+      const response = await fetch(`${apiBase}/api/v1/hackathons/${item.id}/follow`, {
+        method: "POST",
+        headers: {
+          "X-User-Id": userId,
+          "X-User-Email": userEmail,
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+      });
+      if (response.ok) setSubscribed(true);
+    } finally {
+      setSubscribing(false);
+    }
+  }
 
   return (
     <div className="border border-black/10 dark:border-white/8 bg-white dark:bg-[#0F1117] flex flex-col">
@@ -786,6 +825,17 @@ function HackathonCard({ item }: { item: HackathonItem }) {
           <span className="font-mono text-[13px] text-gray-400 italic">
             No link available
           </span>
+        )}
+        {item.registration_deadline && (
+          <button
+            type="button"
+            onClick={followForReminders}
+            disabled={subscribed || subscribing}
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-[#F97316]/40 text-[#F97316] font-mono text-[11px] hover:bg-[#F97316]/8 disabled:opacity-60"
+          >
+            <Bell size={11} />
+            {subscribing ? "Saving…" : subscribed ? "Alerts enabled" : "Get deadline alerts"}
+          </button>
         )}
       </div>
     </div>

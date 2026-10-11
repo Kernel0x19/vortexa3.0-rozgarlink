@@ -145,17 +145,17 @@ export default async function ApplicationsAndSaved({
         <div className="flex items-center justify-between px-5 py-4 border-b border-black/10 dark:border-white/8 transition-all duration-500">
           <div>
             <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm transition-all duration-500">
-              Skill Gaps
+              What-If &amp; Skill Gaps
             </p>
-            <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
-              From opportunities you&apos;re interested in
+            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
+              Career Impact Lab · Counterfactual Simulator
             </p>
           </div>
           <Link
-            href="/dashboard/skill-gaps"
-            className="font-mono text-[13px] text-[#F97316] hover:underline flex items-center gap-1 transition-all duration-500"
+            href="/dashboard/what-if"
+            className="font-mono text-[11px] text-[#F97316] hover:underline flex items-center gap-1 transition-all duration-500"
           >
-            View all <ChevronRight size={12} />
+            Launch Lab <ChevronRight size={12} />
           </Link>
         </div>
         {skillGaps.length === 0 ? (

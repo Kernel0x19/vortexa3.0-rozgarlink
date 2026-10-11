@@ -6,6 +6,7 @@ import {
   Mail,
   Smartphone,
   MonitorSpeaker,
+  PhoneCall,
   Calendar,
   Sparkles,
   Activity,
@@ -43,6 +44,12 @@ const CHANNEL_TOGGLES = [
     label: "Push Notifications",
     desc: "Browser / mobile push via FCM",
   },
+  {
+    key: "voice_enabled" as const,
+    icon: <PhoneCall size={15} />,
+    label: "2-Day Deadline Calls",
+    desc: "Receive an automated call for critical deadlines",
+  },
 ];
 
 const TYPE_TOGGLES = [
@@ -70,6 +77,7 @@ const DEFAULT_PREFS: NotificationPreferences = {
   email_enabled: true,
   sms_enabled: false,
   push_enabled: true,
+  voice_enabled: false,
   deadline_reminders: true,
   new_matches: true,
   status_updates: true,

@@ -9,7 +9,6 @@ import {
   Briefcase,
   BookOpen,
   ClipboardList,
-  Search,
   Bell,
   User,
   LogOut,
@@ -17,6 +16,8 @@ import {
   Trophy,
   FlaskConical,
   MessageSquare,
+  Building2,
+  Sparkles,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -27,14 +28,14 @@ const NAV = [
     label: "Dashboard",
   },
   {
-    href: "/dashboard/search",
-    icon: <Search size={17} />,
-    label: "Opportunities",
-  },
-  {
     href: "/dashboard/internships",
     icon: <Briefcase size={17} />,
     label: "Internships",
+  },
+  {
+    href: "/dashboard/placements",
+    icon: <Building2 size={17} />,
+    label: "Placements",
   },
   {
     href: "/dashboard/hackathons",
@@ -47,19 +48,14 @@ const NAV = [
     label: "Chat",
   },
   {
-    href: "/dashboard/matches",
-    icon: <Briefcase size={17} />,
-    label: "My Matches",
-  },
-  {
     href: "/dashboard/applications",
     icon: <ClipboardList size={17} />,
     label: "Applications",
   },
   {
-    href: "/dashboard/skill-gaps",
-    icon: <BookOpen size={17} />,
-    label: "Skill Gaps",
+    href: "/dashboard/what-if",
+    icon: <Sparkles size={17} />,
+    label: "What-If Simulator",
   },
   {
     href: "/dashboard/profile",

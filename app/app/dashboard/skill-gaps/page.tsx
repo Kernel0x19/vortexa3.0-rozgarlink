@@ -1,13 +1,49 @@
-export default function SkillGapsPage() {
+export const runtime = "edge";
+import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
+import WhatIfSimulatorClient from "../_components/WhatIfSimulatorClient";
+
+export const dynamic = "force-dynamic";
+
+export default async function SkillGapsPage() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) redirect("/auth/login");
+
+  let token = "";
+  try {
+    const originalWarn = console.warn;
+    console.warn = (...args: unknown[]) => {
+      if (typeof args[0] === "string" && args[0].includes("getSession()")) return;
+      originalWarn(...args);
+    };
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    console.warn = originalWarn;
+    token = session?.access_token ?? "";
+  } catch {
+    token = "";
+  }
+
   return (
     <div className="flex flex-col gap-6 max-w-300 transition-all duration-500">
       <div>
-        <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-xl">Skill Gaps</p>
-        <p className="font-mono text-[14px] text-gray-400 dark:text-[#6B7280] mt-1">
-          Skills you need for saved or interested opportunities · Suggested learning pathways
+        <h1 className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-xl">
+          Skill Gaps &amp; Career Impact Lab
+        </h1>
+        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
+          Counterfactual What-If Simulator · Real-time opportunity eligibility recalculation · High-impact skill pathways
         </p>
       </div>
-      {/* SkillGapsClient component renders here */}
+
+      <WhatIfSimulatorClient
+        userId={user.id}
+        userEmail={user.email ?? ""}
+        token={token}
+      />
     </div>
   );
 }

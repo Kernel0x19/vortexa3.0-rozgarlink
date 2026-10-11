@@ -34,9 +34,12 @@ export type RecommendationResponse = {
 };
 
 export type DashboardStats = {
-  scholarships_matched: number;
-  internships_available: number;
-  documents_uploaded: number;
+  eligible_matches?: number;
+  opportunities_available?: number;
+  skill_gaps_identified?: number;
+  scholarships_matched?: number;
+  internships_available?: number;
+  documents_uploaded?: number;
   applications_tracked: number;
   readiness_score: number;
 };
@@ -444,6 +447,7 @@ export type NotificationPreferences = {
   email_enabled: boolean;
   sms_enabled: boolean;
   push_enabled: boolean;
+  voice_enabled: boolean;
   deadline_reminders: boolean;
   new_matches: boolean;
   status_updates: boolean;
@@ -636,4 +640,223 @@ export function getHackathons(
     userEmail,
     token,
   });
+}
+
+// -- Placements / Jobs --------------------------------------------------------
+
+export type JobOpportunity = {
+  id: string;
+  source: string;
+  title: string;
+  description: string | null;
+  company: string | null;
+  location: string | null;
+  work_type: string | null;
+  experience: string | null;
+  salary_lpa: number | null;
+  amount_min: number | null;
+  amount_max: number | null;
+  deadline: string | null;
+  application_url: string | null;
+  tags: string[];
+  documents_required: string[];
+};
+
+export type JobMatchResult = {
+  opportunity: JobOpportunity;
+  match_score: number;
+};
+
+export type JobRecommendationResponse = {
+  matches: JobMatchResult[];
+  total: number;
+  readiness_score: number;
+};
+
+export function getJobRecommendations(
+  userId: string,
+  userEmail?: string,
+  params?: {
+    query?: string;
+    location?: string;
+    work_type?: string;
+    salary_min?: number;
+    experience?: string;
+    source?: string;
+    limit?: number;
+  },
+  token?: string,
+) {
+  const p = new URLSearchParams();
+  if (params?.query) p.set("query", params.query);
+  if (params?.location) p.set("location", params.location);
+  if (params?.work_type) p.set("work_type", params.work_type);
+  if (params?.salary_min) p.set("salary_min", String(params.salary_min));
+  if (params?.experience) p.set("experience", params.experience);
+  if (params?.source) p.set("source", params.source);
+  p.set("limit", String(params?.limit ?? 30));
+  return apiFetch<JobRecommendationResponse>(`/api/v1/placements/recommendations?${p}`, {
+    userId,
+    userEmail,
+    token,
+  });
+}
+
+export function saveJob(
+  userId: string,
+  opportunityId: string,
+  userEmail?: string,
+  token?: string,
+) {
+  return apiFetch<Application>(`/api/v1/placements/applications`, {
+    method: "POST",
+    body: JSON.stringify({ opportunity_id: opportunityId, saved: true }),
+    userId,
+    userEmail,
+    token,
+  });
+}
+
+export function getJobApplications(
+  userId: string,
+  userEmail?: string,
+  token?: string,
+) {
+  return apiFetch<Application[]>(`/api/v1/placements/applications`, {
+    userId,
+    userEmail,
+    token,
+  });
+}
+// ── Career Impact Lab — What-If Simulator ────────────────────────────────────
+
+export type OpportunityEvaluation = {
+  id: string;
+  title: string;
+  category: "placement" | "internship";
+  source: string;
+  company: string;
+  location: string;
+  work_type: string;
+  deadline: string | null;
+  application_url: string | null;
+  baseline_eligible: boolean;
+  simulated_eligible: boolean;
+  status_change:
+    | "NEWLY_ELIGIBLE"
+    | "BOOSTED"
+    | "LOST_ELIGIBILITY"
+    | "UNCHANGED_ELIGIBLE"
+    | "INELIGIBLE";
+  baseline_score: number;
+  simulated_score: number;
+  score_delta: number;
+  mandatory_passed: string[];
+  mandatory_failed: string[];
+  mandatory_skill_gaps: string[];
+  optional_skill_gaps: string[];
+  matched_skills: string[];
+  action_plan: string;
+};
+
+export type SkillImpactItem = {
+  skill: string;
+  roles_unlocked_count: number;
+  mandatory_in_roles_count: number;
+  preferred_in_roles_count: number;
+  average_score_boost: number;
+  impact_tier: "HIGH" | "MEDIUM" | "NICHE";
+  sample_roles: string[];
+};
+
+export type ScenarioComparisonItem = {
+  scenario_id: string;
+  title: string;
+  description: string;
+  added_skills: string[];
+  eligible_count: number;
+  newly_unlocked_count: number;
+  avg_match_score: number;
+  remaining_mandatory_gaps_count: number;
+  top_unlocks: string[];
+};
+
+export type WhatIfSimulationResponse = {
+  baseline_eligible_count: number;
+  simulated_eligible_count: number;
+  newly_unlocked_count: number;
+  boosted_count: number;
+  lost_eligibility_count: number;
+  baseline_avg_score: number;
+  simulated_avg_score: number;
+  avg_score_boost: number;
+  remaining_critical_gaps_count: number;
+  total_evaluated_opportunities: number;
+  opportunities: OpportunityEvaluation[];
+  skill_impact_leaderboard: SkillImpactItem[];
+  mandatory_gaps_summary: string[];
+  optional_gaps_summary: string[];
+  scenarios: ScenarioComparisonItem[];
+  active_profile_snapshot: Record<string, any>;
+  available_courses: {
+    key: string;
+    title: string;
+    provider: string;
+    duration: string;
+    category: string;
+    skills: string[];
+  }[];
+};
+
+export type WhatIfRequest = {
+  user_id?: string;
+  skills: string[];
+  skill_proficiencies?: Record<string, string>;
+  completed_courses?: string[];
+  preferred_cities?: string[];
+  preferred_work_modes?: string[];
+  min_stipend?: number;
+  hypothetical_cgpa?: number;
+  hypothetical_stream?: string;
+  hypothetical_degree?: string;
+  hypothetical_year_of_study?: number;
+};
+
+export function runWhatIfSimulation(
+  request: WhatIfRequest,
+  userId?: string,
+  userEmail?: string,
+  token?: string,
+) {
+  return apiFetch<WhatIfSimulationResponse>(`/api/v1/simulation/what-if`, {
+    method: "POST",
+    body: JSON.stringify(request),
+    userId,
+    userEmail,
+    token,
+  });
+}
+
+export function applySimulatedProfileChanges(
+  params: {
+    user_id: string;
+    skills: string[];
+    skill_proficiencies?: Record<string, string>;
+    preferred_cities?: string[];
+    preferred_work_modes?: string[];
+    confirmed: boolean;
+  },
+  userEmail?: string,
+  token?: string,
+) {
+  return apiFetch<{ status: string; message: string }>(
+    `/api/v1/simulation/apply-to-profile`,
+    {
+      method: "POST",
+      body: JSON.stringify(params),
+      userId: params.user_id,
+      userEmail,
+      token,
+    },
+  );
 }
