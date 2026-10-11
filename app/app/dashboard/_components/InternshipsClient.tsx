@@ -582,19 +582,15 @@ function InternshipCard({
   // postings and currently lead to Internshala's 404 page. Preserve direct
   // links for records acquired from the live connector, but send legacy seed
   // records to the active directory instead.
-  const isStaleInternshalaLink =
-    o.source.toLowerCase() === "internshala" &&
-    /internshala\.com\/internship\/detail\//i.test(o.application_url ?? "");
-  const isGenericPlatformLink = (() => {
-    try {
-      const url = new URL(o.application_url ?? "");
-      return url.pathname === "/" && !url.search && !url.hash;
-    } catch {
-      return false;
-    }
-  })();
-  const applicationUrl =
-    isStaleInternshalaLink || isGenericPlatformLink ? null : o.application_url;
+  const fallbackPlatformUrl =
+    o.source.toLowerCase() === "aicte"
+      ? "https://internship.aicte-india.org/"
+      : o.source.toLowerCase() === "unstop"
+        ? "https://unstop.com/internships"
+        : "https://internshala.com/internships/";
+  const applicationUrl = (o.application_url && o.application_url !== "#")
+    ? o.application_url
+    : fallbackPlatformUrl;
 
   return (
     <div className="border border-black/10 dark:border-white/8 bg-white dark:bg-[#0F1117] flex flex-col transition-all duration-500">
@@ -746,11 +742,6 @@ function InternshipCard({
           >
             <ExternalLink size={12} /> Apply now
           </a>
-        )}
-        {(isStaleInternshalaLink || isGenericPlatformLink) && (
-          <span className="flex items-center px-3 py-1.5 font-mono text-[11px] text-gray-400">
-            Demo listing — no live application link
-          </span>
         )}
         <FeedbackWidget
           opportunityId={o.id}
