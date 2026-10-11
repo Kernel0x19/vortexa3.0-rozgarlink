@@ -1297,7 +1297,7 @@ decrypted = store.decrypt_document(
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 
    # Backend API
-   NEXT_PUBLIC_API_URL=http://localhost:8000
+   NEXT_API_URL=http://localhost:8000
    ```
 
 4. **Start Development Server**:
@@ -2177,7 +2177,7 @@ NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 # Backend API
-NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_API_URL=http://localhost:8000
 ```
 
 ---
@@ -2520,7 +2520,7 @@ brew install tesseract
    ```
 3. Check Next.js API URL:
    ```env
-   NEXT_PUBLIC_API_URL=http://localhost:8000
+   NEXT_API_URL=http://localhost:8000
    ```
 
 ---

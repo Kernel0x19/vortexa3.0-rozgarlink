@@ -131,7 +131,7 @@ npm install
 Create or verify `app/.env`:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_API_URL=http://localhost:8000
 NEXT_PUBLIC_SUPABASE_URL=https://zjjrewfyixutxwmubvlb.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```

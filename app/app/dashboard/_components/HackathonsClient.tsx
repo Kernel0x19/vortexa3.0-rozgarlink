@@ -183,7 +183,7 @@ export default function HackathonsClient({ userId, userEmail, token }: Props) {
   const [showFilters, setShowFilters] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [loading, setLoading] = useState(true);
-  const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+  const apiBase = process.env.NEXT_API_URL || "http://localhost:8000";
 
   const doFetch = useCallback(
     async (q: string, f: Filters) => {
@@ -598,20 +598,32 @@ function getSafeHackathonLink(item: HackathonItem): string {
   const link = (item.apply_link || "").trim();
   const source = (item.source || "").toLowerCase();
 
-  if (!link || link === "#" || link.includes("undefined") || link.includes("null")) {
+  if (
+    !link ||
+    link === "#" ||
+    link.includes("undefined") ||
+    link.includes("null")
+  ) {
     if (source === "mlh") return "https://ghw.mlh.io/";
     if (source === "devfolio") return "https://devfolio.co/hackathons";
     if (source === "unstop") return "https://unstop.com/hackathons";
     if (source === "devpost") return "https://devpost.com/hackathons";
-    if (source === "hackerearth") return "https://www.hackerearth.com/challenges/hackathon/";
+    if (source === "hackerearth")
+      return "https://www.hackerearth.com/challenges/hackathon/";
     return "https://unstop.com/hackathons";
   }
 
-  if (link.includes("mlh.io/seasons/2026/events") || link.includes("mlh.io/seasons/")) {
+  if (
+    link.includes("mlh.io/seasons/2026/events") ||
+    link.includes("mlh.io/seasons/")
+  ) {
     return "https://ghw.mlh.io/";
   }
 
-  if (link.includes("devfolio.co/hackout") || link.includes("devfolio.co/ethindia2026")) {
+  if (
+    link.includes("devfolio.co/hackout") ||
+    link.includes("devfolio.co/ethindia2026")
+  ) {
     return "https://devfolio.co/hackathons";
   }
 

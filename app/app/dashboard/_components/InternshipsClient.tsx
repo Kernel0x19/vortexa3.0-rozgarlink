@@ -161,7 +161,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
   const [isPending, startTransition] = useTransition();
   const [loading, setLoading] = useState(true);
   const [searched, setSearched] = useState(false);
-  const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+  const apiBase = process.env.NEXT_API_URL || "http://localhost:8000";
 
   const doSearch = useCallback(
     async (q: string, f: Filters, isInitial = false) => {
@@ -588,9 +588,10 @@ function InternshipCard({
       : o.source.toLowerCase() === "unstop"
         ? "https://unstop.com/internships"
         : "https://internshala.com/internships/";
-  const applicationUrl = (o.application_url && o.application_url !== "#")
-    ? o.application_url
-    : fallbackPlatformUrl;
+  const applicationUrl =
+    o.application_url && o.application_url !== "#"
+      ? o.application_url
+      : fallbackPlatformUrl;
 
   return (
     <div className="border border-black/10 dark:border-white/8 bg-white dark:bg-[#0F1117] flex flex-col transition-all duration-500">
