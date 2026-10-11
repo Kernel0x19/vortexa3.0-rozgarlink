@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 
 
 class BaseConnector(ABC):
-    """Abstract base class for all EduPilot data connectors."""
+    """Abstract base class for all RozgarLink data connectors."""
 
     name: str = "base"
     category: str = "general"

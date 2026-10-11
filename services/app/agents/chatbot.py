@@ -1,5 +1,5 @@
 """
-LangGraph-based Chatbot Agent with Ollama integration for EDUPILOT.
+LangGraph-based Chatbot Agent with Ollama integration for RozgarLink.
 """
 
 import re
@@ -377,7 +377,7 @@ class ChatbotAgent:
         memory_str = f"\n\nWhat I remember about you:\n{long_term_memory}" if long_term_memory else ""
 
         # Balanced system prompt - faithful yet helpful, with two-stage awareness
-        system_prompt = f"""You are EduPilot, a friendly and knowledgeable AI assistant helping Indian students find scholarships, internships, and educational opportunities.
+        system_prompt = f"""You are RozgarLink, a friendly and knowledgeable AI assistant helping Indian students find scholarships, internships, and educational opportunities.
 
 Today: {current_date}
 Student Profile: {profile_str}{memory_str}

@@ -1,4 +1,4 @@
-"""FastAPI application entrypoint for EduPilot."""
+"""FastAPI application entrypoint for RozgarLink."""
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

@@ -11,7 +11,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EduPilot — Student Success AI Copilot",
+  title: "RozgarLink — Student Success AI Copilot",
   description:
     "Scholarships, eligibility checks, document analysis, and career roadmaps powered by multi-agent AI.",
 };

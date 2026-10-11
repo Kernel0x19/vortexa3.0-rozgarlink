@@ -246,7 +246,7 @@ export default function EvalPage() {
               AI Quality Report
             </h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Continuous evaluation of EduPilot's scholarship answers
+              Continuous evaluation of RozgarLink's scholarship answers
             </p>
           </div>
         </div>
