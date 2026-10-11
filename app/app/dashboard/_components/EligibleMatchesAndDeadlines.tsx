@@ -1,6 +1,12 @@
 import { getRecommendations, getDashboardStats } from "@/lib/api/api";
 import Link from "next/link";
-import { Briefcase, Clock, ChevronRight, Inbox, ShieldCheck } from "lucide-react";
+import {
+  Briefcase,
+  Clock,
+  ChevronRight,
+  Inbox,
+  ShieldCheck,
+} from "lucide-react";
 
 function EmptyState({
   message,
@@ -31,19 +37,6 @@ function daysLeft(deadline: string) {
   return Math.ceil((new Date(deadline).getTime() - Date.now()) / 86400000);
 }
 
-interface Match {
-  opportunity: {
-    id: string;
-    title: string;
-    employer: string | null;
-    location: string | null;
-    deadline: string | null;
-  };
-  match_score: number;
-  eligibility_met: boolean;
-  rank_reason: string | null;
-}
-
 export default async function EligibleMatchesAndDeadlines({
   userId,
   email,
@@ -69,10 +62,14 @@ export default async function EligibleMatchesAndDeadlines({
   ]);
 
   // Only show eligibility-cleared matches — preference ranking applied on top
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const eligibleMatches = recData.matches
-    .filter((m: Match) => m.eligibility_met)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .filter((m: any) => m.eligibility_met)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .slice(0, 5)
-    .map((m: Match) => ({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((m: any) => ({
       id: m.opportunity.id,
       title: m.opportunity.title,
       employer: m.opportunity.employer ?? "—",
@@ -82,16 +79,23 @@ export default async function EligibleMatchesAndDeadlines({
       reason: m.rank_reason ?? null,
     }));
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const deadlines = recData.matches
-    .filter((m: Match) => m.eligibility_met && m.opportunity.deadline)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .filter((m: any) => m.eligibility_met && m.opportunity.deadline)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .slice(0, 5)
-    .map((m: Match) => ({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((m: any) => ({
       id: m.opportunity.id,
       title: m.opportunity.title,
       date: m.opportunity.deadline!,
       daysLeft: daysLeft(m.opportunity.deadline!),
     }))
-    .sort((a, b) => a.daysLeft - b.daysLeft);
+    .sort(
+      (a: { daysLeft: number }, b: { daysLeft: number }) =>
+        a.daysLeft - b.daysLeft,
+    );
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 transition-all duration-500">
@@ -103,7 +107,8 @@ export default async function EligibleMatchesAndDeadlines({
               Eligible Matches
             </p>
             <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
-              Eligibility-cleared · Ranked by preference fit · Readiness {stats.readiness_score}%
+              Eligibility-cleared · Ranked by preference fit · Readiness{" "}
+              {stats.readiness_score}%
             </p>
           </div>
           <Link
@@ -120,51 +125,62 @@ export default async function EligibleMatchesAndDeadlines({
           />
         ) : (
           <div className="flex flex-col transition-all duration-500">
-            {eligibleMatches.map((m, i) => (
-              <Link
-                key={m.id}
-                href="/dashboard/search"
-                className={`flex items-center justify-between gap-4 px-5 py-4 ${i !== eligibleMatches.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""} hover:bg-white dark:hover:bg-[#161822] transition-colors duration-500 cursor-pointer group`}
-              >
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-8 h-8 bg-[#F97316]/10 border border-[#F97316]/20 flex items-center justify-center text-[#F97316] shrink-0">
-                    <Briefcase size={14} />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="font-mono text-[15px] text-gray-900 dark:text-[#F0F4FF] truncate">
-                      {m.title}
-                    </p>
-                    <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
-                      {m.employer} · {m.location}
-                    </p>
-                    {m.reason && (
-                      <p className="font-mono text-[12px] text-[#fdba74] mt-0.5 truncate">
-                        {m.reason}
+            {eligibleMatches.map(
+              (
+                m: {
+                  id: string;
+                  title: string;
+                  employer: string;
+                  location: string;
+                  match: number;
+                  reason: string | null;
+                },
+                i: number,
+              ) => (
+                <Link
+                  key={m.id}
+                  href="/dashboard/search"
+                  className={`flex items-center justify-between gap-4 px-5 py-4 ${i !== eligibleMatches.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""} hover:bg-white dark:hover:bg-[#161822] transition-colors duration-500 cursor-pointer group`}
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-8 h-8 bg-[#F97316]/10 border border-[#F97316]/20 flex items-center justify-center text-[#F97316] shrink-0">
+                      <Briefcase size={14} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-mono text-[15px] text-gray-900 dark:text-[#F0F4FF] truncate">
+                        {m.title}
                       </p>
-                    )}
+                      <p className="font-mono text-[13px] text-gray-400 dark:text-[#6B7280]">
+                        {m.employer} · {m.location}
+                      </p>
+                      {m.reason && (
+                        <p className="font-mono text-[12px] text-[#fdba74] mt-0.5 truncate">
+                          {m.reason}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center gap-3 shrink-0">
-                  {/* Eligibility badge — hard filter passed */}
-                  <div className="flex items-center gap-1 px-1.5 py-0.5 border border-green-500/30 bg-green-500/8 text-green-500">
-                    <ShieldCheck size={10} />
-                    <span className="font-mono text-[11px]">Eligible</span>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <div className="flex items-center gap-1 px-1.5 py-0.5 border border-green-500/30 bg-green-500/8 text-green-500">
+                      <ShieldCheck size={10} />
+                      <span className="font-mono text-[11px]">Eligible</span>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-mono text-[14px] text-[#F97316] font-bold">
+                        {m.match}%
+                      </p>
+                      <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
+                        fit
+                      </p>
+                    </div>
+                    <ChevronRight
+                      size={14}
+                      className="text-gray-300 dark:text-white/20 group-hover:text-[#F97316] transition-colors duration-500"
+                    />
                   </div>
-                  <div className="text-right">
-                    <p className="font-mono text-[14px] text-[#F97316] font-bold">
-                      {m.match}%
-                    </p>
-                    <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
-                      fit
-                    </p>
-                  </div>
-                  <ChevronRight
-                    size={14}
-                    className="text-gray-300 dark:text-white/20 group-hover:text-[#F97316] transition-colors duration-500"
-                  />
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ),
+            )}
           </div>
         )}
       </div>
@@ -186,32 +202,42 @@ export default async function EligibleMatchesAndDeadlines({
           <EmptyState message="No upcoming deadlines. Save opportunities to track their deadlines here." />
         ) : (
           <div className="flex flex-col">
-            {deadlines.map((d, i) => (
-              <div
-                key={d.id}
-                className={`flex items-center justify-between gap-3 px-5 py-3.5 transition-all duration-500 ${i !== deadlines.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""}`}
-              >
-                <div className="min-w-0">
-                  <p className="font-mono text-[14px] text-gray-900 dark:text-[#F0F4FF] truncate">
-                    {d.title}
-                  </p>
-                  <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
-                    {d.date}
-                  </p>
-                </div>
-                <span
-                  className={`font-mono text-[12px] px-2 py-0.5 border shrink-0 ${
-                    d.daysLeft <= 14
-                      ? "border-red-500/30 bg-red-500/10 text-red-500"
-                      : d.daysLeft <= 30
-                        ? "border-yellow-500/30 bg-yellow-500/10 text-yellow-600 dark:text-yellow-400"
-                        : "border-black/10 dark:border-white/8 text-gray-400 dark:text-[#6B7280]"
-                  }`}
+            {deadlines.map(
+              (
+                d: {
+                  id: string;
+                  title: string;
+                  date: string;
+                  daysLeft: number;
+                },
+                i: number,
+              ) => (
+                <div
+                  key={d.id}
+                  className={`flex items-center justify-between gap-3 px-5 py-3.5 transition-all duration-500 ${i !== deadlines.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""}`}
                 >
-                  {d.daysLeft}d left
-                </span>
-              </div>
-            ))}
+                  <div className="min-w-0">
+                    <p className="font-mono text-[14px] text-gray-900 dark:text-[#F0F4FF] truncate">
+                      {d.title}
+                    </p>
+                    <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280]">
+                      {d.date}
+                    </p>
+                  </div>
+                  <span
+                    className={`font-mono text-[12px] px-2 py-0.5 border shrink-0 ${
+                      d.daysLeft <= 14
+                        ? "border-red-500/30 bg-red-500/10 text-red-500"
+                        : d.daysLeft <= 30
+                          ? "border-yellow-500/30 bg-yellow-500/10 text-yellow-600 dark:text-yellow-400"
+                          : "border-black/10 dark:border-white/8 text-gray-400 dark:text-[#6B7280]"
+                    }`}
+                  >
+                    {d.daysLeft}d left
+                  </span>
+                </div>
+              ),
+            )}
           </div>
         )}
       </div>
