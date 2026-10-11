@@ -160,7 +160,7 @@ ollama serve
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=xxx
-NEXT_API_URL=http://localhost:8000
+NEXT_PUBLIC_SITE_URL=http://localhost:8000
 OLLAMA_BASE_URL=http://localhost:11434
 ```
 

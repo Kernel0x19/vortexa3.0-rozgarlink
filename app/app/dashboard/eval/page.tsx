@@ -15,7 +15,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 
-const API_BASE = process.env.NEXT_API_URL || "http://localhost:8000";
+const API_BASE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:8000";
 
 interface EvalResults {
   last_updated: string;

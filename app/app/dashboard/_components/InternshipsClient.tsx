@@ -161,7 +161,7 @@ export default function InternshipsClient({ userId, userEmail, token }: Props) {
   const [isPending, startTransition] = useTransition();
   const [loading, setLoading] = useState(true);
   const [searched, setSearched] = useState(false);
-  const apiBase = process.env.NEXT_API_URL || "http://localhost:8000";
+  const apiBase = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:8000";
 
   const doSearch = useCallback(
     async (q: string, f: Filters, isInitial = false) => {

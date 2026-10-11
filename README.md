@@ -654,7 +654,7 @@ docker-compose logs -f api
 ```
 
    # Backend API
-   NEXT_API_URL=http://localhost:8000
+   NEXT_PUBLIC_SITE_URL=http://localhost:8000
    ```
 
 4. **Start Development Server**:
@@ -914,7 +914,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_JWT_SECRET=your_jwt_secret
 
 # Backend API
-NEXT_API_URL=http://localhost:8000
+NEXT_PUBLIC_SITE_URL=http://localhost:8000
 # Notifications
 SENDGRID_API_KEY=SG.your_sendgrid_key
 SENDGRID_FROM_EMAIL=noreply@rozgarlink.org
@@ -1009,7 +1009,7 @@ brew install tesseract
    ```
 3. Check Next.js API URL:
    ```env
-   NEXT_API_URL=http://localhost:8000
+   NEXT_PUBLIC_SITE_URL=http://localhost:8000
    ```
 Set `JUDGE_PROVIDER=groq` or configure `GROQ_API_KEY` in `services/.env` to run the evaluation judge model on Groq cloud inference.
 

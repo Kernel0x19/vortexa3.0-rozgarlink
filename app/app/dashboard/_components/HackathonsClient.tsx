@@ -183,7 +183,7 @@ export default function HackathonsClient({ userId, userEmail, token }: Props) {
   const [showFilters, setShowFilters] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [loading, setLoading] = useState(true);
-  const apiBase = process.env.NEXT_API_URL || "http://localhost:8000";
+  const apiBase = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:8000";
 
   const doFetch = useCallback(
     async (q: string, f: Filters) => {
@@ -690,14 +690,17 @@ function HackathonCard({
   async function followForReminders() {
     setSubscribing(true);
     try {
-      const response = await fetch(`${apiBase}/api/v1/hackathons/${item.id}/follow`, {
-        method: "POST",
-        headers: {
-          "X-User-Id": userId,
-          "X-User-Email": userEmail,
-          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      const response = await fetch(
+        `${apiBase}/api/v1/hackathons/${item.id}/follow`,
+        {
+          method: "POST",
+          headers: {
+            "X-User-Id": userId,
+            "X-User-Email": userEmail,
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          },
         },
-      });
+      );
       if (response.ok) setSubscribed(true);
     } finally {
       setSubscribing(false);
@@ -846,7 +849,11 @@ function HackathonCard({
             className="flex items-center gap-1.5 px-3 py-1.5 border border-[#F97316]/40 text-[#F97316] font-mono text-[11px] hover:bg-[#F97316]/8 disabled:opacity-60"
           >
             <Bell size={11} />
-            {subscribing ? "Saving…" : subscribed ? "Alerts enabled" : "Get deadline alerts"}
+            {subscribing
+              ? "Saving…"
+              : subscribed
+                ? "Alerts enabled"
+                : "Get deadline alerts"}
           </button>
         )}
       </div>
