@@ -44,8 +44,8 @@ export default function FAQSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr] gap-8 sm:gap-12 lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <div className="inline-flex items-center gap-2 bg-[#0C65D2]/10 border border-[#0C65D2]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#0C65D2] dark:text-[#6fa8f5] mb-4 tracking-widest transition-all duration-500">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0C65D2]" />
+            <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
               FAQ
             </div>
             <h2 className="font-syne text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-[#F0F4FF] tracking-tight leading-[1.1] mb-4 transition-all duration-500">
@@ -70,8 +70,8 @@ export default function FAQSection() {
                   <span
                     className={`font-syne font-bold text-sm sm:text-base transition-all duration-500 ${
                       open === i
-                        ? "text-[#0C65D2]"
-                        : "text-gray-900 dark:text-[#F0F4FF] group-hover:text-[#0C65D2]"
+                        ? "text-[#F97316]"
+                        : "text-gray-900 dark:text-[#F0F4FF] group-hover:text-[#F97316]"
                     }`}
                   >
                     {faq.q}
@@ -79,7 +79,7 @@ export default function FAQSection() {
                   <span
                     className={`shrink-0 mt-0.5 transition-all duration-500 ${
                       open === i
-                        ? "text-[#0C65D2]"
+                        ? "text-[#F97316]"
                         : "text-gray-400 dark:text-[#6B7280]"
                     }`}
                   >

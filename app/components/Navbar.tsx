@@ -106,7 +106,7 @@ const Navbar = ({ isAuth }: Auth) => {
             alt="EduPilot Logo"
           />
           <span className="font-syne text-2xl sm:text-3xl font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
-            Rozgar<span className="text-[#0C65D2]">Link</span>
+            Rozgar<span className="text-[#F97316]">Link</span>
           </span>
         </Link>
         {!isAuth && (
@@ -132,9 +132,9 @@ const Navbar = ({ isAuth }: Auth) => {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen((p) => !p)}
-                className="flex items-center gap-2.5 px-3 py-2 border border-black/10 dark:border-white/8 hover:border-[#0C65D2]/40 transition-all duration-200 cursor-pointer"
+                className="flex items-center gap-2.5 px-3 py-2 border border-black/10 dark:border-white/8 hover:border-[#F97316]/40 transition-all duration-200 cursor-pointer"
               >
-                <div className="w-7 h-7 bg-[#0C65D2] flex items-center justify-center font-mono text-sm font-bold text-white rounded-full shrink-0">
+                <div className="w-7 h-7 bg-[#F97316] flex items-center justify-center font-mono text-sm font-bold text-white rounded-full shrink-0">
                   {initials}
                 </div>
                 <span className="font-mono text-base text-gray-700 dark:text-[#F0F4FF] hidden sm:block">
@@ -194,7 +194,7 @@ const Navbar = ({ isAuth }: Auth) => {
                 </Link>
                 <Link
                   href="/auth/signup"
-                  className="hidden sm:flex px-4 py-2.5 bg-[#0C65D2] text-white font-mono text-sm hover:bg-[#0a52b0] transition-colors duration-500 items-center gap-2 group"
+                  className="hidden sm:flex px-4 py-2.5 bg-[#F97316] text-white font-mono text-sm hover:bg-[fdba74] transition-colors duration-500 items-center gap-2 group"
                 >
                   Get started
                   <MoveRight
@@ -253,7 +253,7 @@ const Navbar = ({ isAuth }: Auth) => {
                 </Link>
                 <Link
                   href="/auth/signup"
-                  className="flex-1 px-4 py-3 bg-[#0C65D2] text-white font-mono text-sm hover:bg-[#0a52b0] transition-colors duration-500 flex items-center justify-center gap-2 group"
+                  className="flex-1 px-4 py-3 bg-[#F97316] text-white font-mono text-sm hover:bg-[fdba74] transition-colors duration-500 flex items-center justify-center gap-2 group"
                 >
                   Get started
                   <MoveRight
@@ -265,7 +265,7 @@ const Navbar = ({ isAuth }: Auth) => {
             ) : (
               <div className="pt-3 flex flex-col gap-2">
                 <div className="flex items-center gap-3 px-1 py-2 border-b border-black/10 dark:border-white/8 mb-1">
-                  <div className="w-9 h-9 bg-[#0C65D2] flex items-center justify-center font-mono text-base font-bold text-white rounded-full shrink-0">
+                  <div className="w-9 h-9 bg-[#F97316] flex items-center justify-center font-mono text-base font-bold text-white rounded-full shrink-0">
                     {initials}
                   </div>
                   <div>
@@ -280,7 +280,7 @@ const Navbar = ({ isAuth }: Auth) => {
                 <Link
                   href="/dashboard"
                   prefetch={true}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-[#0C65D2] text-white font-mono text-sm hover:bg-[#0a52b0] transition-colors duration-500"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-[#F97316] text-white font-mono text-sm hover:bg-[fdba74] transition-colors duration-500"
                 >
                   <LayoutDashboard size={15} />
                   Go to Dashboard

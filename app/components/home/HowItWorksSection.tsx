@@ -51,13 +51,13 @@ export default function HowItWorksSection() {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-14 sm:py-20 lg:py-24 border-t border-black/10 dark:border-white/8"
     >
       <div className="mb-10 sm:mb-14 lg:mb-16">
-        <div className="inline-flex items-center gap-2 bg-[#0C65D2]/10 border border-[#0C65D2]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#0C65D2] dark:text-[#6fa8f5] mb-4 tracking-widest transition-all duration-500">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#0C65D2]" />
+        <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
           HOW IT WORKS
         </div>
         <h2 className="font-syne text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-[#F0F4FF] tracking-tight transition-all duration-500">
           From profile to clear results
-          <span className="text-[#0C65D2]"> with reasons.</span>
+          <span className="text-[#F97316]"> with reasons.</span>
         </h2>
         <p className="mt-3 text-gray-500 dark:text-[#6B7280] font-mono text-xs sm:text-sm max-w-lg transition-all duration-500">
           Five steps. Eligibility first, ranking second, reasons always.
@@ -74,11 +74,11 @@ export default function HowItWorksSection() {
               className="relative grid grid-cols-[64px_1fr] lg:grid-cols-[80px_1fr] gap-4 lg:gap-6 group"
             >
               <div className="flex flex-col items-center gap-2 z-10">
-                <div className="w-16 h-16 lg:w-20 lg:h-20 border border-black/10 dark:border-white/8 bg-white dark:bg-[#0F1117] group-hover:border-[#0C65D2]/40 group-hover:bg-[#0C65D2]/5 dark:group-hover:bg-[#0C65D2]/10 flex flex-col items-center justify-center gap-1 shrink-0 transition-all duration-500">
-                  <span className="font-mono text-[10px] text-[#0C65D2] tracking-widest">
+                <div className="w-16 h-16 lg:w-20 lg:h-20 border border-black/10 dark:border-white/8 bg-white dark:bg-[#0F1117] group-hover:border-[#F97316]/40 group-hover:bg-[#F97316]/5 dark:group-hover:bg-[#F97316]/10 flex flex-col items-center justify-center gap-1 shrink-0 transition-all duration-500">
+                  <span className="font-mono text-[10px] text-[#F97316] tracking-widest">
                     {step.number}
                   </span>
-                  <span className="text-gray-400 dark:text-[#6B7280] group-hover:text-[#0C65D2] transition-colors duration-500">
+                  <span className="text-gray-400 dark:text-[#6B7280] group-hover:text-[#F97316] transition-colors duration-500">
                     {step.icon}
                   </span>
                 </div>

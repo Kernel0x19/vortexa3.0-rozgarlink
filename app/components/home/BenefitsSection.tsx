@@ -18,21 +18,21 @@ export default function BenefitsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-[#0C65D2]/10 border border-[#0C65D2]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#0C65D2] dark:text-[#6fa8f5] mb-5 sm:mb-6 tracking-widest transition-all duration-500">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0C65D2]" />
+            <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#F97316] dark:text-[#fdba74] mb-5 sm:mb-6 tracking-widest transition-all duration-500">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
               SOUND FAMILIAR?
             </div>
 
             <h2 className="font-syne text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500 tracking-tight leading-[1.1] mb-6 sm:mb-8">
               Every candidate deserves to see the jobs they can take.{" "}
-              <span className="text-[#0C65D2]">Keyword search hides them.</span>
+              <span className="text-[#F97316]">Keyword search hides them.</span>
             </h2>
 
             <div className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8">
               {PAINS.map((pain, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-4 border-l-2 border-black/10 dark:border-white/8 pl-4 py-1 hover:border-[#0C65D2] transition-colors duration-500 group"
+                  className="flex items-start gap-4 border-l-2 border-black/10 dark:border-white/8 pl-4 py-1 hover:border-[#F97316] transition-colors duration-500 group"
                 >
                   <p className="font-mono text-xs sm:text-sm text-gray-500 dark:text-[#6B7280] group-hover:text-gray-700 dark:group-hover:text-[#a8c7fa] leading-relaxed transition-all duration-500">
                     &quot;{pain}&quot;
@@ -61,7 +61,7 @@ export default function BenefitsSection() {
                   key={stat.label}
                   className="bg-white dark:bg-[#161822] border border-black/10 dark:border-white/8 p-3 sm:p-4 transition-all duration-500"
                 >
-                  <p className="font-syne text-xl sm:text-2xl font-extrabold text-[#0C65D2]">
+                  <p className="font-syne text-xl sm:text-2xl font-extrabold text-[#F97316]">
                     {stat.value}
                   </p>
                   <p className="font-mono text-[10px] sm:text-[11px] text-gray-400 dark:text-[#6B7280] mt-1">
@@ -81,7 +81,7 @@ export default function BenefitsSection() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
-                  className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#0C65D2] text-white font-mono text-xs sm:text-sm hover:bg-[#0a52b0] cursor-pointer group flex-1 transition-all duration-500"
+                  className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#F97316] text-white font-mono text-xs sm:text-sm hover:bg-[fdba74] cursor-pointer group flex-1 transition-all duration-500"
                   onClick={() => redirect("/auth/signup")}
                 >
                   Create your profile

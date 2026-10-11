@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 export default function Loading() {
   return (
     <div className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-white dark:bg-[#08090E]">
@@ -12,7 +12,7 @@ export default function Loading() {
           alt="EduPilot Logo"
         />
         <span className="font-syne text-2xl font-bold text-gray-900 dark:text-[#F0F4FF]">
-          Edu<span className="text-[#0C65D2]">Pilot</span>
+          Edu<span className="text-[#F97316]">Pilot</span>
         </span>
       </div>
       <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] w-72">
@@ -26,31 +26,31 @@ export default function Loading() {
         </div>
         <div className="p-4 font-mono text-[12px] flex flex-col gap-2">
           <div className="flex items-center gap-2">
-            <span className="text-[#0C65D2]">›</span>
-            <span className="text-blue-600 dark:text-[#a8c7fa]">
+            <span className="text-[#F97316]">›</span>
+            <span className="text-orange-600 dark:text-[#a8c7fa]">
               Initialising agents
             </span>
             <span className="flex gap-0.5 ml-auto">
-              <span className="w-1 h-1 rounded-full bg-[#0C65D2] animate-bounce [animation-delay:0ms]" />
-              <span className="w-1 h-1 rounded-full bg-[#0C65D2] animate-bounce [animation-delay:150ms]" />
-              <span className="w-1 h-1 rounded-full bg-[#0C65D2] animate-bounce [animation-delay:300ms]" />
+              <span className="w-1 h-1 rounded-full bg-[#F97316] animate-bounce [animation-delay:0ms]" />
+              <span className="w-1 h-1 rounded-full bg-[#F97316] animate-bounce [animation-delay:150ms]" />
+              <span className="w-1 h-1 rounded-full bg-[#F97316] animate-bounce [animation-delay:300ms]" />
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[#0C65D2]">›</span>
+            <span className="text-[#F97316]">›</span>
             <span className="text-gray-400 dark:text-[#6B7280]">
               Loading your profile
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[#0C65D2]">›</span>
+            <span className="text-[#F97316]">›</span>
             <span className="text-gray-400 dark:text-[#6B7280]">
               Fetching opportunities
             </span>
           </div>
         </div>
         <div className="h-0.5 bg-black/8 dark:bg-white/8">
-          <div className="h-full bg-[#0C65D2] animate-[loading-bar_1.5s_ease-in-out_infinite]" />
+          <div className="h-full bg-[#F97316] animate-[loading-bar_1.5s_ease-in-out_infinite]" />
         </div>
       </div>
     </div>

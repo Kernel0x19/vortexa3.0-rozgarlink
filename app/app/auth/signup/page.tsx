@@ -96,14 +96,14 @@ const Page = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-10 sm:pt-12 lg:pt-15 pb-12 sm:pb-14 lg:pb-16 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 xl:gap-25 items-center">
         <div className="flex flex-col gap-3">
           <h1 className="font-syne text-3xl sm:text-4xl lg:text-5xl xl:text-[3.2rem] font-extrabold leading-[1.1] tracking-tight text-gray-900 dark:text-[#F0F4FF] mb-3 sm:mb-5 transition-all duration-500">
-            Your entire academic
+            Find the jobs you
             <br />
-            future, <span className="text-[#0C65D2]">co-piloted.</span>
+            can <span className="text-[#F97316]">actually take.</span>
           </h1>
           <p className="text-gray-500 dark:text-[#6B7280] text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-xl transition-all duration-500">
-            Scholarships, eligibility checks, document analysis, and career
-            roadmaps — handled by a multi-agent AI system built for Indian
-            students.
+            RozgarLink checks mandatory eligibility first, then ranks only the
+            roles you qualify for by skill fit and your preferences — with a
+            plain-language reason for every result.
           </p>
           <TerminalCard />
         </div>
@@ -114,7 +114,7 @@ const Page = () => {
         >
           <div className="flex flex-col gap-2">
             <h1 className="text-xl sm:text-2xl font-bold">
-              Create your <span className="text-[#0C65D2]">Account</span>
+              Create your <span className="text-[#F97316]">Account</span>
             </h1>
           </div>
 
@@ -133,7 +133,7 @@ const Page = () => {
                 type="text"
                 value={form.first_name}
                 onChange={(e) => update("first_name", e.target.value)}
-                placeholder="Prathamesh"
+                placeholder="Anita"
                 required
                 className="px-3.5 py-2.5 w-full rounded-lg text-sm border outline-none transition-colors duration-500 bg-black/8 border-black/15 text-black placeholder-black/35 focus:border-black/25 focus:bg-black/10 dark:bg-white/12 dark:border-white/20 dark:text-white dark:placeholder-white/30 dark:focus:border-white/40 dark:focus:bg-white/15"
               />
@@ -146,7 +146,7 @@ const Page = () => {
                 type="text"
                 value={form.last_name}
                 onChange={(e) => update("last_name", e.target.value)}
-                placeholder="Kulkarni"
+                placeholder="Patil"
                 required
                 className="px-3.5 py-2.5 w-full rounded-lg text-sm border outline-none transition-colors duration-500 bg-black/8 border-black/15 text-black placeholder-black/35 focus:border-black/25 focus:bg-black/10 dark:bg-white/12 dark:border-white/20 dark:text-white dark:placeholder-white/30 dark:focus:border-white/40 dark:focus:bg-white/15"
               />
@@ -184,13 +184,13 @@ const Page = () => {
 
           <div className="flex flex-col gap-1.5">
             <label className="text-sm sm:text-base text-black/50 dark:text-white/50 font-semibold uppercase tracking-wide transition-colors duration-500">
-              College / University
+              Location
             </label>
             <input
               type="text"
               value={form.college}
               onChange={(e) => update("college", e.target.value)}
-              placeholder="Vishwakarma Institute of Technology, Pune"
+              placeholder="City, State (e.g. Pune, Maharashtra)"
               className="px-3.5 py-2.5 w-full rounded-lg text-sm border outline-none transition-colors duration-500 bg-black/8 border-black/15 text-black placeholder-black/35 focus:border-black/25 focus:bg-black/10 dark:bg-white/12 dark:border-white/20 dark:text-white dark:placeholder-white/30 dark:focus:border-white/40 dark:focus:bg-white/15"
             />
           </div>
@@ -198,37 +198,37 @@ const Page = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <div className="flex flex-col gap-1.5 flex-1">
               <label className="text-sm sm:text-base text-black/50 dark:text-white/50 font-semibold uppercase tracking-wide transition-colors duration-500">
-                Stream
+                Highest qualification
               </label>
               <select
                 value={form.stream}
                 onChange={(e) => update("stream", e.target.value)}
                 className="px-3.5 py-2.5 w-full rounded-lg text-sm border outline-none transition-colors duration-500 bg-black/8 border-black/15 text-black/70 focus:border-black/25 focus:bg-black/10 dark:bg-white/12 dark:border-white/20 dark:text-white/70 dark:focus:border-white/40 dark:focus:bg-white/15 appearance-none cursor-pointer"
               >
-                <option value="">Select stream</option>
-                <option>Computer Science (AI)</option>
-                <option>Computer Science</option>
-                <option>Electronics & TC</option>
-                <option>Data Science</option>
-                <option>Mechanical</option>
-                <option>Civil</option>
+                <option value="">Select qualification</option>
+                <option>10th pass</option>
+                <option>12th pass</option>
+                <option>ITI</option>
+                <option>Diploma</option>
+                <option>Graduate</option>
+                <option>Postgraduate</option>
                 <option>Other</option>
               </select>
             </div>
             <div className="flex flex-col gap-1.5 flex-1">
               <label className="text-sm sm:text-base text-black/50 dark:text-white/50 font-semibold uppercase tracking-wide transition-colors duration-500">
-                Year
+                Work preference
               </label>
               <select
                 value={form.year}
                 onChange={(e) => update("year", e.target.value)}
                 className="px-3.5 py-2.5 w-full rounded-lg text-sm border outline-none transition-colors duration-500 bg-black/8 border-black/15 text-black/70 focus:border-black/25 focus:bg-black/10 dark:bg-white/12 dark:border-white/20 dark:text-white/70 dark:focus:border-white/40 dark:focus:bg-white/15 appearance-none cursor-pointer"
               >
-                <option value="">Select year</option>
-                <option value="1st Year">1st year</option>
-                <option value="2nd Year">2nd year</option>
-                <option value="3rd Year">3rd year</option>
-                <option value="4th Year">4th year</option>
+                <option value="">Select preference</option>
+                <option value="On-site">On-site</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="No preference">No preference</option>
               </select>
             </div>
           </div>
@@ -237,7 +237,7 @@ const Page = () => {
             <button
               type="submit"
               disabled={loading || !!oauthLoading}
-              className="w-full sm:w-auto px-5 py-3 bg-[#0C65D2] text-white font-mono text-sm hover:bg-[#0a52b0] hover:rounded-lg transition-all duration-500 cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto px-5 py-3 bg-[#F97316] text-white font-mono text-sm hover:bg-[fdba74] hover:rounded-lg transition-all duration-500 cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <Spinner />
@@ -266,7 +266,7 @@ const Page = () => {
               type="button"
               onClick={() => handleOAuth("google")}
               disabled={!!oauthLoading || loading}
-              className="w-full sm:w-auto px-5 py-3 bg-[#0C65D2] text-white font-mono text-sm hover:bg-[#0a52b0] hover:rounded-lg transition-all duration-500 cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto px-5 py-3 bg-[#F97316] text-white font-mono text-sm hover:bg-[fdba74] hover:rounded-lg transition-all duration-500 cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {oauthLoading === "google" ? (
                 <Spinner />
@@ -315,7 +315,7 @@ const Page = () => {
               Already have an account?{" "}
               <Link
                 href="/auth/login"
-                className="text-xs sm:text-sm text-[#0C65D2] flex items-center gap-0.5 hover:underline cursor-pointer group transition-colors duration-500"
+                className="text-xs sm:text-sm text-[#F97316] flex items-center gap-0.5 hover:underline cursor-pointer group transition-colors duration-500"
               >
                 Log In
                 <ArrowUpRight

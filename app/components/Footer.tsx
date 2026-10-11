@@ -95,11 +95,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 items-start">
           <div className="max-w-sm">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 bg-[#0C65D2] flex items-center justify-center font-mono text-[13px] font-medium text-white transition-all duration-500">
+              <div className="w-7 h-7 bg-[#F97316] flex items-center justify-center font-mono text-[13px] font-medium text-white transition-all duration-500">
                 RL
               </div>
               <span className="font-syne text-xl font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
-                Rozgar<span className="text-[#0C65D2]">Link</span>
+                Rozgar<span className="text-[#F97316]">Link</span>
               </span>
             </div>
             <p className="font-mono text-sm text-gray-500 dark:text-[#6B7280] leading-relaxed mb-6 transition-all duration-500">
@@ -115,7 +115,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-8 h-8 border border-black/10 dark:border-white/8 flex items-center justify-center text-gray-400 dark:text-[#6B7280] hover:border-[#0C65D2]/40 hover:text-[#0C65D2] transition-all duration-500"
+                  className="w-8 h-8 border border-black/10 dark:border-white/8 flex items-center justify-center text-gray-400 dark:text-[#6B7280] hover:border-[#F97316]/40 hover:text-[#F97316] transition-all duration-500"
                 >
                   {s.icon}
                 </a>

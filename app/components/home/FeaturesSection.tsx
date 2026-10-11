@@ -184,7 +184,7 @@ const termColor = (type: string) => {
   if (type === "error") return "text-red-500 dark:text-red-400";
   if (type === "success") return "text-green-500 dark:text-green-400";
   if (type === "muted") return "text-yellow-600 dark:text-yellow-400";
-  return "text-blue-600 dark:text-[#a8c7fa]";
+  return "text-orange-600 dark:text-[#a8c7fa]";
 };
 
 export default function FeaturesSection() {
@@ -197,8 +197,8 @@ export default function FeaturesSection() {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-20 lg:py-24 transition-all duration-500"
     >
       <div className="mb-8 sm:mb-12">
-        <div className="inline-flex items-center gap-2 bg-[#0C65D2]/10 border border-[#0C65D2]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#0C65D2] dark:text-[#6fa8f5] mb-4 tracking-widest transition-all duration-500">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#0C65D2]" />
+        <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
           WHAT ROZGARLINK DOES
         </div>
         <h2 className="font-syne text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-[#F0F4FF] tracking-tight transition-all duration-500">
@@ -218,12 +218,12 @@ export default function FeaturesSection() {
               onClick={() => setActive(f.id)}
               className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 text-left transition-all duration-200 cursor-pointer border-b-2 lg:border-b-0 lg:border-l-2 shrink-0 lg:shrink ${
                 active === f.id
-                  ? "border-[#0C65D2] bg-[#0C65D2]/8 dark:bg-[#0C65D2]/10 text-[#0C65D2]"
+                  ? "border-[#F97316] bg-[#F97316]/8 dark:bg-[#F97316]/10 text-[#F97316]"
                   : "border-transparent text-gray-500 dark:text-[#6B7280] hover:text-gray-900 dark:hover:text-[#F0F4FF] hover:bg-gray-50 dark:hover:bg-white/4 transition-all duration-500"
               }`}
             >
               <span
-                className={`shrink-0 ${active === f.id ? "text-[#0C65D2]" : ""}`}
+                className={`shrink-0 ${active === f.id ? "text-[#F97316]" : ""}`}
               >
                 {f.icon}
               </span>
@@ -237,7 +237,7 @@ export default function FeaturesSection() {
         <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] overflow-hidden transition-all duration-500">
           <div className="bg-white dark:bg-[#161822] border-b border-black/10 dark:border-white/8 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3 transition-all duration-500">
             <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#0C65D2]/10 border border-[#0C65D2]/20 flex items-center justify-center text-[#0C65D2] shrink-0">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#F97316]/10 border border-[#F97316]/20 flex items-center justify-center text-[#F97316] shrink-0">
                 {feature.icon}
               </div>
               <div className="min-w-0">
@@ -246,7 +246,7 @@ export default function FeaturesSection() {
                 </p>
               </div>
             </div>
-            <span className="font-mono text-[10px] bg-[#0C65D2]/10 text-[#0C65D2] dark:text-[#6fa8f5] border border-[#0C65D2]/20 px-2 sm:px-2.5 py-1 tracking-widest shrink-0 transition-all duration-500">
+            <span className="font-mono text-[10px] bg-[#F97316]/10 text-[#F97316] dark:text-[#fdba74] border border-[#F97316]/20 px-2 sm:px-2.5 py-1 tracking-widest shrink-0 transition-all duration-500">
               {feature.tag}
             </span>
           </div>
@@ -259,7 +259,7 @@ export default function FeaturesSection() {
               <ul className="flex flex-col gap-2.5 sm:gap-3">
                 {feature.points.map((pt, i) => (
                   <li key={i} className="flex items-start gap-2 sm:gap-2.5">
-                    <span className="text-[#0C65D2] mt-0.5 shrink-0">
+                    <span className="text-[#F97316] mt-0.5 shrink-0">
                       <CheckCircle size={14} />
                     </span>
                     <span className="font-mono text-[11px] sm:text-[12px] text-gray-700 dark:text-[#a8c7fa] transition-all duration-500">
@@ -283,7 +283,7 @@ export default function FeaturesSection() {
                 <div className="p-3 sm:p-4 font-mono text-[11px] sm:text-[12px] leading-loose overflow-x-auto">
                   {feature.terminal.map((line, i) => (
                     <div key={i} className="flex items-baseline gap-2">
-                      <span className="text-[#0C65D2] select-none shrink-0">
+                      <span className="text-[#F97316] select-none shrink-0">
                         ›
                       </span>
                       <span

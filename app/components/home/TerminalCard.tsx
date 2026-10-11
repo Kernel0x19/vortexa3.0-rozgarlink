@@ -87,7 +87,7 @@ export default function TerminalCard() {
     if (type === "error") return "text-red-500 dark:text-red-400";
     if (type === "success") return "text-green-500 dark:text-green-400";
     if (type === "muted") return "text-gray-400 dark:text-[#6B7280]";
-    return "text-blue-600 dark:text-[#a8c7fa]";
+    return "text-orange-600 dark:text-[#a8c7fa]";
   };
 
   return (
@@ -103,19 +103,19 @@ export default function TerminalCard() {
       <div className="p-3 sm:p-5 font-mono text-[11px] sm:text-[13px] leading-loose min-h-48 sm:min-h-55 overflow-x-auto">
         {visibleLines.map((line: VisibleLine, i: number) => (
           <div key={i} className="flex items-baseline gap-1.5 sm:gap-2 min-w-0">
-            <span className="text-[#0C65D2] select-none shrink-0">›</span>
+            <span className="text-[#F97316] select-none shrink-0">›</span>
             <span
               className={`${colorClass(line.type)} wrap-break-word min-w-0`}
             >
               {line.text}
               {i === currentTyping && line.text !== line.full && (
-                <span className="inline-block w-1.5 sm:w-2 h-3 sm:h-3.5 bg-[#0C65D2] ml-0.5 align-middle animate-[blink_1s_infinite]" />
+                <span className="inline-block w-1.5 sm:w-2 h-3 sm:h-3.5 bg-[#F97316] ml-0.5 align-middle animate-[blink_1s_infinite]" />
               )}
             </span>
           </div>
         ))}
         {visibleLines.length === 0 && (
-          <span className="inline-block w-1.5 sm:w-2 h-3 sm:h-3.5 bg-[#0C65D2] animate-[blink_1s_infinite]" />
+          <span className="inline-block w-1.5 sm:w-2 h-3 sm:h-3.5 bg-[#F97316] animate-[blink_1s_infinite]" />
         )}
       </div>
     </div>

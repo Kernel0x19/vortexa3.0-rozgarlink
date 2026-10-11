@@ -6,25 +6,25 @@ const AGENTS = [
     id: "skills",
     label: "Skill matching",
     sub: "AI · informs ranking only",
-    color: "#0C65D2",
+    color: "#F97316",
   },
   {
     id: "eligibility",
     label: "Eligibility check",
     sub: "Rules · stated criteria",
-    color: "#0C65D2",
+    color: "#F97316",
   },
   {
     id: "ranking",
     label: "Ranking",
     sub: "Eligible only · preferences",
-    color: "#0C65D2",
+    color: "#F97316",
   },
   {
     id: "gaps",
     label: "Skill gaps",
     sub: "Supplied learning catalogue",
-    color: "#0C65D2",
+    color: "#F97316",
   },
 ];
 
@@ -84,15 +84,15 @@ export default function WorkflowSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="mb-10 sm:mb-14 lg:mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#0C65D2]/10 border border-[#0C65D2]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#0C65D2] dark:text-[#6fa8f5] mb-4 tracking-widest transition-all duration-500">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0C65D2]" />
+          <div className="inline-flex items-center gap-2 bg-[#F97316]/10 border border-[#F97316]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#F97316] dark:text-[#fdba74] mb-4 tracking-widest transition-all duration-500">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
             WORKFLOW
           </div>
           <div className="flex items-end justify-between gap-4">
             <div>
               <h2 className="font-syne text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-[#F0F4FF] tracking-tight transition-all duration-500">
                 How the engine
-                <span className="text-[#0C65D2]"> reaches a result.</span>
+                <span className="text-[#F97316]"> reaches a result.</span>
               </h2>
               <p className="mt-3 text-gray-500 dark:text-[#6B7280] font-mono text-xs sm:text-sm max-w-lg transition-all duration-500">
                 Eligibility rules always decide who qualifies. AI only helps
@@ -102,7 +102,7 @@ export default function WorkflowSection() {
             <button
               onClick={startAnimation}
               disabled={running}
-              className="hidden lg:flex items-center gap-2 px-4 py-2 border border-black/10 dark:border-white/8 font-mono text-xs text-gray-500 dark:text-[#6B7280] hover:border-[#0C65D2]/40 hover:text-[#0C65D2] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all duration-500"
+              className="hidden lg:flex items-center gap-2 px-4 py-2 border border-black/10 dark:border-white/8 font-mono text-xs text-gray-500 dark:text-[#6B7280] hover:border-[#F97316]/40 hover:text-[#F97316] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all duration-500"
             >
               <span
                 className={`w-1.5 h-1.5 rounded-full ${running ? "bg-green-500 animate-pulse" : "bg-gray-400 dark:bg-[#6B7280]"} transition-all duration-500`}
@@ -113,7 +113,7 @@ export default function WorkflowSection() {
           <button
             onClick={startAnimation}
             disabled={running}
-            className="mt-4 lg:hidden flex items-center gap-2 px-4 py-2 border border-black/10 dark:border-white/8 font-mono text-xs text-gray-500 dark:text-[#6B7280] hover:border-[#0C65D2]/40 hover:text-[#0C65D2] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all duration-500"
+            className="mt-4 lg:hidden flex items-center gap-2 px-4 py-2 border border-black/10 dark:border-white/8 font-mono text-xs text-gray-500 dark:text-[#6B7280] hover:border-[#F97316]/40 hover:text-[#F97316] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all duration-500"
           >
             <span
               className={`w-1.5 h-1.5 rounded-full ${running ? "bg-green-500 animate-pulse" : "bg-gray-400 dark:bg-[#6B7280]"} transition-all duration-500`}
@@ -190,12 +190,12 @@ export default function WorkflowSection() {
               key={i}
               className={`border px-4 py-3 transition-all duration-500 ${
                 activeStep > i
-                  ? "border-[#0C65D2]/40 bg-[#0C65D2]/8 dark:bg-[#0C65D2]/10"
+                  ? "border-[#F97316]/40 bg-[#F97316]/8 dark:bg-[#F97316]/10"
                   : "border-black/10 dark:border-white/8 bg-transparent"
               }`}
             >
               <p
-                className={`font-mono text-[10px] tracking-widest mb-1 ${activeStep > i ? "text-[#0C65D2]" : "text-gray-400 dark:text-[#6B7280]"} transition-all duration-500`}
+                className={`font-mono text-[10px] tracking-widest mb-1 ${activeStep > i ? "text-[#F97316]" : "text-gray-400 dark:text-[#6B7280]"} transition-all duration-500`}
               >
                 STEP {String(i + 1).padStart(2, "0")}
               </p>
@@ -232,9 +232,9 @@ function PipelineNode({
       className={`border p-4 sm:p-5 transition-all duration-500 ${
         active
           ? highlight
-            ? "border-[#0C65D2] bg-[#0C65D2]/8 dark:bg-[#0C65D2]/10"
+            ? "border-[#F97316] bg-[#F97316]/8 dark:bg-[#F97316]/10"
             : accent
-              ? "border-[#0C65D2]/60 bg-white dark:bg-[#0F1117]"
+              ? "border-[#F97316]/60 bg-white dark:bg-[#0F1117]"
               : "border-black/20 dark:border-white/20 bg-white dark:bg-[#0F1117]"
           : "border-black/10 dark:border-white/8 bg-transparent"
       }`}
@@ -243,7 +243,7 @@ function PipelineNode({
         <span
           className={`font-mono text-[10px] tracking-widest px-2 py-0.5 border ${
             active
-              ? "border-[#0C65D2]/30 bg-[#0C65D2]/10 text-[#0C65D2] dark:text-[#6fa8f5]"
+              ? "border-[#F97316]/30 bg-[#F97316]/10 text-[#F97316] dark:text-[#fdba74]"
               : "border-black/10 dark:border-white/8 text-gray-400 dark:text-[#6B7280]"
           }`}
         >
@@ -252,7 +252,7 @@ function PipelineNode({
         <span
           className={`w-2 h-2 rounded-full transition-all duration-500 ${
             active
-              ? "bg-[#0C65D2] animate-pulse"
+              ? "bg-[#F97316] animate-pulse"
               : "bg-gray-300 dark:bg-white/10"
           }`}
         />
@@ -284,7 +284,7 @@ function AgentNode({
     <div
       className={`border px-4 py-2.5 flex items-center gap-3 transition-all duration-300 ${
         firing
-          ? "border-[#0C65D2] bg-[#0C65D2]/10 dark:bg-[#0C65D2]/15"
+          ? "border-[#F97316] bg-[#F97316]/10 dark:bg-[#F97316]/15"
           : active
             ? "border-black/20 dark:border-white/20 bg-white dark:bg-[#0F1117]"
             : "border-black/10 dark:border-white/8 bg-transparent"
@@ -293,7 +293,7 @@ function AgentNode({
       <span
         className={`w-1.5 h-1.5 rounded-full shrink-0 transition-all duration-300 ${
           firing
-            ? "bg-[#0C65D2] animate-ping"
+            ? "bg-[#F97316] animate-ping"
             : active
               ? "bg-green-500"
               : "bg-gray-300 dark:bg-white/10"
@@ -324,7 +324,7 @@ function PipelineArrow({
     return (
       <div className="flex justify-center py-2">
         <div
-          className={`w-px h-8 transition-all duration-500 ${active ? "bg-[#0C65D2]" : "bg-black/10 dark:bg-white/8"}`}
+          className={`w-px h-8 transition-all duration-500 ${active ? "bg-[#F97316]" : "bg-black/10 dark:bg-white/8"}`}
         />
       </div>
     );
@@ -333,10 +333,10 @@ function PipelineArrow({
     <div className="flex items-center justify-center px-2 py-2 lg:py-0">
       <div className="flex items-center gap-0 transition-all duration-500">
         <div
-          className={`h-px w-8 transition-all duration-500 ${active ? "bg-[#0C65D2]" : "bg-black/10 dark:bg-white/8"}`}
+          className={`h-px w-8 transition-all duration-500 ${active ? "bg-[#F97316]" : "bg-black/10 dark:bg-white/8"}`}
         />
         <div
-          className={`w-0 h-0 border-t-4 border-b-4 border-l-6 border-t-transparent border-b-transparent transition-all duration-500 ${active ? "border-l-[#0C65D2]" : "border-l-black/10 dark:border-l-white/8"}`}
+          className={`w-0 h-0 border-t-4 border-b-4 border-l-6 border-t-transparent border-b-transparent transition-all duration-500 ${active ? "border-l-[#F97316]" : "border-l-black/10 dark:border-l-white/8"}`}
         />
       </div>
     </div>

@@ -71,14 +71,14 @@ const Page = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-24 lg:pt-35 pb-12 sm:pb-14 lg:pb-16 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 xl:gap-25 items-center">
         <div className="flex flex-col gap-3">
           <h1 className="font-syne text-3xl sm:text-4xl lg:text-5xl xl:text-[3.2rem] font-extrabold leading-[1.1] tracking-tight text-gray-900 dark:text-[#F0F4FF] mb-3 sm:mb-5 transition-all duration-500">
-            Your entire academic
+            Find the jobs you
             <br />
-            future, <span className="text-[#0C65D2]">co-piloted.</span>
+            can <span className="text-[#F97316]">actually take.</span>
           </h1>
           <p className="text-gray-500 dark:text-[#6B7280] text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-xl transition-all duration-500">
-            Scholarships, eligibility checks, document analysis, and career
-            roadmaps — handled by a multi-agent AI system built for Indian
-            students.
+            RozgarLink checks mandatory eligibility first, then ranks only the
+            roles you qualify for by skill fit and your preferences — with a
+            plain-language reason for every result.
           </p>
           <TerminalCard />
         </div>
@@ -89,7 +89,7 @@ const Page = () => {
         >
           <div className="flex flex-col gap-2">
             <h1 className="text-xl sm:text-2xl font-bold">
-              Welcome <span className="text-[#0C65D2]">Back !</span>
+              Welcome <span className="text-[#F97316]">Back !</span>
             </h1>
           </div>
           {(error || oauthError) && (
@@ -119,7 +119,7 @@ const Page = () => {
               </label>
               <button
                 type="button"
-                className="text-xs text-[#0C65D2] flex items-center gap-0.5 hover:underline cursor-pointer group transition-colors duration-500"
+                className="text-xs text-[#F97316] flex items-center gap-0.5 hover:underline cursor-pointer group transition-colors duration-500"
               >
                 Forgot Password?
                 <ArrowUpRight
@@ -143,7 +143,7 @@ const Page = () => {
               type="checkbox"
               checked={remember}
               onChange={(e) => setRemember(e.target.checked)}
-              className="accent-[#0C65D2]"
+              className="accent-[#F97316]"
             />
             <span className="font-mono text-base text-gray-400 dark:text-[#6B7280]">
               Remember me for 30 days
@@ -154,13 +154,13 @@ const Page = () => {
             <button
               type="submit"
               disabled={loading || !!oauthLoading}
-              className="w-full sm:w-auto px-5 py-3 bg-[#0C65D2] text-white font-mono text-sm hover:bg-[#0a52b0] hover:rounded-lg transition-all duration-500 cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto px-5 py-3 bg-[#F97316] text-white font-mono text-sm hover:bg-[fdba74] hover:rounded-lg transition-all duration-500 cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <Spinner />
               ) : (
                 <>
-                  Log In to EduPilot
+                  Log In to RozgarLink
                   <MoveRight
                     size={15}
                     className="group-hover:translate-x-0.5 transition-transform duration-500"
@@ -183,7 +183,7 @@ const Page = () => {
               type="button"
               onClick={() => handleOAuth("google")}
               disabled={!!oauthLoading || loading}
-              className="w-full sm:w-auto px-5 py-3 bg-[#0C65D2] text-white font-mono text-sm hover:bg-[#0a52b0] hover:rounded-lg transition-all duration-500 cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto px-5 py-3 bg-[#F97316] text-white font-mono text-sm hover:bg-[fdba74] hover:rounded-lg transition-all duration-500 cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {oauthLoading === "google" ? (
                 <Spinner />
@@ -229,12 +229,12 @@ const Page = () => {
 
           <div className="w-full flex items-center justify-center">
             <p className="text-xs sm:text-sm text-black/50 dark:text-white/50 font-semibold tracking-wide transition-colors duration-500 flex items-center gap-2">
-              New to EduPilot?{" "}
+              New to RozgarLink?{" "}
               <Link
                 href="/auth/signup"
-                className="text-xs sm:text-sm text-[#0C65D2] flex items-center gap-0.5 hover:underline cursor-pointer group transition-colors duration-500"
+                className="text-xs sm:text-sm text-[#F97316] flex items-center gap-0.5 hover:underline cursor-pointer group transition-colors duration-500"
               >
-                Sign Up for Free
+                Create your profile
                 <ArrowUpRight
                   size={12}
                   className="group-hover:-translate-y-0.5 transition-transform duration-300"
