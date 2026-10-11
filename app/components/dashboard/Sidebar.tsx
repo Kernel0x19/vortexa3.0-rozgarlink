@@ -16,6 +16,7 @@ import {
   BarChart3,
   Trophy,
   FlaskConical,
+  MessageSquare,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -30,7 +31,7 @@ const NAV = [
     icon: <Search size={17} />,
     label: "Opportunities",
   },
-    {
+  {
     href: "/dashboard/internships",
     icon: <Briefcase size={17} />,
     label: "Internships",
@@ -40,7 +41,11 @@ const NAV = [
     icon: <Trophy size={17} />,
     label: "Hackathons",
   },
-
+  {
+    href: "/dashboard/chat",
+    icon: <MessageSquare size={17} />,
+    label: "Chat",
+  },
   {
     href: "/dashboard/matches",
     icon: <Briefcase size={17} />,
