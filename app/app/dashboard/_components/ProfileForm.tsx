@@ -685,7 +685,7 @@ function FileOrLink({
       form.append("user_id", userId);
       form.append("document_type", docType);
       form.append("file", file);
-      const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:8000";
+      const base = process.env.NEXT_API_URL || "http://localhost:8000";
       const res = await fetch(`${base}/api/v1/documents/upload`, {
         method: "POST",
         body: form,

@@ -67,7 +67,7 @@ export default function ScholarshipsClient({
     setLoading(true);
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:8000"}/api/v1/scholarships/recommendations?query=${encodeURIComponent(query)}&limit=20`,
+        `${process.env.NEXT_API_URL || "http://localhost:8000"}/api/v1/scholarships/recommendations?query=${encodeURIComponent(query)}&limit=20`,
         {
           headers: {
             "X-User-Id": userId,

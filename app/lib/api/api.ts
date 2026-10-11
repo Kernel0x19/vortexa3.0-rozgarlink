@@ -1,4 +1,4 @@
-const API_BASE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:8000";
+const API_BASE = process.env.NEXT_API_URL || "http://localhost:8000";
 
 export type MatchResult = {
   opportunity: {
@@ -695,14 +695,11 @@ export function getJobRecommendations(
   if (params?.experience) p.set("experience", params.experience);
   if (params?.source) p.set("source", params.source);
   p.set("limit", String(params?.limit ?? 30));
-  return apiFetch<JobRecommendationResponse>(
-    `/api/v1/placements/recommendations?${p}`,
-    {
-      userId,
-      userEmail,
-      token,
-    },
-  );
+  return apiFetch<JobRecommendationResponse>(`/api/v1/placements/recommendations?${p}`, {
+    userId,
+    userEmail,
+    token,
+  });
 }
 
 export function saveJob(
