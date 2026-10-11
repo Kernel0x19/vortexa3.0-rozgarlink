@@ -24,6 +24,7 @@ from app.api.routes.chat import router as chat_router
 from app.api.routes.search_api import router as search_router
 from app.api.routes.eval import router as eval_router
 from app.api.routes.consent import router as consent_router
+import os
 
 settings = get_settings()
 
@@ -37,9 +38,12 @@ app = FastAPI(
 )
 
 # CORS Middleware config
+
+ALLOWED_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

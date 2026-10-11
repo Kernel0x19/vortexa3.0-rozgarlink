@@ -5,14 +5,23 @@ import ProfileFormWrapper from "../_components/ProfileFormWrapper";
 
 export default async function ProfilePage() {
   const supabase = await createClient();
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) redirect("/auth/login");
+
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
+  if (!user || error) redirect("/auth/login");
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+  const token = session?.access_token ?? "";
 
   return (
     <ProfileFormWrapper
-      userId={session.user.id}
-      userEmail={session.user.email ?? ""}
-      token={session.access_token}
+      userId={user.id}
+      userEmail={user.email ?? ""}
+      token={token}
     />
   );
 }

@@ -7,14 +7,18 @@ export const dynamic = "force-dynamic";
 
 export default async function InternshipsPage() {
   const supabase = await createClient();
+
+  const { data: { user }, error } = await supabase.auth.getUser();
+  if (!user || error) redirect("/auth/login");
+
   const { data: { session } } = await supabase.auth.getSession();
-  if (!session) redirect("/auth/login");
+  const token = session?.access_token ?? "";
 
   return (
     <InternshipsClient
-      userId={session.user.id}
-      userEmail={session.user.email ?? ""}
-      token={session.access_token}
+      userId={user.id}
+      userEmail={user.email ?? ""}
+      token={token}
     />
   );
 }
