@@ -586,10 +586,35 @@ export default function HackathonsClient({ userId, userEmail, token }: Props) {
   );
 }
 
+function getSafeHackathonLink(item: HackathonItem): string {
+  const link = (item.apply_link || "").trim();
+  const source = (item.source || "").toLowerCase();
+
+  if (!link || link === "#" || link.includes("undefined") || link.includes("null")) {
+    if (source === "mlh") return "https://ghw.mlh.io/";
+    if (source === "devfolio") return "https://devfolio.co/hackathons";
+    if (source === "unstop") return "https://unstop.com/hackathons";
+    if (source === "devpost") return "https://devpost.com/hackathons";
+    if (source === "hackerearth") return "https://www.hackerearth.com/challenges/hackathon/";
+    return "https://unstop.com/hackathons";
+  }
+
+  if (link.includes("mlh.io/seasons/2026/events") || link.includes("mlh.io/seasons/")) {
+    return "https://ghw.mlh.io/";
+  }
+
+  if (link.includes("devfolio.co/hackout") || link.includes("devfolio.co/ethindia2026")) {
+    return "https://devfolio.co/hackathons";
+  }
+
+  return link;
+}
+
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
 function HackathonCard({ item }: { item: HackathonItem }) {
   const [expanded, setExpanded] = useState(false);
+  const safeLink = getSafeHackathonLink(item);
 
   const hasPrize = item.prize_pool > 0;
   const prizeLabel = hasPrize
@@ -748,9 +773,9 @@ function HackathonCard({ item }: { item: HackathonItem }) {
 
       {/* Actions */}
       <div className="flex gap-2 px-4 py-3 border-t border-black/5 dark:border-white/5">
-        {item.apply_link ? (
+        {safeLink ? (
           <a
-            href={item.apply_link}
+            href={safeLink}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-4 py-1.5 bg-[#F97316] text-white font-mono text-[11px] hover:bg-[#0b58bc] transition-colors"

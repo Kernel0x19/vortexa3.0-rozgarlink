@@ -39,11 +39,22 @@ function CardsSkeleton() {
 
 export default async function DashboardPage() {
   const supabase = await createClient();
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) redirect("/auth/login");
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect("/auth/login");
 
-  const { user } = session;
-  const token = session.access_token;
+  let token = "";
+  try {
+    const originalWarn = console.warn;
+    console.warn = (...args: unknown[]) => {
+      if (typeof args[0] === "string" && args[0].includes("getSession()")) return;
+      originalWarn(...args);
+    };
+    const { data: { session } } = await supabase.auth.getSession();
+    console.warn = originalWarn;
+    token = session?.access_token ?? "";
+  } catch {
+    token = "";
+  }
 
   return (
     <div className="flex flex-col gap-6 max-w-300 transition-all duration-500">
