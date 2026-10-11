@@ -12,16 +12,18 @@ export default async function StatsSection({
   email: string;
   token: string;
 }) {
-  const [stats, profile] = await Promise.all([
-    getDashboardStats(userId, email, token).catch(() => ({
-      eligible_matches: 0,
-      opportunities_available: 0,
-      skill_gaps_identified: 0,
-      applications_tracked: 0,
-      readiness_score: 0,
-    })),
+  const [statsRaw, profile] = await Promise.all([
+    (getDashboardStats(userId, email, token) as Promise<any>).catch(() => null),
     getProfile(userId, email, token).catch(() => null),
   ]);
+
+  const stats = {
+    eligible_matches: statsRaw?.eligible_matches ?? 0,
+    opportunities_available: statsRaw?.opportunities_available ?? 0,
+    skill_gaps_identified: statsRaw?.skill_gaps_identified ?? 0,
+    applications_tracked: statsRaw?.applications_tracked ?? 0,
+    readiness_score: statsRaw?.readiness_score ?? 0,
+  };
 
   const profileComplete = !!(
     profile?.college &&
@@ -51,25 +53,25 @@ export default async function StatsSection({
         {[
           {
             label: "Eligible matches",
-            value: String(stats.eligible_matches ?? 0),
+            value: String(stats.eligible_matches),
             icon: <CheckCircle2 size={16} />,
             color: "text-[#F97316]",
           },
           {
             label: "Opportunities available",
-            value: String(stats.opportunities_available ?? 0),
+            value: String(stats.opportunities_available),
             icon: <Briefcase size={16} />,
             color: "text-green-500",
           },
           {
             label: "Skill gaps identified",
-            value: String(stats.skill_gaps_identified ?? 0),
+            value: String(stats.skill_gaps_identified),
             icon: <BookOpen size={16} />,
             color: "text-purple-500",
           },
           {
             label: "Applications tracked",
-            value: String(stats.applications_tracked ?? 0),
+            value: String(stats.applications_tracked),
             icon: <TrendingUp size={16} />,
             color: "text-orange-500",
           },
